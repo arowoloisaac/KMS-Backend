@@ -11,6 +11,9 @@ namespace Key_Management_System.Data
         public DbSet<User> users { get; set; }
         public DbSet<Worker> workers { get; set; }
         public DbSet<KeyCollector> keyCollectors { get; set; }
+        public DbSet<Key> Key {  get; set; }    
+        public DbSet<RequestKey> RequestKey { get; set; }
+        public DbSet<ThirdParty> ThirdParty { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

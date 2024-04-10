@@ -2,5 +2,8 @@
 {
     public class KeyCollector : User
     {
+        public ICollection<RequestKey>? RequestKeys { get; set; }    
+
+        public ICollection<ThirdParty>? ThirdParties { get; set; }
     }
 }

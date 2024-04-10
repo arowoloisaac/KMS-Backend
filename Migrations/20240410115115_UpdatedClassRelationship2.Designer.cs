@@ -4,6 +4,7 @@ using Key_Management_System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Key_Management_System.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240410115115_UpdatedClassRelationship2")]
+    partial class UpdatedClassRelationship2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +45,7 @@ namespace Key_Management_System.Migrations
 
                     b.HasIndex("WorkerId");
 
-                    b.ToTable("Key", (string)null);
+                    b.ToTable("Key");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.RequestKey", b =>
@@ -74,7 +77,7 @@ namespace Key_Management_System.Migrations
 
                     b.HasIndex("WorkerId");
 
-                    b.ToTable("RequestKey", (string)null);
+                    b.ToTable("RequestKey");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.Role", b =>
@@ -131,7 +134,7 @@ namespace Key_Management_System.Migrations
 
                     b.HasIndex("RequestKeyId");
 
-                    b.ToTable("ThirdParty", (string)null);
+                    b.ToTable("ThirdParty");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.User", b =>

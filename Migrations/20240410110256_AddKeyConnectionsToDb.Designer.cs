@@ -4,6 +4,7 @@ using Key_Management_System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Key_Management_System.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240410110256_AddKeyConnectionsToDb")]
+    partial class AddKeyConnectionsToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,14 +38,9 @@ namespace Key_Management_System.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("WorkerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("WorkerId");
-
-                    b.ToTable("Key", (string)null);
+                    b.ToTable("Key");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.RequestKey", b =>
@@ -54,27 +52,17 @@ namespace Key_Management_System.Migrations
                     b.Property<int>("Activity")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("KeyCollectorId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("KeyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("WorkerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("KeyCollectorId");
 
                     b.HasIndex("KeyId");
 
-                    b.HasIndex("WorkerId");
-
-                    b.ToTable("RequestKey", (string)null);
+                    b.ToTable("RequestKey");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.Role", b =>
@@ -114,24 +102,14 @@ namespace Key_Management_System.Migrations
                     b.Property<Guid>("CurrentHolder")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("KeyCollectorId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("KeyId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("RequestKeyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("KeyCollectorId");
-
                     b.HasIndex("KeyId");
 
-                    b.HasIndex("RequestKeyId");
-
-                    b.ToTable("ThirdParty", (string)null);
+                    b.ToTable("ThirdParty");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.User", b =>
@@ -332,62 +310,25 @@ namespace Key_Management_System.Migrations
                 {
                     b.HasBaseType("Key_Management_System.Models.User");
 
-                    b.Property<string>("Faculty")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasDiscriminator().HasValue("Worker");
-                });
-
-            modelBuilder.Entity("Key_Management_System.Models.Key", b =>
-                {
-                    b.HasOne("Key_Management_System.Models.Worker", "Worker")
-                        .WithMany("Keys")
-                        .HasForeignKey("WorkerId");
-
-                    b.Navigation("Worker");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.RequestKey", b =>
                 {
-                    b.HasOne("Key_Management_System.Models.KeyCollector", null)
-                        .WithMany("RequestKeys")
-                        .HasForeignKey("KeyCollectorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Key_Management_System.Models.Key", null)
-                        .WithMany("RequestKeys")
+                        .WithMany("RequestKey")
                         .HasForeignKey("KeyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Key_Management_System.Models.Worker", "Worker")
-                        .WithMany("AssignKeys")
-                        .HasForeignKey("WorkerId");
-
-                    b.Navigation("Worker");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.ThirdParty", b =>
                 {
-                    b.HasOne("Key_Management_System.Models.KeyCollector", null)
-                        .WithMany("ThirdParties")
-                        .HasForeignKey("KeyCollectorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Key_Management_System.Models.Key", null)
-                        .WithMany("ThirdParties")
+                        .WithMany("ThirdParty")
                         .HasForeignKey("KeyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Key_Management_System.Models.RequestKey", "RequestKey")
-                        .WithMany()
-                        .HasForeignKey("RequestKeyId");
-
-                    b.Navigation("RequestKey");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -443,23 +384,9 @@ namespace Key_Management_System.Migrations
 
             modelBuilder.Entity("Key_Management_System.Models.Key", b =>
                 {
-                    b.Navigation("RequestKeys");
+                    b.Navigation("RequestKey");
 
-                    b.Navigation("ThirdParties");
-                });
-
-            modelBuilder.Entity("Key_Management_System.Models.KeyCollector", b =>
-                {
-                    b.Navigation("RequestKeys");
-
-                    b.Navigation("ThirdParties");
-                });
-
-            modelBuilder.Entity("Key_Management_System.Models.Worker", b =>
-                {
-                    b.Navigation("AssignKeys");
-
-                    b.Navigation("Keys");
+                    b.Navigation("ThirdParty");
                 });
 #pragma warning restore 612, 618
         }
