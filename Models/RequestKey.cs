@@ -10,6 +10,10 @@ namespace Key_Management_System.Models
 
         public Activity Activity { get; set; } = Activity.Lecture;
 
+        public DateTime CollectionTime { get; set; }    
+
+        public DateTime ReturnedTime { get; set; }
+
         public Guid KeyId { get; set; }
 
         public Guid KeyCollectorId { get; set; }

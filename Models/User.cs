@@ -7,6 +7,7 @@ namespace Key_Management_System.Models
     {
         public string FullName { get; set; } = string.Empty;
 
+        [Required]
         [EmailAddress(ErrorMessage ="Invalid Email")]
         public string Email { get; set; } = string.Empty;
 

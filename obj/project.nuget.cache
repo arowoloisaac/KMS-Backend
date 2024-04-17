@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "OlcIwIunAbxyUqZMp9c200bxDEwQ6qJcJ21mPZgo0va7JXSyqZ3gYdFXMVCodZ52MuicxSsS9x9UQk1CEhnDNw==",
+  "dgSpecHash": "zWgVR+Kxb3yJL52SO+SRoBYhqwGv/Agjf4MC63OYA3rwLfKWxY86FmdgETz++DXW47TuzKhotZnZxa/uoVEeGA==",
   "success": true,
   "projectFilePath": "C:\\Users\\arowo\\source\\repos\\Key-Management-System\\Key-Management-System.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\arowo\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
@@ -50,6 +51,7 @@
     "C:\\Users\\arowo\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\arowo\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.5.0\\swashbuckle.aspnetcore.annotations.6.5.0.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",

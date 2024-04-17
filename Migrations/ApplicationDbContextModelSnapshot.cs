@@ -35,14 +35,9 @@ namespace Key_Management_System.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("WorkerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("WorkerId");
-
-                    b.ToTable("Key", (string)null);
+                    b.ToTable("Key");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.RequestKey", b =>
@@ -54,11 +49,17 @@ namespace Key_Management_System.Migrations
                     b.Property<int>("Activity")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CollectionTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("KeyCollectorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("KeyId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ReturnedTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -74,7 +75,7 @@ namespace Key_Management_System.Migrations
 
                     b.HasIndex("WorkerId");
 
-                    b.ToTable("RequestKey", (string)null);
+                    b.ToTable("RequestKey");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.Role", b =>
@@ -131,7 +132,7 @@ namespace Key_Management_System.Migrations
 
                     b.HasIndex("RequestKeyId");
 
-                    b.ToTable("ThirdParty", (string)null);
+                    b.ToTable("ThirdParty");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.User", b =>
@@ -339,15 +340,6 @@ namespace Key_Management_System.Migrations
                     b.HasDiscriminator().HasValue("Worker");
                 });
 
-            modelBuilder.Entity("Key_Management_System.Models.Key", b =>
-                {
-                    b.HasOne("Key_Management_System.Models.Worker", "Worker")
-                        .WithMany("Keys")
-                        .HasForeignKey("WorkerId");
-
-                    b.Navigation("Worker");
-                });
-
             modelBuilder.Entity("Key_Management_System.Models.RequestKey", b =>
                 {
                     b.HasOne("Key_Management_System.Models.KeyCollector", null)
@@ -458,8 +450,6 @@ namespace Key_Management_System.Migrations
             modelBuilder.Entity("Key_Management_System.Models.Worker", b =>
                 {
                     b.Navigation("AssignKeys");
-
-                    b.Navigation("Keys");
                 });
 #pragma warning restore 612, 618
         }

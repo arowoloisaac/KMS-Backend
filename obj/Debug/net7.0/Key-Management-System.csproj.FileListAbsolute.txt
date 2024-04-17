@@ -81,3 +81,5 @@ C:\Users\arowo\source\repos\Key-Management-System\obj\Debug\net7.0\refint\Key-Ma
 C:\Users\arowo\source\repos\Key-Management-System\obj\Debug\net7.0\Key-Management-System.pdb
 C:\Users\arowo\source\repos\Key-Management-System\obj\Debug\net7.0\Key-Management-System.genruntimeconfig.cache
 C:\Users\arowo\source\repos\Key-Management-System\obj\Debug\net7.0\ref\Key-Management-System.dll
+C:\Users\arowo\source\repos\Key-Management-System\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\arowo\source\repos\Key-Management-System\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll

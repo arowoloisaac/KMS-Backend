@@ -6,6 +6,6 @@
 
         public ICollection<RequestKey>? AssignKeys { get; set; }
 
-        public ICollection<Key>? Keys { get; set; }
+        //public ICollection<Key>? Keys { get; set; }
     }
 }
