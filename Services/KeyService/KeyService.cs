@@ -21,11 +21,12 @@ namespace Key_Management_System.Services.KeyService
 
         public async Task<Key> AddKey(AddKeyDto key)
         {
-            var checkKey = await _context.Key.FirstOrDefaultAsync(check => check.Id == key.Id || check.Room == key.Room);
+            var checkKey = await _context.Key.FirstOrDefaultAsync(check => check.Room == key.Room);
 
             if (checkKey == null)
             {
                 var dto = _mapper.Map<Key>(key);
+                dto.Id = Guid.NewGuid();
                 var addToDb = await _context.Key.AddAsync(dto);
                 await _context.SaveChangesAsync();
 
