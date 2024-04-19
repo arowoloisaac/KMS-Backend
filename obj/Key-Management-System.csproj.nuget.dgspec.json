@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arowo\\source\\repos\\Key-Management-System\\Key-Management-System.csproj": {}
+    "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arowo\\source\\repos\\Key-Management-System\\Key-Management-System.csproj": {
+    "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arowo\\source\\repos\\Key-Management-System\\Key-Management-System.csproj",
+        "projectUniqueName": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
         "projectName": "Key-Management-System",
-        "projectPath": "C:\\Users\\arowo\\source\\repos\\Key-Management-System\\Key-Management-System.csproj",
+        "projectPath": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
         "packagesPath": "C:\\Users\\arowo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arowo\\source\\repos\\Key-Management-System\\obj\\",
+        "outputPath": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\arowo\\AppData\\Roaming\\NuGet\\NuGet.Config",

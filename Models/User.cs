@@ -5,7 +5,7 @@ namespace Key_Management_System.Models
 {
     public class User: IdentityUser<Guid>
     {
-        public string FullName { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
 
         [Required]
         [EmailAddress(ErrorMessage ="Invalid Email")]

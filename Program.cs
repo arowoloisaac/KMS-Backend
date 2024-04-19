@@ -1,7 +1,11 @@
 
 using Key_Management_System.Configuration;
 using Key_Management_System.Data;
+using Key_Management_System.Models;
 using Key_Management_System.Services.KeyService;
+using Key_Management_System.Services.UserServices.CollectorService;
+using Key_Management_System.Services.UserServices.WorkerService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -53,6 +57,24 @@ namespace Key_Management_System
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddScoped<IkeyService, KeyService>();  
+            builder.Services.AddScoped<IWorkerService, WorkerService>();
+            builder.Services.AddScoped<ICollectorService, CollectorService>();
+
+            builder.Services.AddIdentity<User, Role>( options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+            }).AddEntityFrameworkStores<ApplicationDbContext>();
+
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("User",
+                    new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build());
+            });
 
             var app = builder.Build();
 
