@@ -3598,19 +3598,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\arowo\\Source\\Repos\\KMS-Backend\\Key-Management-System.csproj",
-      "projectName": "Key-Management-System",
-      "projectPath": "C:\\Users\\arowo\\Source\\Repos\\KMS-Backend\\Key-Management-System.csproj",
-      "packagesPath": "C:\\Users\\arowo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arowo\\Source\\Repos\\KMS-Backend\\obj\\",
-=======
       "projectUniqueName": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
       "projectName": "Key-Management-System",
       "projectPath": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
       "packagesPath": "C:\\Users\\arowo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\obj\\",
->>>>>>> key-functionalities
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\arowo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3707,5 +3699,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\arowo\\source\\repos\\KMS-Backend\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

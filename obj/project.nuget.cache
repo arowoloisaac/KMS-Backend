@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "fnv6qKZf1l0Y/D0hV8TRA2Jz87o4YWCfbsnFjz2aylzilwlZQ/ZD5OxIYB8oNiQYcY4y0F7Nwjy+kMZPGwIw5Q==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\arowo\\Source\\Repos\\KMS-Backend\\Key-Management-System.csproj",
-=======
   "dgSpecHash": "z6PU47I9wrXz/R1IUoqz3AtemRXfly5HyCZzlBW/z6O6G+IZ3RERh44wHxwQTECHe3FO3ZfZG5Qm5NV2US2XOA==",
   "success": true,
   "projectFilePath": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
->>>>>>> key-functionalities
   "expectedPackageFiles": [
     "C:\\Users\\arowo\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
@@ -85,5 +79,12 @@
     "C:\\Users\\arowo\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\arowo\\source\\repos\\KMS-Backend\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
