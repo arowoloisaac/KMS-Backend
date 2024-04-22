@@ -1,6 +1,8 @@
-﻿using Key_Management_System.DTOs.UserDto.WorkerDto;
+﻿using AutoMapper;
+using Key_Management_System.DTOs.UserDto.WorkerDto;
 using Key_Management_System.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Key_Management_System.Services.UserServices.WorkerService
 {
@@ -18,7 +20,7 @@ namespace Key_Management_System.Services.UserServices.WorkerService
         {
             var existingUser = await _workerManager.FindByEmailAsync(workerDto.Email);
 
-            var checkAdminExistence = await _workerManager.FindByEmailAsync("admin@example.com");
+            var checkAdminExistence = await _workerManager.FindByNameAsync("Administrator");
 
 
             if (existingUser != null)
@@ -61,6 +63,7 @@ namespace Key_Management_System.Services.UserServices.WorkerService
                     throw new Exception("Unable to create user admin");
                 }
             }
+
         }
     }
 }

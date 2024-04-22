@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Key_Management_System.DTOs.KeyDtos;
+using Key_Management_System.DTOs.UserDto.SharedDto;
 using Key_Management_System.Models;
 
 namespace Key_Management_System.Configuration
@@ -13,6 +14,8 @@ namespace Key_Management_System.Configuration
 
             //get keys(s)
             CreateMap<Key, GetKeyDto>();
+
+            //CreateMap<ProfileDto, Worker>();
 
 
             /*

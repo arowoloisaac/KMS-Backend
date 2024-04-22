@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Key_Management_System.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240408162336_InitialUser")]
-    partial class InitialUser
+    [Migration("20240419144109_popppp")]
+    partial class popppp
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,62 @@ namespace Key_Management_System.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Key_Management_System.Models.Key", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Room")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Key");
+                });
+
+            modelBuilder.Entity("Key_Management_System.Models.RequestKey", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Activity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CollectionTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("KeyCollectorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("KeyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ReturnedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("WorkerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("KeyCollectorId");
+
+                    b.HasIndex("KeyId");
+
+                    b.HasIndex("WorkerId");
+
+                    b.ToTable("RequestKey");
+                });
 
             modelBuilder.Entity("Key_Management_System.Models.Role", b =>
                 {
@@ -53,6 +109,35 @@ namespace Key_Management_System.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
+            modelBuilder.Entity("Key_Management_System.Models.ThirdParty", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CurrentHolder")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("KeyCollectorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("KeyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("RequestKeyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("KeyCollectorId");
+
+                    b.HasIndex("KeyId");
+
+                    b.HasIndex("RequestKeyId");
+
+                    b.ToTable("ThirdParty");
+                });
+
             modelBuilder.Entity("Key_Management_System.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -71,22 +156,21 @@ namespace Key_Management_System.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -104,7 +188,6 @@ namespace Key_Management_System.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
@@ -251,7 +334,53 @@ namespace Key_Management_System.Migrations
                 {
                     b.HasBaseType("Key_Management_System.Models.User");
 
+                    b.Property<string>("Faculty")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasDiscriminator().HasValue("Worker");
+                });
+
+            modelBuilder.Entity("Key_Management_System.Models.RequestKey", b =>
+                {
+                    b.HasOne("Key_Management_System.Models.KeyCollector", null)
+                        .WithMany("RequestKeys")
+                        .HasForeignKey("KeyCollectorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Key_Management_System.Models.Key", null)
+                        .WithMany("RequestKeys")
+                        .HasForeignKey("KeyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Key_Management_System.Models.Worker", "Worker")
+                        .WithMany("AssignKeys")
+                        .HasForeignKey("WorkerId");
+
+                    b.Navigation("Worker");
+                });
+
+            modelBuilder.Entity("Key_Management_System.Models.ThirdParty", b =>
+                {
+                    b.HasOne("Key_Management_System.Models.KeyCollector", null)
+                        .WithMany("ThirdParties")
+                        .HasForeignKey("KeyCollectorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Key_Management_System.Models.Key", null)
+                        .WithMany("ThirdParties")
+                        .HasForeignKey("KeyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Key_Management_System.Models.RequestKey", "RequestKey")
+                        .WithMany()
+                        .HasForeignKey("RequestKeyId");
+
+                    b.Navigation("RequestKey");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -303,6 +432,25 @@ namespace Key_Management_System.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Key_Management_System.Models.Key", b =>
+                {
+                    b.Navigation("RequestKeys");
+
+                    b.Navigation("ThirdParties");
+                });
+
+            modelBuilder.Entity("Key_Management_System.Models.KeyCollector", b =>
+                {
+                    b.Navigation("RequestKeys");
+
+                    b.Navigation("ThirdParties");
+                });
+
+            modelBuilder.Entity("Key_Management_System.Models.Worker", b =>
+                {
+                    b.Navigation("AssignKeys");
                 });
 #pragma warning restore 612, 618
         }
