@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "z6PU47I9wrXz/R1IUoqz3AtemRXfly5HyCZzlBW/z6O6G+IZ3RERh44wHxwQTECHe3FO3ZfZG5Qm5NV2US2XOA==",
+  "dgSpecHash": "yEFLTaM4LPR4EnE73NSahkEiEePkwEaoOi+by1vxb2juzO/2f1VEifKK4KzUmh8l2jHoOlSpf2sI60BRYHhq/A==",
   "success": true,
   "projectFilePath": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\arowo\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\arowo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.13\\microsoft.aspnetcore.authentication.jwtbearer.7.0.13.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.13\\microsoft.aspnetcore.cryptography.internal.7.0.13.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.13\\microsoft.aspnetcore.cryptography.keyderivation.7.0.13.nupkg.sha512",
     "C:\\Users\\arowo\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.13\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.13.nupkg.sha512",

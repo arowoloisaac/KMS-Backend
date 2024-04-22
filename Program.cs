@@ -4,63 +4,44 @@ using Key_Management_System.Data;
 using Key_Management_System.Models;
 using Key_Management_System.Services.KeyService;
 using Key_Management_System.Services.UserServices.CollectorService;
+using Key_Management_System.Services.UserServices.SharedService;
+using Key_Management_System.Services.UserServices.TokenService;
 using Key_Management_System.Services.UserServices.WorkerService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace Key_Management_System
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            //DotNetEnv.Env.
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(options =>
-            {
-                options.EnableAnnotations();
-
-                /*options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Description = "Please insert JWT with Bearer into field",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                });
-
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement 
-                {
-                    {
-                        new OpenApiSecurityScheme 
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        }, 
-                        new string[] { }
-                    }
-                });*/
-
-                //options.AddSecurityDefinition()
-            });
+            builder.Services.AddSwaggerGen();
 
             builder.Services.AddAutoMapper(typeof(AutoMapperConfiguration));
 
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            builder.Services.AddScoped<IkeyService, KeyService>();  
+            builder.Services.AddScoped<IkeyService, KeyService>();
             builder.Services.AddScoped<IWorkerService, WorkerService>();
             builder.Services.AddScoped<ICollectorService, CollectorService>();
+            builder.Services.AddScoped<ISharedService, SharedService>();
 
-            builder.Services.AddIdentity<User, Role>( options =>
+           
+
+            builder.Services.AddIdentity<User, IdentityRole<Guid>>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequiredLength = 6;
@@ -68,12 +49,69 @@ namespace Key_Management_System
                 options.Password.RequireUppercase = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequireNonAlphanumeric = false;
-            }).AddEntityFrameworkStores<ApplicationDbContext>();
+            })
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
 
             builder.Services.AddAuthorization(options =>
             {
-                options.AddPolicy("User",
+                options.AddPolicy(ApplicationRoleNames.User,
                     new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build());
+            });
+
+
+
+            var jwtSection = builder.Configuration.GetSection("JwtBearerTokenSettings");
+            builder.Services.Configure<JwtBearerTokenSettings>(jwtSection);
+
+            var jwtConfiguration = jwtSection.Get<JwtBearerTokenSettings>();
+            var key = Encoding.ASCII.GetBytes(jwtConfiguration.SecretKey);
+
+            builder.Services.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = jwtConfiguration.Audience,
+                    ValidIssuer = jwtConfiguration.Issuer,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                };
+
+            });
+
+            builder.Services.AddSwaggerGen(option =>
+            {
+                option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
+                option.EnableAnnotations();
+                option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Please enter a valid token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "Bearer"
+                });
+                option.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+                            }
+                        },
+                        new string[]{}
+                    }
+                });
             });
 
             var app = builder.Build();
@@ -81,6 +119,7 @@ namespace Key_Management_System
             using var serviceScope = app.Services.CreateScope();
             var context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
             context.Database.Migrate();
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -91,8 +130,8 @@ namespace Key_Management_System
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
 
             app.MapControllers();
 

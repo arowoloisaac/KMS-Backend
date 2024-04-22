@@ -168,3 +168,4 @@ C:\Users\arowo\source\repos\KMS-Backend\obj\Debug\net7.0\refint\Key-Management-S
 C:\Users\arowo\source\repos\KMS-Backend\obj\Debug\net7.0\Key-Management-System.pdb
 C:\Users\arowo\source\repos\KMS-Backend\obj\Debug\net7.0\Key-Management-System.genruntimeconfig.cache
 C:\Users\arowo\source\repos\KMS-Backend\obj\Debug\net7.0\ref\Key-Management-System.dll
+C:\Users\arowo\source\repos\KMS-Backend\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

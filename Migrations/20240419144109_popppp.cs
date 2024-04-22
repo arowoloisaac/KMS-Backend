@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Key_Management_System.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialUser : Migration
+    public partial class popppp : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,18 +30,19 @@ namespace Key_Management_System.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Faculty = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
@@ -51,6 +52,19 @@ namespace Key_Management_System.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Key",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Room = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Key", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -159,6 +173,73 @@ namespace Key_Management_System.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "RequestKey",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    Activity = table.Column<int>(type: "int", nullable: false),
+                    CollectionTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ReturnedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    KeyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KeyCollectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WorkerId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RequestKey", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RequestKey_AspNetUsers_KeyCollectorId",
+                        column: x => x.KeyCollectorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RequestKey_AspNetUsers_WorkerId",
+                        column: x => x.WorkerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_RequestKey_Key_KeyId",
+                        column: x => x.KeyId,
+                        principalTable: "Key",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ThirdParty",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CurrentHolder = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KeyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KeyCollectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RequestKeyId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ThirdParty", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ThirdParty_AspNetUsers_KeyCollectorId",
+                        column: x => x.KeyCollectorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ThirdParty_Key_KeyId",
+                        column: x => x.KeyId,
+                        principalTable: "Key",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ThirdParty_RequestKey_RequestKeyId",
+                        column: x => x.RequestKeyId,
+                        principalTable: "RequestKey",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -197,6 +278,36 @@ namespace Key_Management_System.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RequestKey_KeyCollectorId",
+                table: "RequestKey",
+                column: "KeyCollectorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RequestKey_KeyId",
+                table: "RequestKey",
+                column: "KeyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RequestKey_WorkerId",
+                table: "RequestKey",
+                column: "WorkerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ThirdParty_KeyCollectorId",
+                table: "ThirdParty",
+                column: "KeyCollectorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ThirdParty_KeyId",
+                table: "ThirdParty",
+                column: "KeyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ThirdParty_RequestKeyId",
+                table: "ThirdParty",
+                column: "RequestKeyId");
         }
 
         /// <inheritdoc />
@@ -218,10 +329,19 @@ namespace Key_Management_System.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "ThirdParty");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "RequestKey");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Key");
         }
     }
 }
