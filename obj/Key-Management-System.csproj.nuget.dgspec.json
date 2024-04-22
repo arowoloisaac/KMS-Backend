@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\arowo\\Source\\Repos\\KMS-Backend\\Key-Management-System.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\arowo\\Source\\Repos\\KMS-Backend\\Key-Management-System.csproj",
         "packagesPath": "C:\\Users\\arowo\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\arowo\\Source\\Repos\\KMS-Backend\\obj\\",
+=======
+    "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
+        "projectName": "Key-Management-System",
+        "projectPath": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
+        "packagesPath": "C:\\Users\\arowo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\obj\\",
+>>>>>>> key-functionalities
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\arowo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +59,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.13, )"
@@ -74,6 +92,10 @@
               "version": "[7.0.13, )"
             },
             "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
               "target": "Package",
               "version": "[6.5.0, )"
             }

@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     ""
   ],
+=======
+    "",
+    "\\Models"
+  ],
+  "SelectedNode": "\\Key-Management-System.sln",
+>>>>>>> key-functionalities
   "PreviewInSolutionExplorer": false
 }
