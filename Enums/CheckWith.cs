@@ -3,10 +3,9 @@
 namespace Key_Management_System.Enums
 {
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum KeyStatus
+    public enum CheckWith
     {
-        Available,
-        Unavailable,
-        PendingAcceptance
+        InHand,
+        InBoard
     }
 }

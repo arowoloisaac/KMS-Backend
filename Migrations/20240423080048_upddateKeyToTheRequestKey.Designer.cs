@@ -4,6 +4,7 @@ using Key_Management_System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Key_Management_System.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240423080048_upddateKeyToTheRequestKey")]
+    partial class upddateKeyToTheRequestKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +61,7 @@ namespace Key_Management_System.Migrations
                     b.Property<Guid>("KeyCollectorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("KeyId")
+                    b.Property<Guid>("KeyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ReturnedTime")
@@ -355,7 +358,9 @@ namespace Key_Management_System.Migrations
 
                     b.HasOne("Key_Management_System.Models.Key", "Key")
                         .WithMany("RequestKeys")
-                        .HasForeignKey("KeyId");
+                        .HasForeignKey("KeyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Key_Management_System.Models.Worker", "Worker")
                         .WithMany("AssignKeys")
