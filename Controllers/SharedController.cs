@@ -43,6 +43,7 @@ namespace Key_Management_System.Controllers
         [HttpGet]
         [Route("profile")]
         [Authorize]
+        [SwaggerOperation(Description ="User view their profile")]
         public async Task<IActionResult> Profile()
         {
             try
@@ -63,6 +64,7 @@ namespace Key_Management_System.Controllers
         [HttpPut]
         [Route("profile")]
         [Authorize]
+        [SwaggerOperation(Description ="User update their profile")]
         public async Task<IActionResult> UpdateProfile(UpdateProfileDto profileDto)
         {
             try

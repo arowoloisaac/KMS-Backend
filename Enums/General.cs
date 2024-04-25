@@ -3,13 +3,9 @@
 namespace Key_Management_System.Enums
 {
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum Status
+    public enum General
     {
-        Pending,
         Accept,
         Decline,
-        ThirdParty,
-        AcceptSignOut,
-        DeclineSignOut
     }
 }

@@ -21,7 +21,7 @@ namespace Key_Management_System.Services.RequestKeyService
             _mapper = mapper;
         }
 
-        public async Task CollectKey(string key, Activity activity, string userId)
+        public async Task<Message> CollectKey(string key, Activity activity, string userId)
         {
             var claimUser = await _userManager.FindByIdAsync(userId);
 
@@ -30,7 +30,7 @@ namespace Key_Management_System.Services.RequestKeyService
             
             if (claimUser == null)
             {
-                throw new Exception("OOPS, you have to log in to perform this action");
+                return new Message("No user is logged in");
             }
 
             else
@@ -54,16 +54,18 @@ namespace Key_Management_System.Services.RequestKeyService
                     checkRoom.Status = KeyStatus.PendingAcceptance;
                     
                     await _context.SaveChangesAsync();
+
+                    return new Message("Key request sent to the worker, await your reponse to take key");
                 }
 
                 else
                 {
-                    throw new Exception("You have an existing key");
+                    return new Message("You have an existing key with you, you will have to return it before you have access to get a now key");
                 }
             }
         }
 
-        public async Task ReturnKey(string userId)
+        public async Task<Message> ReturnKey(string userId)
         {
             var claimUser = await _userManager.FindByIdAsync(userId);
 
@@ -71,7 +73,7 @@ namespace Key_Management_System.Services.RequestKeyService
 
             if (claimUser == null)
             {
-                Console.WriteLine("OOPs, you have to login to perform such action");
+                return new Message("There is no user logged in");
             }
 
             else
@@ -81,11 +83,13 @@ namespace Key_Management_System.Services.RequestKeyService
                     initiateReturn.ReturnedTime = DateTime.UtcNow;
 
                     await _context.SaveChangesAsync();
+
+                    return new Message("Key return updated, waiting for worker to accept your request");
                 }
 
                 else
                 {
-                    Console.WriteLine("unable to return key");
+                    return new Message("unable to return key");
                 }
             }
         }

@@ -3,6 +3,7 @@ using Key_Management_System.Services.UserServices.CollectorService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Key_Management_System.Controllers
 {
@@ -21,6 +22,7 @@ namespace Key_Management_System.Controllers
         [HttpPost]
         [Route("register-collector")]
         [AllowAnonymous]
+        [SwaggerOperation(Description ="Key Collector registers an account")]
         public async Task<IActionResult> RegisterCollector(RegisterCollectorDto registerCollectorDto)
         {
             await _collectorService.RegisterCollector(registerCollectorDto);

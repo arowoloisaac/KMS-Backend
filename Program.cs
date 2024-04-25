@@ -2,6 +2,7 @@
 using Key_Management_System.Configuration;
 using Key_Management_System.Data;
 using Key_Management_System.Models;
+using Key_Management_System.Services.AssignKeyService;
 using Key_Management_System.Services.KeyService;
 using Key_Management_System.Services.RequestKeyService;
 using Key_Management_System.Services.UserServices.CollectorService;
@@ -40,6 +41,7 @@ namespace Key_Management_System
             builder.Services.AddScoped<ICollectorService, CollectorService>();
             builder.Services.AddScoped<ISharedService, SharedService>();
             builder.Services.AddScoped<IRequestKeyService, RequestKeyService>();
+            builder.Services.AddScoped<IAssignKeyService, AssignKeyService>();
 
            
 
