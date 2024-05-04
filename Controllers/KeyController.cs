@@ -1,6 +1,7 @@
 ﻿using Key_Management_System.DTOs.KeyDtos;
 using Key_Management_System.Enums;
 using Key_Management_System.Services.KeyService;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -9,6 +10,7 @@ namespace Key_Management_System.Controllers
 {
     [Route("api/")]
     [ApiController]
+    [EnableCors]
     public class KeyController : ControllerBase
     {
         private readonly IkeyService _keyService;

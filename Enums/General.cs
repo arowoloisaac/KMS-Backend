@@ -7,5 +7,6 @@ namespace Key_Management_System.Enums
     {
         Accept,
         Decline,
+        Pending
     }
 }

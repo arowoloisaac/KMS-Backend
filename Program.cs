@@ -63,6 +63,7 @@ namespace Key_Management_System
                     new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build());
             });
 
+            builder.Services.AddCors();
 
 
             var jwtSection = builder.Configuration.GetSection("JwtBearerTokenSettings");
@@ -133,7 +134,11 @@ namespace Key_Management_System
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors(builder => 
+            builder
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod());
             app.UseAuthentication();
             app.UseAuthorization();
 

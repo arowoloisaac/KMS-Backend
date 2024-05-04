@@ -1,6 +1,7 @@
 ﻿using Key_Management_System.Enums;
 using Key_Management_System.Services.AssignKeyService;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ namespace Key_Management_System.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
+    [EnableCors]
     public class AssignKeyController : ControllerBase
     {
         private readonly IAssignKeyService _keyService;
@@ -25,7 +27,7 @@ namespace Key_Management_System.Controllers
 
         [HttpPut]
         [Route("assign-key")]
-        [SwaggerOperation(Description ="Worker assign key to collector")]
+        [SwaggerOperation(Summary ="Worker assign key to collector")]
         public async Task<IActionResult> AssignCollectorKey(string key, [Required] General check)
         {
             var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
@@ -38,7 +40,7 @@ namespace Key_Management_System.Controllers
 
         [HttpPut]
         [Route("accept-key")]
-        [SwaggerOperation(Description ="Worker accepts/declines key return")]
+        [SwaggerOperation(Summary ="Worker accepts/declines key return")]
         public async Task<IActionResult> AcceptKeyReturn(string key, [Required] General check)
         {
             var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);

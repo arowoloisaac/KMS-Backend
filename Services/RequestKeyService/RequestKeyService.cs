@@ -60,7 +60,7 @@ namespace Key_Management_System.Services.RequestKeyService
 
                 else
                 {
-                    return new Message("You have an existing key with you, you will have to return it before you have access to get a now key");
+                    return new Message("You have an existing key with you, you will have to return it before you have access to get a new key");
                 }
             }
         }

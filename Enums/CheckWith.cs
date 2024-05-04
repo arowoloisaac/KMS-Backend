@@ -6,6 +6,7 @@ namespace Key_Management_System.Enums
     public enum CheckWith
     {
         InHand,
-        InBoard
+        InBoard,
+        ThirdParty
     }
 }

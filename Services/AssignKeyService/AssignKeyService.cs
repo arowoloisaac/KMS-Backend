@@ -71,7 +71,7 @@ namespace Key_Management_System.Services.AssignKeyService
         {
             var claimUser = await _workerManager.FindByIdAsync(workerId);
 
-            var checkRequest = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == key && check.Status == Status.Accept);
+            var checkRequest = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == key && check.Status == Status.Accept || check.Status ==Status.ThirdParty);
 
             var updateRoom = await _context.Key.Where(check => check.Room == key && check.Status == KeyStatus.Unavailable).FirstOrDefaultAsync();
 

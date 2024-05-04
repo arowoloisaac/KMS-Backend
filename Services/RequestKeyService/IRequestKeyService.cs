@@ -8,5 +8,7 @@ namespace Key_Management_System.Services.RequestKeyService
         Task<Message> CollectKey( string key, Activity activity ,string userId );  
 
         Task<Message> ReturnKey(string userId);
+
+        //Task GetRequests(); // this will aim just to get usser with key inother to aim the frontend.
     }
 }

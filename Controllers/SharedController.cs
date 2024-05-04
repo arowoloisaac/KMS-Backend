@@ -1,6 +1,7 @@
 ﻿using Key_Management_System.DTOs.UserDto.SharedDto;
 using Key_Management_System.Services.UserServices.SharedService;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -10,6 +11,7 @@ namespace Key_Management_System.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors]
     public class SharedController : ControllerBase
     {
         private readonly ISharedService _userService;
@@ -43,7 +45,7 @@ namespace Key_Management_System.Controllers
         [HttpGet]
         [Route("profile")]
         [Authorize]
-        [SwaggerOperation(Description ="User view their profile")]
+        [SwaggerOperation(Summary ="User view their profile")]
         public async Task<IActionResult> Profile()
         {
             try
@@ -64,7 +66,7 @@ namespace Key_Management_System.Controllers
         [HttpPut]
         [Route("profile")]
         [Authorize]
-        [SwaggerOperation(Description ="User update their profile")]
+        [SwaggerOperation(Summary ="User update their profile")]
         public async Task<IActionResult> UpdateProfile(UpdateProfileDto profileDto)
         {
             try

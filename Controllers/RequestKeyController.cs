@@ -1,6 +1,7 @@
 ﻿using Key_Management_System.Enums;
 using Key_Management_System.Services.RequestKeyService;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -11,6 +12,7 @@ namespace Key_Management_System.Controllers
     [Route("api/")]
     [ApiController]
     [Authorize]
+    [EnableCors]
     public class RequestKeyController : ControllerBase
     {
         private readonly IRequestKeyService _requestKeyService;
@@ -22,7 +24,7 @@ namespace Key_Management_System.Controllers
 
         [HttpPost]
         [Route("collect-key")]
-        [SwaggerOperation(Description ="Collector collects key")]
+        [SwaggerOperation(Summary ="Collector collects key")]
         public async Task<IActionResult> CollectKey(string key, Activity activity)
         {
             var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
@@ -37,7 +39,7 @@ namespace Key_Management_System.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("return-key")]
-        [SwaggerOperation(Description ="Collector returns key")]
+        [SwaggerOperation(Summary ="Collector returns key")]
         public async Task<IActionResult> ReturnKey()
         {
             var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);

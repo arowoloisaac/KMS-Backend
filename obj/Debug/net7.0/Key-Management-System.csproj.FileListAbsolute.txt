@@ -169,3 +169,9 @@ C:\Users\arowo\source\repos\KMS-Backend\obj\Debug\net7.0\Key-Management-System.p
 C:\Users\arowo\source\repos\KMS-Backend\obj\Debug\net7.0\Key-Management-System.genruntimeconfig.cache
 C:\Users\arowo\source\repos\KMS-Backend\obj\Debug\net7.0\ref\Key-Management-System.dll
 C:\Users\arowo\source\repos\KMS-Backend\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\arowo\source\repos\KMS-Backend\bin\Debug\net7.0\System.Web.Cors.dll
+C:\Users\arowo\source\repos\KMS-Backend\bin\Debug\net7.0\System.Net.Http.Formatting.dll
+C:\Users\arowo\source\repos\KMS-Backend\bin\Debug\net7.0\System.Web.Http.dll
+C:\Users\arowo\source\repos\KMS-Backend\bin\Debug\net7.0\System.Web.Http.Cors.dll
+C:\Users\arowo\source\repos\KMS-Backend\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\arowo\source\repos\KMS-Backend\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
