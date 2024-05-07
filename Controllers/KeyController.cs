@@ -1,11 +1,11 @@
 ﻿using Key_Management_System.DTOs.KeyDtos;
 using Key_Management_System.Enums;
 using Key_Management_System.Services.KeyService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-
 namespace Key_Management_System.Controllers
 {
     [Route("api/")]
@@ -86,5 +86,14 @@ namespace Key_Management_System.Controllers
             return Ok(getKeys);
         }
 
+        [HttpGet]
+        [Route("key-with")]
+        [AllowAnonymous]
+        [SwaggerOperation(Summary ="Get the list to those with a key")]
+        public async Task<IActionResult> KeyWith()
+        {
+            var getKeys = await _keyService.CheckKey();
+            return Ok(getKeys);
+        }
     }
 }

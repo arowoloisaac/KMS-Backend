@@ -1,5 +1,6 @@
 ﻿
 using Key_Management_System.Data;
+using Key_Management_System.DTOs;
 using Key_Management_System.Enums;
 using Key_Management_System.Models;
 using Microsoft.AspNetCore.Identity;
@@ -108,8 +109,27 @@ namespace Key_Management_System.Services.AssignKeyService
 
                     await _context.SaveChangesAsync();
                 }
-
             }
+        }
+
+        public async Task<List<KeyWith>> CheckRequest()
+        {
+            var classRoom = await _context.RequestKey.Where(filter => filter.Status == Status.Pending).FirstOrDefaultAsync();
+
+            if (classRoom == null)
+            {
+                return new List<KeyWith>();
+            }
+
+            var getReponse = new KeyWith
+            {
+                CollectorId = classRoom.KeyCollectorId,
+                Room = classRoom._Key,
+                Activity = classRoom.Activity,
+                CollectionTime = classRoom.CollectionTime,
+            };
+
+            return new List<KeyWith> { getReponse };
         }
     }
 }

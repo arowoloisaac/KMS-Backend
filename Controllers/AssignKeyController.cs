@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace Key_Management_System.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     [Authorize]
     [EnableCors]
@@ -48,6 +48,16 @@ namespace Key_Management_System.Controllers
             await _keyService.AcceptKeyReturn(key, check, claimUser?.Value);
 
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("check-request")]
+        [SwaggerOperation(Summary ="Check request")]
+        [AllowAnonymous]
+        public async Task<IActionResult> KeyWith()
+        {
+            var getKeys = await _keyService.CheckRequest();
+            return Ok(getKeys);
         }
     }
 }

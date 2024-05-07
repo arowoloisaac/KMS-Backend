@@ -5,6 +5,7 @@ using Key_Management_System.Models;
 using Key_Management_System.Services.AssignKeyService;
 using Key_Management_System.Services.KeyService;
 using Key_Management_System.Services.RequestKeyService;
+using Key_Management_System.Services.ThirdPartyService;
 using Key_Management_System.Services.UserServices.CollectorService;
 using Key_Management_System.Services.UserServices.SharedService;
 using Key_Management_System.Services.UserServices.TokenService;
@@ -42,6 +43,7 @@ namespace Key_Management_System
             builder.Services.AddScoped<ISharedService, SharedService>();
             builder.Services.AddScoped<IRequestKeyService, RequestKeyService>();
             builder.Services.AddScoped<IAssignKeyService, AssignKeyService>();
+            builder.Services.AddScoped<IThirdPartyService, ThirdPartyService>();
 
            
 

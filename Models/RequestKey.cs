@@ -28,6 +28,5 @@ namespace Key_Management_System.Models
 
         public Worker? Worker { get; set; }
 
-        //public ThirdParty? ThirdParty { get; set; }
     }
 }

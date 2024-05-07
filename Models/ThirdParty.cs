@@ -13,7 +13,8 @@ namespace Key_Management_System.Models
 
         public Activity Activity { get; set; } = Activity.Lecture;
 
-        public General General { get; set; }
+        //public General General { get; set; }
+        public TPRequest Request { get; set; }
 
         //the person who request the key from currentholder
         public Guid KeyCollectorId { get; set; }

@@ -1,4 +1,5 @@
-﻿using Key_Management_System.Enums;
+﻿using Key_Management_System.DTOs;
+using Key_Management_System.Enums;
 using Key_Management_System.Models;
 
 namespace Key_Management_System.Services.ThirdPartyService
@@ -9,9 +10,9 @@ namespace Key_Management_System.Services.ThirdPartyService
 
         Task<Message> RejectRequest(Guid keyId, string currentUser);
 
-        Task GetRequest();
+        Task<Request> GetRequest(string currentHolder);
 
-        //Task<bool> Notifier(string userId);
+        Task<bool> Notifier(string userId);
 
         Task<Message> SendRequest(Guid keyId, Activity activity, string userId);
     }

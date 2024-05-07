@@ -1,4 +1,5 @@
-﻿using Key_Management_System.Enums;
+﻿using Key_Management_System.DTOs;
+using Key_Management_System.Enums;
 
 namespace Key_Management_System.Services.AssignKeyService
 {
@@ -6,10 +7,8 @@ namespace Key_Management_System.Services.AssignKeyService
     {
         Task AssignCollectorKey(string key, General check,string workerId);
 
-        //Task Collector
-
         Task AcceptKeyReturn(string key, General check, string workerId);
 
-        //Task AcceptReturn(string key);
+        Task<List<KeyWith>> CheckRequest();
     }
 }

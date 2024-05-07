@@ -1,4 +1,5 @@
 ﻿using Key_Management_System.Data;
+using Key_Management_System.DTOs;
 using Key_Management_System.Enums;
 using Key_Management_System.Models;
 using Microsoft.AspNetCore.Identity;
@@ -26,20 +27,23 @@ namespace Key_Management_System.Services.ThirdPartyService
 
             if (checkUser == null)
             {
-                return new Message("You have tp login or register to the account to perform such task");
+                return new Message("You have to login or register to the account to perform such task");
             }
 
             else
             {
                 var initiateReturn = await _context.RequestKey.Where(check => check.KeyCollectorId == checkUser.Id && check.Availability == CheckWith.InHand).FirstOrDefaultAsync();
-                if (initiateReturn is null && checkRoom is not null)
+                
+                var checkAwaitingRequest = await _context.ThirdParty.Where(check => check.KeyId == keyId && check.Request == TPRequest.Pending).FirstOrDefaultAsync();    
+
+                if (initiateReturn is null && checkRoom is not null && checkAwaitingRequest is not null)
                 {
                     var addRequest = new ThirdParty
                     {
                         Id = Guid.NewGuid(),
                         KeyId = keyId,
                         KeyCollectorId = checkUser.Id,
-                        General = General.Pending,
+                        Request = TPRequest.Pending,
                         Activity = activity,
                     };
 
@@ -72,12 +76,12 @@ namespace Key_Management_System.Services.ThirdPartyService
                 var validateHolder = await _context.RequestKey.Where(validate => validate.KeyCollectorId == currentHolder.Id && validate.Availability == CheckWith.InHand)
                     .FirstOrDefaultAsync();
 
-                var thirdPartyRequest = await _context.ThirdParty.FirstOrDefaultAsync(check => check.KeyId == keyId && check.General == General.Pending);
+                var thirdPartyRequest = await _context.ThirdParty.FirstOrDefaultAsync(check => check.KeyId == keyId && check.Request ==TPRequest.Pending);
 
                 if (validateHolder is not null && thirdPartyRequest is not null)
                 {
                     thirdPartyRequest.CurrentHolder = currentHolder.Id;
-                    thirdPartyRequest.General = General.Accept;
+                    thirdPartyRequest.Request = TPRequest.Accept;
                     thirdPartyRequest.RequestKey = validateHolder;
 
                     //change the status to third party in order for the second collector to have access
@@ -96,6 +100,7 @@ namespace Key_Management_System.Services.ThirdPartyService
                         CollectionTime = DateTime.UtcNow,
                         Status = Status.ThirdParty,
                     };
+                    await _context.RequestKey.AddAsync(addNewRequest);
 
                     await _context.SaveChangesAsync();
 
@@ -109,9 +114,72 @@ namespace Key_Management_System.Services.ThirdPartyService
             }
         }
 
-        public Task GetRequest()
+        public async Task<Request> GetRequest(string currentHolder)
         {
+            var claimUser = await _userManager.FindByIdAsync(currentHolder);
+
+            if (claimUser == null)
+            {
+                throw new Exception("not logged in");
+            }
+            else
+            {
+                var request = await _context.RequestKey.Where(check => check.KeyCollectorId == claimUser.Id && check.Availability == CheckWith.InHand).FirstOrDefaultAsync();
+
+                if (request == null || request.Key == null)
+                {
+                    throw new Exception("no key");
+                }
+
+                else
+                {
+                    var checkTp = await _context.ThirdParty.FirstOrDefaultAsync(search => search.KeyId == request.Key.Id);
+
+                    if (checkTp == null)
+                    {
+                        throw new Exception("no request");
+                    }
+
+                    return new Request { Id = checkTp.Id, Activity = checkTp.Activity };
+                }
+                
+            }
             throw new NotImplementedException();
+        }
+
+        public async Task<bool> Notifier(string userId)
+        {
+            var claimUser = await _userManager.FindByIdAsync(userId);
+
+            if (claimUser == null)
+            {
+                throw new Exception("User not logged in");
+            }
+
+            else
+            {
+                var request = await _context.RequestKey.FirstOrDefaultAsync(checkUser => checkUser.KeyCollectorId == claimUser.Id && checkUser.Availability == CheckWith.InHand);
+
+                if (request == null || request.Key == null)
+                {
+                    return false;
+                }
+
+
+                else
+                {
+                    var checkRequest = await _context.ThirdParty.Where(check => check.KeyId == request.Key.Id).FirstOrDefaultAsync();
+                    if (checkRequest == null)
+                    {
+                        return false;
+                    }
+
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
         }
 
         public async Task<Message> RejectRequest(Guid keyId, string currentUser)
@@ -128,12 +196,11 @@ namespace Key_Management_System.Services.ThirdPartyService
                 var validateHolder = await _context.RequestKey.Where(validate => validate.KeyCollectorId == currentHolder.Id && validate.Availability == CheckWith.InHand)
                     .FirstOrDefaultAsync();
 
-                var thirdPartyRequest = await _context.ThirdParty.FirstOrDefaultAsync(check => check.KeyId == keyId && check.General == General.Pending);
-
+                var thirdPartyRequest = await _context.ThirdParty.FirstOrDefaultAsync(check => check.KeyId == keyId && check.Request == TPRequest.Pending);
                 if (validateHolder is not null && thirdPartyRequest is not null)
                 {
                     thirdPartyRequest.CurrentHolder = currentHolder.Id;
-                    thirdPartyRequest.General = General.Decline;
+                    thirdPartyRequest.Request = TPRequest.Decline;
                     thirdPartyRequest.RequestKey = validateHolder;
 
                     await _context.SaveChangesAsync();

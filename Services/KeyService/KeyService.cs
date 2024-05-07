@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Key_Management_System.Data;
+using Key_Management_System.DTOs;
 using Key_Management_System.DTOs.KeyDtos;
 using Key_Management_System.Enums;
 using Key_Management_System.Models;
@@ -72,6 +73,28 @@ namespace Key_Management_System.Services.KeyService
             var mappedKeys = _mapper.Map<IEnumerable<GetKeyDto>>(keys);
 
             return mappedKeys;
+        }
+
+
+        public async Task<List<KeyWith>> CheckKey()
+        {
+            var classRoom = await _context.RequestKey.Where(filter => filter.Availability == CheckWith.InHand).FirstOrDefaultAsync();
+
+            if (classRoom == null)
+            {
+                return new List<KeyWith>();
+            }
+
+
+            var getReponse = new KeyWith
+            {
+                CollectorId = classRoom.KeyCollectorId,
+                Room = classRoom._Key,
+                Activity = classRoom.Activity,
+                CollectionTime = classRoom.CollectionTime,
+            };
+
+            return new List<KeyWith> { getReponse };
         }
     }
 }
