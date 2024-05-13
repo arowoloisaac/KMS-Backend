@@ -1,5 +1,6 @@
 ﻿using Key_Management_System.DTOs.UserDto.SharedDto;
 using Key_Management_System.Services.UserServices.SharedService;
+using Key_Management_System.Services.UserServices.TokenService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
@@ -9,16 +10,18 @@ using System.Security.Claims;
 
 namespace Key_Management_System.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     [EnableCors]
     public class SharedController : ControllerBase
     {
         private readonly ISharedService _userService;
+        private ITokenStorageService _tokenStorageService;
 
-        public SharedController(ISharedService sharedService)
+        public SharedController(ISharedService sharedService, ITokenStorageService tokenStorageService)
         {
             _userService = sharedService;
+            _tokenStorageService = tokenStorageService;
         }
 
         [HttpPost("login")]
@@ -32,14 +35,12 @@ namespace Key_Management_System.Controllers
             }
             catch (InvalidOperationException ex)
             {
-                // Write logs
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
                 return StatusCode(500);
             }
-
-            return BadRequest();
         }
 
         [HttpGet]
@@ -82,6 +83,17 @@ namespace Key_Management_System.Controllers
             {
                 return StatusCode(500, ex.Message);
             }
+        }
+
+        [HttpPost]
+        [Route("logout")]
+        [Authorize]
+        public IActionResult Logout()
+        {
+            var id = Guid.Parse(User.FindFirst(ClaimTypes.Authentication).Value);
+
+            _tokenStorageService.LogoutToken(id);
+            return Ok("logout successful");
         }
     }
 }

@@ -27,9 +27,16 @@ namespace Key_Management_System.Controllers
         [SwaggerOperation(Summary ="Collector collects key")]
         public async Task<IActionResult> CollectKey(string key, Activity activity)
         {
-            var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
-            //await _requestKeyService.CollectKey(key, activity, claimUser.Value);
-            return Ok(await _requestKeyService.CollectKey(key, activity, claimUser.Value));
+            try
+            {
+                var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                //await _requestKeyService.CollectKey(key, activity, claimUser.Value);
+                return Ok(await _requestKeyService.CollectKey(key, activity, claimUser.Value));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
@@ -42,9 +49,15 @@ namespace Key_Management_System.Controllers
         [SwaggerOperation(Summary ="Collector returns key")]
         public async Task<IActionResult> ReturnKey()
         {
-            var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
-            //await _requestKeyService.ReturnKey(claimUser.Value);
-            return Ok(await _requestKeyService.ReturnKey(claimUser.Value));
+            try
+            {
+                var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                return Ok(await _requestKeyService.ReturnKey(claimUser.Value));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

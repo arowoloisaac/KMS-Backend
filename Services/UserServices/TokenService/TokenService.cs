@@ -1,4 +1,5 @@
 ﻿using Key_Management_System.Data;
+using Key_Management_System.Models;
 
 namespace Key_Management_System.Services.UserServices.TokenService
 {
@@ -22,7 +23,7 @@ namespace Key_Management_System.Services.UserServices.TokenService
         }
     }
 
-    /*public class TokenDbStorageService : ITokenStorageService
+    public class TokenDbStorageService : ITokenStorageService
     {
         private readonly ApplicationDbContext _context;
 
@@ -45,5 +46,5 @@ namespace Key_Management_System.Services.UserServices.TokenService
             });
             _context.SaveChanges();
         }
-    }*/
+    }
 }

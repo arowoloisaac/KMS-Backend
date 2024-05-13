@@ -50,7 +50,8 @@ namespace Key_Management_System.Services.UserServices.SharedService
 
             var profile = new ProfileDto
             {
-                Name = identifyUser.Name,
+                FirstName = identifyUser.FirstName,
+                LastName = identifyUser.LastName,
                 Email = identifyUser.Email,
                 PhoneNumber = identifyUser.PhoneNumber,
             };
@@ -69,9 +70,9 @@ namespace Key_Management_System.Services.UserServices.SharedService
 
             else
             {
-                identifyUser.Name = profile.Name;
+                identifyUser.LastName = profile.LastName;
+                identifyUser.FirstName = profile.FirstName;
                 identifyUser.PhoneNumber = profile.PhoneNumber;
-                identifyUser.UserName = profile.Name;
 
                 var updatedUser = await _userManager.UpdateAsync(identifyUser);
 
@@ -80,11 +81,6 @@ namespace Key_Management_System.Services.UserServices.SharedService
                     throw new Exception($"Failed to update profile: {userId}");
                 }
             }
-
-
-            
-
-            //throw new NotImplementedException();
         }
 
 

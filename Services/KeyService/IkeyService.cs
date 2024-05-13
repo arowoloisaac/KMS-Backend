@@ -9,6 +9,10 @@ namespace Key_Management_System.Services.KeyService
     {
         Task<Key> AddKey(AddKeyDto key);
 
+        Task UpdateKey(string oldName, string newName);
+
+        Task DeleteKey(Guid keyId);
+
         Task<IEnumerable<GetKeyDto>> GetKeys(KeyStatus? status);
 
         Task<GetKeyDto> GetKey(Guid Id);

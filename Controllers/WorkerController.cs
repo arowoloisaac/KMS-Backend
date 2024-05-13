@@ -26,8 +26,8 @@ namespace Key_Management_System.Controllers
         [SwaggerOperation(Summary ="Worker registers account")]
         public async Task<IActionResult> Register(RegisterWorkerDto workerDto)
         {
-            await _workerService.RegisterWorker(workerDto);
-            return Ok();
+            var getResponse = await _workerService.RegisterWorker(workerDto);
+            return Ok(getResponse);
         }
     }
 }

@@ -27,8 +27,15 @@ namespace Key_Management_System.Controllers
         [SwaggerOperation(Summary ="Key Collector registers an account")]
         public async Task<IActionResult> RegisterCollector(RegisterCollectorDto registerCollectorDto)
         {
-            await _collectorService.RegisterCollector(registerCollectorDto);
-            return Ok(registerCollectorDto);
+            try
+            {
+                var getResponse = await _collectorService.RegisterCollector(registerCollectorDto);
+                return Ok(getResponse);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

@@ -30,11 +30,19 @@ namespace Key_Management_System.Controllers
         [SwaggerOperation(Summary ="Worker assign key to collector")]
         public async Task<IActionResult> AssignCollectorKey(string key, [Required] General check)
         {
-            var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+            try
+            {
+                var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
 
-            await _keyService.AssignCollectorKey(key, check, claimUser.Value);
+                await _keyService.AssignCollectorKey(key, check, claimUser.Value);
 
-            return Ok();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
 
@@ -43,11 +51,19 @@ namespace Key_Management_System.Controllers
         [SwaggerOperation(Summary ="Worker accepts/declines key return")]
         public async Task<IActionResult> AcceptKeyReturn(string key, [Required] General check)
         {
-            var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+            try
+            {
+                var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
 
-            await _keyService.AcceptKeyReturn(key, check, claimUser?.Value);
+                await _keyService.AcceptKeyReturn(key, check, claimUser?.Value);
 
-            return Ok();
+                return Ok("you accepted the request");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);  
+            }
+            
         }
 
         [HttpGet]
@@ -56,8 +72,16 @@ namespace Key_Management_System.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> KeyWith()
         {
-            var getKeys = await _keyService.CheckRequest();
-            return Ok(getKeys);
+            try
+            {
+                var getKeys = await _keyService.CheckRequest();
+                return Ok(getKeys);
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Key_Management_System.Data
         public DbSet<Key> Key {  get; set; }    
         public DbSet<RequestKey> RequestKey { get; set; }
         public DbSet<ThirdParty> ThirdParty { get; set; }
+        public DbSet<LogoutToken> LogoutTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

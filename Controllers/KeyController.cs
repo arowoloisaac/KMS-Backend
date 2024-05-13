@@ -37,8 +37,48 @@ namespace Key_Management_System.Controllers
         [SwaggerOperation(Summary ="Add key to the list of keys")]
         public async Task<IActionResult> AddKey(AddKeyDto key)
         {
-            var addKey = await _keyService.AddKey(key);  
-            return Ok(addKey);
+            try
+            {
+                var addKey = await _keyService.AddKey(key);
+                return Ok(addKey);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        [HttpPut]
+        [Route("update-key")]
+        [SwaggerOperation(Summary = "update key to the list of keys")]
+        public async Task<IActionResult> UpdateKey(string oldName, string newName)
+        {
+            try
+            {
+                await _keyService.UpdateKey(oldName, newName);
+                return Ok("Key updated");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        [Route("remove-key")]
+        [SwaggerOperation(Summary = "remove key to the list of keys")]
+        public async Task<IActionResult> DeleteKey(Guid keyId)
+        {
+            try
+            {
+                await _keyService.DeleteKey(keyId);
+                return Ok("key removed from database");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message); 
+            }
         }
 
 
@@ -59,8 +99,15 @@ namespace Key_Management_System.Controllers
         [SwaggerOperation(Summary ="Get Key via its respective Id")]
         public async Task<IActionResult> GetKey(Guid Id)
         {
-            var getKey = await _keyService.GetKey(Id);
-            return Ok(getKey);
+            try
+            {
+                var getKey = await _keyService.GetKey(Id);
+                return Ok(getKey);
+            }
+            catch(Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
 
@@ -82,8 +129,15 @@ namespace Key_Management_System.Controllers
         [SwaggerOperation(Summary ="Get list of keys either by filtering the availabity or no filtering")]
         public async Task<IActionResult> GetKeys(KeyStatus? key)
         {
-            var getKeys = await _keyService.GetKeys(key);
-            return Ok(getKeys);
+            try
+            {
+                var getKeys = await _keyService.GetKeys(key);
+                return Ok(getKeys);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpGet]
@@ -92,8 +146,15 @@ namespace Key_Management_System.Controllers
         [SwaggerOperation(Summary ="Get the list to those with a key")]
         public async Task<IActionResult> KeyWith()
         {
-            var getKeys = await _keyService.CheckKey();
-            return Ok(getKeys);
+            try
+            {
+                var getKeys = await _keyService.CheckKey();
+                return Ok(getKeys);
+            }
+            catch (Exception e1)
+            {
+                return BadRequest(e1.Message);
+            }
         }
     }
 }

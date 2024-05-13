@@ -44,6 +44,7 @@ namespace Key_Management_System
             builder.Services.AddScoped<IRequestKeyService, RequestKeyService>();
             builder.Services.AddScoped<IAssignKeyService, AssignKeyService>();
             builder.Services.AddScoped<IThirdPartyService, ThirdPartyService>();
+            builder.Services.AddScoped<ITokenStorageService, TokenDbStorageService>();
 
            
 
