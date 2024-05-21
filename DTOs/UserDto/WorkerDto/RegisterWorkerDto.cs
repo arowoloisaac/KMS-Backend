@@ -4,8 +4,10 @@ namespace Key_Management_System.DTOs.UserDto.WorkerDto
 {
     public class RegisterWorkerDto
     {
+        [Required]
         public string FirstName { get; set; } = string.Empty;
 
+        [Required]
         public string LastName { get; set; } = string.Empty;
 
         [EmailAddress(ErrorMessage ="Invalid email address")]

@@ -28,13 +28,13 @@ namespace Key_Management_System.Controllers
         [HttpPut]
         [Route("assign-key")]
         [SwaggerOperation(Summary ="Worker assign key to collector")]
-        public async Task<IActionResult> AssignCollectorKey(string key, [Required] General check)
+        public async Task<IActionResult> AssignCollectorKey([Required]Guid keyId, [Required] General check)
         {
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
 
-                await _keyService.AssignCollectorKey(key, check, claimUser.Value);
+                await _keyService.AssignCollectorKey(keyId, check, claimUser.Value);
 
                 return Ok();
             }
@@ -49,13 +49,13 @@ namespace Key_Management_System.Controllers
         [HttpPut]
         [Route("accept-key")]
         [SwaggerOperation(Summary ="Worker accepts/declines key return")]
-        public async Task<IActionResult> AcceptKeyReturn(string key, [Required] General check)
+        public async Task<IActionResult> AcceptKeyReturn([Required]Guid keyId, [Required] General check)
         {
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
 
-                await _keyService.AcceptKeyReturn(key, check, claimUser?.Value);
+                await _keyService.AcceptKeyReturn(keyId, check, claimUser?.Value);
 
                 return Ok("you accepted the request");
             }

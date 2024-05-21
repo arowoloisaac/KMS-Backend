@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 
 namespace Key_Management_System.Controllers
@@ -25,13 +26,13 @@ namespace Key_Management_System.Controllers
         [HttpPost]
         [Route("collect-key")]
         [SwaggerOperation(Summary ="Collector collects key")]
-        public async Task<IActionResult> CollectKey(string key, Activity activity)
+        public async Task<IActionResult> CollectKey([Required]Guid keyId, [Required]Activity activity)
         {
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
                 //await _requestKeyService.CollectKey(key, activity, claimUser.Value);
-                return Ok(await _requestKeyService.CollectKey(key, activity, claimUser.Value));
+                return Ok(await _requestKeyService.CollectKey(keyId, activity, claimUser.Value));
             }
             catch (Exception ex)
             {
@@ -59,5 +60,22 @@ namespace Key_Management_System.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet]
+        [Route("with-you")]
+        [SwaggerOperation(Summary ="Get key with you")]
+        public async Task<IActionResult> YourKey()
+        {
+            try
+            {
+                var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                return Ok(await _requestKeyService.GetView(claimUser.Value));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Key_Management_System.Data;
+using Key_Management_System.DTOs;
 using Key_Management_System.Enums;
 using Key_Management_System.Models;
 using Microsoft.AspNetCore.Identity;
@@ -21,11 +22,11 @@ namespace Key_Management_System.Services.RequestKeyService
             _mapper = mapper;
         }
 
-        public async Task<Message> CollectKey(string key, Activity activity, string userId)
+        public async Task<Message> CollectKey(Guid keyId, Activity activity, string userId)
         {
             var claimUser = await _userManager.FindByIdAsync(userId);
 
-            var checkRoom =  await _context.Key.Where(check => check.Room == key && check.Status == KeyStatus.Available).FirstOrDefaultAsync();
+            var checkRoom =  await _context.Key.Where(check => check.Id == keyId && check.Status == KeyStatus.Available).FirstOrDefaultAsync();
 
             
             if (claimUser == null)
@@ -42,8 +43,8 @@ namespace Key_Management_System.Services.RequestKeyService
                     {
                         Id = Guid.NewGuid(),
                         Activity = activity,
-                        Availability = CheckWith.InHand,
-                        _Key = key,
+                        Availability = CheckWith.InBoard,
+                        _Key = checkRoom.Room,
                         CollectionTime = DateTime.UtcNow,
                         Status = Status.Pending,
                         KeyCollectorId = claimUser.Id,
@@ -92,6 +93,33 @@ namespace Key_Management_System.Services.RequestKeyService
                     return new Message("unable to return key");
                 }
             }
+        }
+
+        public async Task<ViewUsage> GetView(string userId)
+        {
+            var claimUser = await _userManager.FindByIdAsync(userId);
+
+            if (claimUser == null)
+            {
+                throw new Exception("User is null");
+            }
+
+            else
+            {
+                var getKey = await _context.RequestKey.FirstOrDefaultAsync(checkOne => checkOne.KeyCollectorId == claimUser.Id && checkOne.Availability == CheckWith.InHand || checkOne.Status == Status.Pending);
+
+                if (getKey != null)
+                {
+                    return new ViewUsage{ RoomNumber = getKey._Key, CollectionTime = getKey.CollectionTime, Activity = getKey.Activity};
+                }
+
+                else
+                {
+                    throw new Exception("no key");
+                }
+            }
+            
+            throw new NotImplementedException();
         }
     }
 }

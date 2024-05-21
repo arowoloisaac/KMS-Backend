@@ -5,6 +5,7 @@ using Key_Management_System.Enums;
 using Key_Management_System.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Key_Management_System.Services.AssignKeyService
 {
@@ -19,17 +20,23 @@ namespace Key_Management_System.Services.AssignKeyService
             _context = context;
         }
 
-        public async Task AssignCollectorKey(string key, General check, string workerId)
+        public async Task<Message> AssignCollectorKey(Guid keyId, General check, string workerId)
         {
             var claimUser = await _workerManager.FindByIdAsync(workerId);
 
-            var checkRequest = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == key && check.Status == Status.Pending);
+            var updateRoom = await _context.Key.FirstOrDefaultAsync(check => check.Id == keyId && check.Status == KeyStatus.PendingAcceptance);
 
-            var updateRoom = await _context.Key.FirstOrDefaultAsync(check => check.Room == key && check.Status == KeyStatus.PendingAcceptance);
+            if (updateRoom == null)
+            {
+                return new Message("room is not available");
+            }
+
+
+            var checkRequest = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == updateRoom.Room && check.Status == Status.Pending);
 
             if (claimUser == null)
             {
-                throw new Exception("User must be logged in");
+                return new Message("User must be logged in");
             }
 
             else
@@ -40,7 +47,7 @@ namespace Key_Management_System.Services.AssignKeyService
                     {
                         checkRequest.Worker = worker;
                         checkRequest.Status = Status.Accept;
-                        //checkRequest.Availability == CheckWith.InBoard;
+                        checkRequest.Availability = CheckWith.InHand;
 
                         updateRoom.Status = KeyStatus.Unavailable;
                     }
@@ -49,6 +56,7 @@ namespace Key_Management_System.Services.AssignKeyService
                     {
                         checkRequest.Worker = worker;
                         checkRequest.Status = Status.Decline;
+                        checkRequest.Availability = CheckWith.InBoard;
 
                         updateRoom.Status = KeyStatus.Available;
                     }
@@ -62,23 +70,31 @@ namespace Key_Management_System.Services.AssignKeyService
                 }
                 else
                 {
-                    throw new Exception("You can't perform this task");
+                    return new Message("You can't perform this task");
                 }
+                return new Message("Task Successful");
             }
         }
 
         //this funnction has an enum which prompts the worker to either accept or 
-        public async Task AcceptKeyReturn(string key, General check, string workerId)
+        public async Task<Message> AcceptKeyReturn(Guid keyId, General check, string workerId)
         {
             var claimUser = await _workerManager.FindByIdAsync(workerId);
 
-            var checkRequest = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == key && check.Status == Status.Accept || check.Status ==Status.ThirdParty);
+            var updateRoom = await _context.Key.Where(check => check.Id == keyId && check.Status == KeyStatus.Unavailable).FirstOrDefaultAsync();
 
-            var updateRoom = await _context.Key.Where(check => check.Room == key && check.Status == KeyStatus.Unavailable).FirstOrDefaultAsync();
+            if (updateRoom == null)
+            {
+                return new Message("room is not available");
+            }
+
+            var checkRequest = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == updateRoom.Room && check.Status == Status.Accept || check.Status ==Status.ThirdParty);
+
+            
 
             if (claimUser == null)
             {
-                throw new Exception("User not logged in or registered");
+                return new Message("User not logged in or registered");
             }
 
             else
@@ -104,11 +120,12 @@ namespace Key_Management_System.Services.AssignKeyService
 
                     else
                     {
-                        throw new Exception("Unale to perform this task");
+                        return new Message("Unale to perform this task");
                     }
 
                     await _context.SaveChangesAsync();
                 }
+                return new Message("Task succeeded");
             }
         }
 

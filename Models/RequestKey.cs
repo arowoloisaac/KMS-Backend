@@ -28,5 +28,7 @@ namespace Key_Management_System.Models
 
         public Worker? Worker { get; set; }
 
+        public ICollection<ThirdParty>? ThirdParty { get; set; }
+
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 
 namespace Key_Management_System.Controllers
@@ -26,7 +27,7 @@ namespace Key_Management_System.Controllers
         [HttpPost]
         [Route("Send-request")]
         [SwaggerOperation(Summary ="Send requst to access key via third party means")]
-        public async Task<IActionResult> SendRequest(Guid keyId, Activity activity)
+        public async Task<IActionResult> SendRequest([Required] Guid keyId, [Required]Activity activity)
         {
             try
             {
@@ -45,7 +46,7 @@ namespace Key_Management_System.Controllers
         [HttpPut]
         [Route("accept-request")]
         [SwaggerOperation(Summary ="Accept third party request")]
-        public async Task<IActionResult> AcceptRequest(Guid keyId)
+        public async Task<IActionResult> AcceptRequest([Required] Guid keyId)
         {
             try
             {
@@ -102,7 +103,7 @@ namespace Key_Management_System.Controllers
         [HttpPut]
         [Route("reject-request")]
         [SwaggerOperation(Summary ="Reject third party request")]
-        public async Task<IActionResult> RejectRequest(Guid keyId) 
+        public async Task<IActionResult> RejectRequest([Required] Guid keyId) 
         {  
             try
             {
