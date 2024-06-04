@@ -129,24 +129,41 @@ namespace Key_Management_System.Services.AssignKeyService
             }
         }
 
-        public async Task<List<KeyWith>> CheckRequest()
+        public async Task<List<KeyCollectorRequest>> CheckRequest()
         {
-            var classRoom = await _context.RequestKey.Where(filter => filter.Status == Status.Pending).FirstOrDefaultAsync();
+            var requestResponse = await _context.RequestKey.Where(filter => filter.Status == Status.Pending).FirstOrDefaultAsync();
+
+            if (requestResponse == null)
+            {
+                return new List<KeyCollectorRequest>();
+            }
+
+
+            var getReponse = new KeyCollectorRequest
+            {
+                KeyId = requestResponse.GetKeyId,
+                Room = requestResponse._Key,
+            };
+
+            return new List<KeyCollectorRequest> { getReponse };
+        }
+
+        public async Task<List<KeyCollectorRequest>> CheckReturns()
+        {
+            var classRoom = await _context.RequestKey.Where(filter => filter.Status == Status.CheckReturn).FirstOrDefaultAsync();
 
             if (classRoom == null)
             {
-                return new List<KeyWith>();
+                return new List<KeyCollectorRequest>();
             }
 
-            var getReponse = new KeyWith
+            var getReponse = new KeyCollectorRequest
             {
-                CollectorId = classRoom.KeyCollectorId,
+                KeyId = classRoom.GetKeyId,
                 Room = classRoom._Key,
-                Activity = classRoom.Activity,
-                CollectionTime = classRoom.CollectionTime,
             };
 
-            return new List<KeyWith> { getReponse };
+            return new List<KeyCollectorRequest> { getReponse };
         }
     }
 }

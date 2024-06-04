@@ -33,9 +33,9 @@ namespace Key_Management_System.Controllers
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
 
-                await _service.SendRequest(keyId, activity, claimUser.Value);
+                var response = await _service.SendRequest(keyId, activity, claimUser.Value);
 
-                return Ok("Key request sent");
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -52,9 +52,9 @@ namespace Key_Management_System.Controllers
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
 
-                await _service.AcceptRequest(keyId, claimUser.Value);
+                var response = await _service.AcceptRequest(keyId, claimUser.Value);
 
-                return Ok("key accepted");
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -109,9 +109,9 @@ namespace Key_Management_System.Controllers
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
 
-                await _service.RejectRequest(keyId, claimUser.Value);
+                var response = await _service.RejectRequest(keyId, claimUser.Value);
 
-                return Ok("key rejected");
+                return Ok(response);
             }
             
             catch (Exception ex)

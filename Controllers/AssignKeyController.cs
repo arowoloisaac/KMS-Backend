@@ -67,14 +67,32 @@ namespace Key_Management_System.Controllers
         }
 
         [HttpGet]
-        [Route("check-request")]
-        [SwaggerOperation(Summary ="Check request")]
+        [Route("requests")]
+        [SwaggerOperation(Summary ="Check for key requests")]
         [AllowAnonymous]
         public async Task<IActionResult> KeyWith()
         {
             try
             {
                 var getKeys = await _keyService.CheckRequest();
+                return Ok(getKeys);
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("returns")]
+        [SwaggerOperation(Summary = "Check for key return requests")]
+        [AllowAnonymous]
+        public async Task<IActionResult> KeyReturn()
+        {
+            try
+            {
+                var getKeys = await _keyService.CheckReturns();
                 return Ok(getKeys);
             }
 

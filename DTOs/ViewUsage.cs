@@ -9,5 +9,7 @@ namespace Key_Management_System.DTOs
         public DateTime CollectionTime { get; set; }
 
         public Activity Activity { get; set; }
+
+        public Status Status { get; set; }
     }
 }

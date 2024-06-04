@@ -10,7 +10,7 @@ namespace Key_Management_System.Services.ThirdPartyService
 
         Task<Message> RejectRequest(Guid keyId, string currentUser);
 
-        Task<Request> GetRequest(string currentHolder);
+        Task<ThirdPartyRequest> GetRequest(string currentHolder);
 
         Task<bool> Notifier(string userId);
 

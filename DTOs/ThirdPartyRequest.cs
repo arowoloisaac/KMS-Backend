@@ -2,7 +2,7 @@
 
 namespace Key_Management_System.DTOs
 {
-    public class Request
+    public class ThirdPartyRequest
     {
         public Guid Id { get; set; }
 

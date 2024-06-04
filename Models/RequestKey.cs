@@ -18,7 +18,7 @@ namespace Key_Management_System.Models
 
         public DateTime ReturnedTime { get; set; }
 
-        //public Guid KeyId { get; set; }
+        public Guid GetKeyId { get; set; }
 
         public Key? Key { get; set; }
 

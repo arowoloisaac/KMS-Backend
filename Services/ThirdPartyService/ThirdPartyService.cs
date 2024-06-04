@@ -99,6 +99,7 @@ namespace Key_Management_System.Services.ThirdPartyService
                         Availability = CheckWith.InHand,
                         CollectionTime = DateTime.UtcNow,
                         Status = Status.ThirdParty,
+                        GetKeyId = validateHolder.GetKeyId,
                     };
                     await _context.RequestKey.AddAsync(addNewRequest);
 
@@ -114,7 +115,7 @@ namespace Key_Management_System.Services.ThirdPartyService
             }
         }
 
-        public async Task<Request> GetRequest(string currentHolder)
+        public async Task<ThirdPartyRequest> GetRequest(string currentHolder)
         {
             var claimUser = await _userManager.FindByIdAsync(currentHolder);
 
@@ -140,7 +141,7 @@ namespace Key_Management_System.Services.ThirdPartyService
                         throw new Exception("no request");
                     }
 
-                    return new Request { Id = checkTp.Id, Activity = checkTp.Activity };
+                    return new ThirdPartyRequest { Id = checkTp.Id, Activity = checkTp.Activity };
                 }
                 
             }

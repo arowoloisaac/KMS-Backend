@@ -10,6 +10,8 @@ namespace Key_Management_System.Services.AssignKeyService
 
         Task<Message> AcceptKeyReturn(Guid keyId, General check, string workerId);
 
-        Task<List<KeyWith>> CheckRequest();
+        Task<List<KeyCollectorRequest>> CheckRequest();
+
+        Task<List<KeyCollectorRequest>> CheckReturns();
     }
 }

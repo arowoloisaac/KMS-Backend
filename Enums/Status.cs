@@ -8,6 +8,7 @@ namespace Key_Management_System.Enums
         Pending,
         Accept,
         Decline,
+        CheckReturn,//
         ThirdParty,
         AcceptSignOut,
         DeclineSignOut

@@ -49,6 +49,7 @@ namespace Key_Management_System.Services.RequestKeyService
                         Status = Status.Pending,
                         KeyCollectorId = claimUser.Id,
                         Key = checkRoom,
+                        GetKeyId = checkRoom.Id
                     };
                     await _context.RequestKey.AddAsync(addRequest);
 
@@ -82,6 +83,7 @@ namespace Key_Management_System.Services.RequestKeyService
                 if (initiateReturn != null)
                 {
                     initiateReturn.ReturnedTime = DateTime.UtcNow;
+                    initiateReturn.Status = Status.CheckReturn;
 
                     await _context.SaveChangesAsync();
 
@@ -110,7 +112,7 @@ namespace Key_Management_System.Services.RequestKeyService
 
                 if (getKey != null)
                 {
-                    return new ViewUsage{ RoomNumber = getKey._Key, CollectionTime = getKey.CollectionTime, Activity = getKey.Activity};
+                    return new ViewUsage{ RoomNumber = getKey._Key, CollectionTime = getKey.CollectionTime, Activity = getKey.Activity, Status = getKey.Status};
                 }
 
                 else
