@@ -48,7 +48,7 @@ namespace Key_Management_System
 
            
 
-            builder.Services.AddIdentity<User, IdentityRole<Guid>>(options =>
+            builder.Services.AddIdentity<User, Role>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequiredLength = 6;
@@ -62,7 +62,7 @@ namespace Key_Management_System
 
             builder.Services.AddAuthorization(options =>
             {
-                options.AddPolicy(ApplicationRoleNames.User,
+                options.AddPolicy("User",
                     new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build());
             });
 
@@ -146,6 +146,60 @@ namespace Key_Management_System
             app.UseAuthorization();
 
             app.MapControllers();
+
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<Role>>();
+
+                var roles = new[] { ApplicationRoleNames.Admin, ApplicationRoleNames.Manager, ApplicationRoleNames.Collector };
+
+                foreach (var role in roles)
+                {
+                    if (!await roleManager.RoleExistsAsync(role))
+                    {
+                        await roleManager.CreateAsync(new Role { Name = role } );
+                    }
+                }
+            }
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var usermanager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+
+                var config = app.Configuration.GetSection("Credentials");
+
+                var checkAdminExistence = await usermanager.FindByEmailAsync(config["Email"]);
+
+                if (checkAdminExistence == null)
+                {
+                    var AdminUser = new Worker
+                    {
+                        FirstName = "Administrator",
+                        Email = config["Email"],
+                        UserName = config["UserName"],
+                        Password = config["Password"]
+                    };
+
+                    var result = await usermanager.CreateAsync(AdminUser, config["Password"]);
+
+
+                    if (!result.Succeeded)
+                    {
+                        throw new Exception("Unable to create user admin");
+                    }
+
+                    checkAdminExistence = await usermanager.FindByEmailAsync(config["Email"]);
+                }
+
+                if(!await usermanager.IsInRoleAsync(checkAdminExistence, ApplicationRoleNames.Admin))
+                {
+                    await usermanager.AddToRoleAsync(checkAdminExistence, "Admin");
+                }
+
+
+            }
+
 
             app.Run();
         }

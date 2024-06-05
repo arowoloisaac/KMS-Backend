@@ -29,7 +29,7 @@ namespace Key_Management_System.Services.UserServices.WorkerService
         {
             var existingUser = await _workerManager.FindByEmailAsync(workerDto.Email);
 
-            var checkAdminExistence = await _workerManager.FindByNameAsync("Administrator");
+            /*var checkAdminExistence = await _workerManager.FindByNameAsync("Administrator");
 
             if (checkAdminExistence == null)
             {
@@ -52,7 +52,7 @@ namespace Key_Management_System.Services.UserServices.WorkerService
                     var token = GenerateToken(AdminUser);
                     return new TokenResponse(token);
                 }
-            }
+            }*/
 
 
             if (existingUser != null)
