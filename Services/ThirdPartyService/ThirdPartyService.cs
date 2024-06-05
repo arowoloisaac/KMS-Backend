@@ -1,5 +1,5 @@
 ﻿using Key_Management_System.Data;
-using Key_Management_System.DTOs;
+using Key_Management_System.DTOs.ThirdPartyDto;
 using Key_Management_System.Enums;
 using Key_Management_System.Models;
 using Microsoft.AspNetCore.Identity;

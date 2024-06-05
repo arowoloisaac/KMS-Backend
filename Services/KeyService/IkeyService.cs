@@ -1,5 +1,5 @@
-﻿using Key_Management_System.DTOs;
-using Key_Management_System.DTOs.KeyDtos;
+﻿using Key_Management_System.DTOs.KeyDtos;
+using Key_Management_System.DTOs.RequestKey;
 using Key_Management_System.Enums;
 using Key_Management_System.Models;
 

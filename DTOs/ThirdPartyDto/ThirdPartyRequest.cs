@@ -1,6 +1,6 @@
 ﻿using Key_Management_System.Enums;
 
-namespace Key_Management_System.DTOs
+namespace Key_Management_System.DTOs.ThirdPartyDto
 {
     public class ThirdPartyRequest
     {
