@@ -33,7 +33,7 @@ namespace Key_Management_System.Services.UserServices.SharedService
                 throw new InvalidOperationException("Login Failed");
             }
 
-            var token = GenerateToken(user);
+            var token = GenerateToken(user, await _userManager.GetRolesAsync(user));
 
             return new TokenResponse(token);
         }
@@ -84,8 +84,6 @@ namespace Key_Management_System.Services.UserServices.SharedService
         }
 
 
-
-        //passing the login functionality into it 
         private async Task<User> ValidateUser(LoginDto request)
         {
             var identifyUser = await _userManager.FindByEmailAsync(request.Email);
@@ -100,18 +98,35 @@ namespace Key_Management_System.Services.UserServices.SharedService
         }
 
 
-        private string GenerateToken(User user)
+        private string GenerateToken(User user, IList<string> roles)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_bearerTokenSettings.SecretKey);
 
-            var descriptor = new SecurityTokenDescriptor
+            var claims = new List<Claim>
             {
-                Subject = new ClaimsIdentity(new Claim[]
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.Authentication, user.Id.ToString())
+            };
+
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
+
+            /*new Claim[]
                 {
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(ClaimTypes.Authentication, user.Id.ToString()),
-                }),
+                    
+                    
+                    //new Claim(ClaimTypes.Role, ApplicationRoleNames.Admin )
+              }*/
+
+            var descriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddSeconds(_bearerTokenSettings.ExpiryTimeInSeconds),
                 SigningCredentials =
                     new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),

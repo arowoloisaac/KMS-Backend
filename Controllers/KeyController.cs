@@ -1,4 +1,5 @@
-﻿using Key_Management_System.DTOs.KeyDtos;
+﻿using Key_Management_System.Configuration;
+using Key_Management_System.DTOs.KeyDtos;
 using Key_Management_System.Enums;
 using Key_Management_System.Services.KeyService;
 using Microsoft.AspNetCore.Authorization;
@@ -34,6 +35,7 @@ namespace Key_Management_System.Controllers
         /// </returns>
         [HttpPost]
         [Route("add-key")]
+        [Authorize(Roles = ApplicationRoleNames.Admin)]
         [SwaggerOperation(Summary ="Add key to the list of keys")]
         public async Task<IActionResult> AddKey(AddKeyDto key)
         {
@@ -52,6 +54,7 @@ namespace Key_Management_System.Controllers
         [HttpPut]
         [Route("update-key")]
         [SwaggerOperation(Summary = "update key to the list of keys")]
+        [Authorize(Roles = ApplicationRoleNames.Admin)]
         public async Task<IActionResult> UpdateKey(string oldName, string newName)
         {
             try
@@ -68,6 +71,7 @@ namespace Key_Management_System.Controllers
         [HttpDelete]
         [Route("remove-key")]
         [SwaggerOperation(Summary = "remove key to the list of keys")]
+        [Authorize(Roles = ApplicationRoleNames.Admin)]
         public async Task<IActionResult> DeleteKey(Guid keyId)
         {
             try
@@ -97,6 +101,7 @@ namespace Key_Management_System.Controllers
         [HttpGet]
         [Route("get-key-id")]
         [SwaggerOperation(Summary ="Get Key via its respective Id")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetKey(Guid Id)
         {
             try
@@ -127,6 +132,8 @@ namespace Key_Management_System.Controllers
         [HttpGet]
         [Route("get-keys")]
         [SwaggerOperation(Summary ="Get list of keys either by filtering the availabity or no filtering")]
+        [AllowAnonymous]
+
         public async Task<IActionResult> GetKeys(KeyStatus? key)
         {
             try

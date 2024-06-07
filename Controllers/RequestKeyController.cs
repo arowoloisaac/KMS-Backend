@@ -1,4 +1,5 @@
-﻿using Key_Management_System.Enums;
+﻿using Key_Management_System.Configuration;
+using Key_Management_System.Enums;
 using Key_Management_System.Services.RequestKeyService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -12,7 +13,7 @@ namespace Key_Management_System.Controllers
 {
     [Route("api/")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles= ApplicationRoleNames.Collector)]
     [EnableCors]
     public class RequestKeyController : ControllerBase
     {

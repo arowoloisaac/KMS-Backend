@@ -1,6 +1,14 @@
-﻿namespace Key_Management_System.Enums
+﻿using System.Text.Json.Serialization;
+
+namespace Key_Management_System.Enums
 {
-    public class Roles
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public enum Roles
     {
+        Admin,
+
+        Worker,
+
+        KeyCollector,
     }
 }

@@ -1,4 +1,5 @@
-﻿using Key_Management_System.Enums;
+﻿using Key_Management_System.Configuration;
+using Key_Management_System.Enums;
 using Key_Management_System.Services.AssignKeyService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -13,7 +14,7 @@ namespace Key_Management_System.Controllers
 {
     [Route("api/")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles =ApplicationRoleNames.Manager)]
     [EnableCors]
     public class AssignKeyController : ControllerBase
     {
@@ -69,7 +70,6 @@ namespace Key_Management_System.Controllers
         [HttpGet]
         [Route("requests")]
         [SwaggerOperation(Summary ="Check for key requests")]
-        [AllowAnonymous]
         public async Task<IActionResult> KeyWith()
         {
             try
@@ -87,7 +87,6 @@ namespace Key_Management_System.Controllers
         [HttpGet]
         [Route("returns")]
         [SwaggerOperation(Summary = "Check for key return requests")]
-        [AllowAnonymous]
         public async Task<IActionResult> KeyReturn()
         {
             try

@@ -3,6 +3,7 @@ using Key_Management_System.Configuration;
 using Key_Management_System.Data;
 using Key_Management_System.Models;
 using Key_Management_System.Services.AssignKeyService;
+using Key_Management_System.Services.AuthenticationService;
 using Key_Management_System.Services.KeyService;
 using Key_Management_System.Services.RequestKeyService;
 using Key_Management_System.Services.ThirdPartyService;
@@ -16,6 +17,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Security.Claims;
 using System.Text;
 
 namespace Key_Management_System
@@ -38,13 +40,14 @@ namespace Key_Management_System
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddScoped<IkeyService, KeyService>();
+            builder.Services.AddScoped<ISharedService, SharedService>();
             builder.Services.AddScoped<IWorkerService, WorkerService>();
             builder.Services.AddScoped<ICollectorService, CollectorService>();
-            builder.Services.AddScoped<ISharedService, SharedService>();
-            builder.Services.AddScoped<IRequestKeyService, RequestKeyService>();
             builder.Services.AddScoped<IAssignKeyService, AssignKeyService>();
             builder.Services.AddScoped<IThirdPartyService, ThirdPartyService>();
+            builder.Services.AddScoped<IRequestKeyService, RequestKeyService>();
             builder.Services.AddScoped<ITokenStorageService, TokenDbStorageService>();
+            builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
            
 
@@ -62,6 +65,25 @@ namespace Key_Management_System
 
             builder.Services.AddAuthorization(options =>
             {
+                options.AddPolicy(ApplicationRoleNames.Admin, new AuthorizationPolicyBuilder()
+                    .RequireClaim(ClaimTypes.Role, ApplicationRoleNames.Admin)
+                    .RequireRole(ApplicationRoleNames.Admin).
+                    RequireAuthenticatedUser()
+                    .Build());
+
+                options.AddPolicy(ApplicationRoleNames.Collector, new AuthorizationPolicyBuilder()
+                    .RequireClaim(ClaimTypes.Role, ApplicationRoleNames.Collector)
+                    .RequireRole(ApplicationRoleNames.Collector).
+                    RequireAuthenticatedUser()
+                    .Build());
+
+                options.AddPolicy(ApplicationRoleNames.Manager, new AuthorizationPolicyBuilder()
+                    .RequireClaim(ClaimTypes.Role, ApplicationRoleNames.Manager)
+                    .RequireRole(ApplicationRoleNames.Manager).
+                    RequireAuthenticatedUser()
+                    .Build());
+
+
                 options.AddPolicy("User",
                     new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build());
             });
