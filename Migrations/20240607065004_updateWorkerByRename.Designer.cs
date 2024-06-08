@@ -4,6 +4,7 @@ using Key_Management_System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Key_Management_System.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240607065004_updateWorkerByRename")]
+    partial class updateWorkerByRename
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,9 +75,6 @@ namespace Key_Management_System.Migrations
                     b.Property<int>("Activity")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("AssignedTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("Availability")
                         .HasColumnType("int");
 
@@ -82,9 +82,6 @@ namespace Key_Management_System.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("GetKeyId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("GetWorkerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("KeyCollectorId")
@@ -102,6 +99,9 @@ namespace Key_Management_System.Migrations
                     b.Property<Guid?>("WorkerId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("WorkerId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("_Key")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -113,6 +113,8 @@ namespace Key_Management_System.Migrations
                     b.HasIndex("KeyId");
 
                     b.HasIndex("WorkerId");
+
+                    b.HasIndex("WorkerId1");
 
                     b.ToTable("RequestKey");
                 });
@@ -399,11 +401,17 @@ namespace Key_Management_System.Migrations
                         .WithMany("RequestKeys")
                         .HasForeignKey("KeyId");
 
-                    b.HasOne("Key_Management_System.Models.Worker", null)
-                        .WithMany("AssignKeys")
+                    b.HasOne("Key_Management_System.Models.User", "Worker")
+                        .WithMany()
                         .HasForeignKey("WorkerId");
 
+                    b.HasOne("Key_Management_System.Models.Worker", null)
+                        .WithMany("AssignKeys")
+                        .HasForeignKey("WorkerId1");
+
                     b.Navigation("Key");
+
+                    b.Navigation("Worker");
                 });
 
             modelBuilder.Entity("Key_Management_System.Models.ThirdParty", b =>

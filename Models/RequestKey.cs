@@ -14,7 +14,10 @@ namespace Key_Management_System.Models
 
         public CheckWith Availability {  get; set; }
 
-        public DateTime CollectionTime { get; set; }    
+        public DateTime CollectionTime { get; set; } 
+        
+        //this can be either when the worker reject or accepts the request
+        public DateTime AssignedTime { get; set; }
 
         public DateTime ReturnedTime { get; set; }
 
@@ -24,9 +27,11 @@ namespace Key_Management_System.Models
 
         public Guid KeyCollectorId { get; set; }
 
-        //public Guid WorkerId { get; set; }
+        // to set the id of the accepted user
+        public Guid GetWorkerId { get; set; }
 
-        public Worker? Worker { get; set; }
+        //updated in here
+        //public ? WorkerId { get; set; }
 
         public ICollection<ThirdParty>? ThirdParty { get; set; }
 

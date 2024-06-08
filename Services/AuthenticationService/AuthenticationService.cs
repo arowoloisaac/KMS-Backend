@@ -99,6 +99,8 @@ namespace Key_Management_System.Services.AuthenticationService
             var response = users.Select( users => new UsersDto 
             {
                 Id = users.Id,
+                FirstName = users.FirstName,
+                LastName = users.LastName,
                 Email = users.Email
             }).ToList();
 

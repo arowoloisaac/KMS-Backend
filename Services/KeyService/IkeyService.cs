@@ -8,11 +8,11 @@ namespace Key_Management_System.Services.KeyService
 {
     public interface IkeyService
     {
-        Task<Key> AddKey(AddKeyDto key);
+        Task<Key> AddKey(AddKeyDto key, string adminId);
 
-        Task UpdateKey(string oldName, string newName);
+        Task UpdateKey(string oldName, string newName, string adminId);
 
-        Task DeleteKey(Guid keyId);
+        Task DeleteKey(Guid keyId, string adminId);
 
         Task<IEnumerable<GetKeyDto>> GetKeys(KeyStatus? status);
 

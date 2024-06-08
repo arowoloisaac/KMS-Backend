@@ -11,5 +11,7 @@ namespace Key_Management_System.DTOs
         public Activity Activity {  get; set; }
 
         public DateTime CollectionTime { get; set; }
+
+        public DateTime AssignedTime { get; set; }
     }
 }

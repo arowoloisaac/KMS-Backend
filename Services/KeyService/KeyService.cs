@@ -24,9 +24,11 @@ namespace Key_Management_System.Services.KeyService
         }
 
 
-        public async Task<Key> AddKey(AddKeyDto key)
+        public async Task<Key> AddKey(AddKeyDto key, string adminId)
         {
-            var checkAdmin = await _userManager.FindByEmailAsync("admin@gmail.com");
+            //var checkAdmin = await _userManager.FindByEmailAsync("admin@gmail.com");
+            var checkAdmin = await _userManager.FindByIdAsync(adminId);
+
             var checkKey = await _context.Key.FirstOrDefaultAsync(check => check.Room == key.Room);
 
             if (checkKey == null && checkAdmin is Worker)
@@ -46,9 +48,9 @@ namespace Key_Management_System.Services.KeyService
         }
 
 
-        public async Task UpdateKey(string oldName, string newName)
+        public async Task UpdateKey(string oldName, string newName, string adminId)
         {
-            var checkAdmin = await _userManager.FindByEmailAsync("admin@gmail.com");
+            var checkAdmin = await _userManager.FindByIdAsync(adminId);
 
             if (checkAdmin != null && checkAdmin is Worker)
             {
@@ -72,9 +74,9 @@ namespace Key_Management_System.Services.KeyService
             }
         }
 
-        public async Task DeleteKey(Guid keyId)
+        public async Task DeleteKey(Guid keyId, string adminId)
         {
-            var checkAdmin = await _userManager.FindByEmailAsync("admin@gmail.com");
+            var checkAdmin = await _userManager.FindByIdAsync(adminId);
             var checkKey = await _context.Key.FindAsync(keyId);
 
             if (checkKey is not null && checkAdmin is Worker)
@@ -147,6 +149,7 @@ namespace Key_Management_System.Services.KeyService
                 Room = classRoom._Key,
                 Activity = classRoom.Activity,
                 CollectionTime = classRoom.CollectionTime,
+                AssignedTime = classRoom.AssignedTime,
             };
 
             return new List<KeyWith> { getReponse };

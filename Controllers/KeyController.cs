@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Security.Claims;
 namespace Key_Management_System.Controllers
 {
     [Route("api/")]
@@ -41,7 +42,8 @@ namespace Key_Management_System.Controllers
         {
             try
             {
-                var addKey = await _keyService.AddKey(key);
+                var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                var addKey = await _keyService.AddKey(key, claimUser.Value);
                 return Ok(addKey);
             }
             catch (Exception ex)
@@ -59,7 +61,8 @@ namespace Key_Management_System.Controllers
         {
             try
             {
-                await _keyService.UpdateKey(oldName, newName);
+                var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                await _keyService.UpdateKey(oldName, newName, claimUser.Value);
                 return Ok("Key updated");
             }
             catch (Exception ex)
@@ -76,7 +79,8 @@ namespace Key_Management_System.Controllers
         {
             try
             {
-                await _keyService.DeleteKey(keyId);
+                var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                await _keyService.DeleteKey(keyId, claimUser.Value);
                 return Ok("key removed from database");
             }
             catch (Exception ex)

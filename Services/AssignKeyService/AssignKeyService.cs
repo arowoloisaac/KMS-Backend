@@ -33,8 +33,6 @@ namespace Key_Management_System.Services.AssignKeyService
             }
 
 
-            var checkRequest = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == updateRoom.Room && check.Status == Status.Pending);
-
             if (claimUser == null)
             {
                 return new Message("User must be logged in");
@@ -42,11 +40,13 @@ namespace Key_Management_System.Services.AssignKeyService
 
             else
             {
-                if (claimUser is Worker worker && checkRequest != null)
+                var checkRequest 
+                    = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == updateRoom.Room && check.Status == Status.Pending && check.KeyCollectorId != claimUser.Id);
+                if ( checkRequest != null)
                 {
                     if (check == General.Accept)
                     {
-                        checkRequest.Worker = worker;
+                        //checkRequest.Worker = worker;
                         checkRequest.Status = Status.Accept;
                         checkRequest.Availability = CheckWith.InHand;
 
@@ -55,23 +55,21 @@ namespace Key_Management_System.Services.AssignKeyService
 
                     else if(check == General.Decline)
                     {
-                        checkRequest.Worker = worker;
+                        //checkRequest.Worker = worker;
                         checkRequest.Status = Status.Decline;
                         checkRequest.Availability = CheckWith.InBoard;
 
                         updateRoom.Status = KeyStatus.Available;
                     }
 
-                    else
-                    {
-                        throw new Exception("Unable to perform task");
-                    }
+                    checkRequest.GetWorkerId = claimUser.Id;
+                    checkRequest.AssignedTime = DateTime.UtcNow;
 
                     await _context.SaveChangesAsync();
                 }
                 else
                 {
-                    return new Message("You can't perform this task");
+                    return new Message("You can't perform this task, you can't be the collector and assignee");
                 }
                 return new Message("Task Successful");
             }
@@ -89,10 +87,7 @@ namespace Key_Management_System.Services.AssignKeyService
                 return new Message("room is not available");
             }
 
-            var checkRequest = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == updateRoom.Room && check.Status == Status.Accept || check.Status ==Status.ThirdParty);
-
-            
-
+           
             if (claimUser == null)
             {
                 return new Message("User not logged in or registered");
@@ -100,11 +95,13 @@ namespace Key_Management_System.Services.AssignKeyService
 
             else
             {
-                if( claimUser is Worker worker && checkRequest != null )
+                var checkRequest = await _context.RequestKey.FirstOrDefaultAsync
+                    (check => check._Key == updateRoom.Room && check.Status == Status.Accept || check.Status == Status.ThirdParty && check.KeyCollectorId != claimUser.Id);
+                if (checkRequest != null )
                 {
                     if (check == General.Accept)
                     {
-                        checkRequest.Worker = worker;
+                        //checkRequest.Worker = worker;
                         checkRequest.Status = Status.AcceptSignOut;
                         checkRequest.Availability = CheckWith.InBoard;
 
@@ -113,17 +110,14 @@ namespace Key_Management_System.Services.AssignKeyService
 
                     else if (check == General.Decline)
                     {
-                        checkRequest.Worker = worker;
+                        //checkRequest.Worker = worker;
                         checkRequest.Status = Status.DeclineSignOut;
 
                         updateRoom.Status = KeyStatus.Unavailable;
                     }
 
-                    else
-                    {
-                        return new Message("Unale to perform this task");
-                    }
-
+                    checkRequest.GetWorkerId = claimUser.Id;
+                    checkRequest.AssignedTime = DateTime.UtcNow;
                     await _context.SaveChangesAsync();
                 }
                 return new Message("Task succeeded");
