@@ -2,6 +2,7 @@
 using Key_Management_System.Configuration;
 using Key_Management_System.DTOs.UserDto.SharedDto;
 using Key_Management_System.Models;
+using Key_Management_System.Services.UserServices.TokenService.TokenGenerator;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -16,12 +17,14 @@ namespace Key_Management_System.Services.UserServices.SharedService
         private readonly UserManager<User> _userManager;
         private readonly JwtBearerTokenSettings _bearerTokenSettings;
         private readonly IMapper _mapper;
+        private readonly ITokenGenerator _tokenGenerator;
 
-        public SharedService(UserManager<User> userManager, IOptions<JwtBearerTokenSettings> jwtTokenOptions, IMapper mapper)
+        public SharedService(UserManager<User> userManager, IOptions<JwtBearerTokenSettings> jwtTokenOptions, IMapper mapper, ITokenGenerator tokenGenerator)
         {
             _userManager = userManager;
             _bearerTokenSettings = jwtTokenOptions.Value;
             _mapper = mapper;
+            _tokenGenerator = tokenGenerator;
         }
 
         public async Task<TokenResponse> Login(LoginDto request)
@@ -33,7 +36,7 @@ namespace Key_Management_System.Services.UserServices.SharedService
                 throw new InvalidOperationException("Login Failed");
             }
 
-            var token = GenerateToken(user, await _userManager.GetRolesAsync(user));
+            var token = _tokenGenerator.GenerateToken(user, await _userManager.GetRolesAsync(user));
 
             return new TokenResponse(token);
         }
@@ -95,48 +98,6 @@ namespace Key_Management_System.Services.UserServices.SharedService
                 return result == PasswordVerificationResult.Success ? identifyUser : null;
             }
             return null;
-        }
-
-
-        private string GenerateToken(User user, IList<string> roles)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_bearerTokenSettings.SecretKey);
-
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Authentication, user.Id.ToString())
-            };
-
-            foreach (var role in roles)
-            {
-                claims.Add(new Claim(ClaimTypes.Role, role));
-            }
-
-
-            /*new Claim[]
-                {
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Authentication, user.Id.ToString()),
-                    
-                    
-                    //new Claim(ClaimTypes.Role, ApplicationRoleNames.Admin )
-              }*/
-
-            var descriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddSeconds(_bearerTokenSettings.ExpiryTimeInSeconds),
-                SigningCredentials =
-                    new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-                Audience = _bearerTokenSettings.Audience,
-                Issuer = _bearerTokenSettings.Issuer,
-            };
-
-            var token = tokenHandler.CreateToken(descriptor);
-
-            return tokenHandler.WriteToken(token);
         }
     }
 }

@@ -1,5 +1,9 @@
 ﻿using Key_Management_System.Data;
 using Key_Management_System.Models;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace Key_Management_System.Services.UserServices.TokenService
 {

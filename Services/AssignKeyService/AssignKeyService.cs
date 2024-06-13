@@ -49,7 +49,7 @@ namespace Key_Management_System.Services.AssignKeyService
                         //checkRequest.Worker = worker;
                         checkRequest.Status = Status.Accept;
                         checkRequest.Availability = CheckWith.InHand;
-
+                        checkRequest.AssignedTime = DateTime.UtcNow;
                         updateRoom.Status = KeyStatus.Unavailable;
                     }
 
@@ -63,7 +63,7 @@ namespace Key_Management_System.Services.AssignKeyService
                     }
 
                     checkRequest.GetWorkerId = claimUser.Id;
-                    checkRequest.AssignedTime = DateTime.UtcNow;
+                    
 
                     await _context.SaveChangesAsync();
                 }
@@ -104,7 +104,7 @@ namespace Key_Management_System.Services.AssignKeyService
                         //checkRequest.Worker = worker;
                         checkRequest.Status = Status.AcceptSignOut;
                         checkRequest.Availability = CheckWith.InBoard;
-
+                        checkRequest.ReturnedTime = DateTime.UtcNow;
                         updateRoom.Status = KeyStatus.Available;
                     }
 
@@ -117,7 +117,7 @@ namespace Key_Management_System.Services.AssignKeyService
                     }
 
                     checkRequest.GetWorkerId = claimUser.Id;
-                    checkRequest.AssignedTime = DateTime.UtcNow;
+                    
                     await _context.SaveChangesAsync();
                 }
                 return new Message("Task succeeded");

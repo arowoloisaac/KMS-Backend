@@ -23,7 +23,7 @@ namespace Key_Management_System.Services.ThirdPartyService
         {
             var checkUser = await _userManager.FindByIdAsync(userId);
 
-            var checkRoom = await _context.Key.FirstOrDefaultAsync(check => check.Id == keyId && check.Status == KeyStatus.Unavailable);
+            
 
             if (checkUser == null)
             {
@@ -33,10 +33,12 @@ namespace Key_Management_System.Services.ThirdPartyService
             else
             {
                 var initiateReturn = await _context.RequestKey.Where(check => check.KeyCollectorId == checkUser.Id && check.Availability == CheckWith.InHand).FirstOrDefaultAsync();
-                
+
+                var checkRoom = await _context.Key.FirstOrDefaultAsync(check => check.Id == keyId && check.Status == KeyStatus.Unavailable);
+
                 var checkAwaitingRequest = await _context.ThirdParty.Where(check => check.KeyId == keyId && check.Request == TPRequest.Pending).FirstOrDefaultAsync();    
 
-                if (initiateReturn is null && checkRoom is not null && checkAwaitingRequest is not null)
+                if (initiateReturn is null && checkRoom is not null && checkAwaitingRequest is null)
                 {
                     var addRequest = new ThirdParty
                     {
@@ -73,44 +75,56 @@ namespace Key_Management_System.Services.ThirdPartyService
 
             else
             {
-                var validateHolder = await _context.RequestKey.Where(validate => validate.KeyCollectorId == currentHolder.Id && validate.Availability == CheckWith.InHand)
+                var validateHolder = await 
+                    _context.RequestKey.Where(validate => validate.KeyCollectorId == currentHolder.Id && validate.Availability == CheckWith.InHand)
                     .FirstOrDefaultAsync();
 
-                var thirdPartyRequest = await _context.ThirdParty.FirstOrDefaultAsync(check => check.KeyId == keyId && check.Request ==TPRequest.Pending);
-
-                if (validateHolder is not null && thirdPartyRequest is not null)
+                if (validateHolder is not null)
                 {
-                    thirdPartyRequest.CurrentHolder = currentHolder.Id;
-                    thirdPartyRequest.Request = TPRequest.Accept;
-                    thirdPartyRequest.RequestKey = validateHolder;
+                    var thirdPartyRequest = await 
+                        _context.ThirdParty.FirstOrDefaultAsync(check => check.KeyId == validateHolder.GetKeyId && check.Request == TPRequest.Pending);
 
-                    //change the status to third party in order for the second collector to have access
-                    validateHolder.Status = Status.ThirdParty;
-                    validateHolder.ReturnedTime = DateTime.UtcNow;
-                    validateHolder.Availability = CheckWith.ThirdParty;
-
-                    var addNewRequest = new RequestKey
+                    if (thirdPartyRequest is not null)
                     {
-                        Id = Guid.NewGuid(),
-                        KeyCollectorId = thirdPartyRequest.KeyCollectorId,
-                        Activity = thirdPartyRequest.Activity,
-                        _Key = validateHolder._Key,
-                        Key = validateHolder.Key,
-                        Availability = CheckWith.InHand,
-                        CollectionTime = DateTime.UtcNow,
-                        Status = Status.ThirdParty,
-                        GetKeyId = validateHolder.GetKeyId,
-                    };
-                    await _context.RequestKey.AddAsync(addNewRequest);
+                        thirdPartyRequest.CurrentHolder = currentHolder.Id;
+                        thirdPartyRequest.Request = TPRequest.Accept;
+                        thirdPartyRequest.RequestKey = validateHolder;
 
-                    await _context.SaveChangesAsync();
+                        //change the status to third party in order for the second collector to have access
+                        validateHolder.Status = Status.ThirdParty;
+                        validateHolder.ReturnedTime = DateTime.UtcNow;
+                        validateHolder.Availability = CheckWith.ThirdParty;
 
-                    return new Message("Request accepted");
+                        var addNewRequest = new RequestKey
+                        {
+                            Id = Guid.NewGuid(),
+                            KeyCollectorId = thirdPartyRequest.KeyCollectorId,
+                            Activity = thirdPartyRequest.Activity,
+                            _Key = validateHolder._Key,
+                            Key = validateHolder.Key,
+                            Availability = CheckWith.InHand,
+                            CollectionTime = DateTime.UtcNow,
+                            AssignedTime = DateTime.UtcNow,
+                            Status = Status.ThirdParty,
+                            GetKeyId = validateHolder.GetKeyId,
+                        };
+                        await _context.RequestKey.AddAsync(addNewRequest);
+
+                        await _context.SaveChangesAsync();
+
+                        return new Message("Request accepted");
+                    }
+
+                    else
+                    {
+                        throw new Exception("Can't validate user or check key");
+                    }
+                    
                 }
 
                 else
                 {
-                    return new Message("You just can't perform this task");
+                    throw new Exception("You just can't perform this task");
                 }
             }
         }
@@ -123,25 +137,29 @@ namespace Key_Management_System.Services.ThirdPartyService
             {
                 throw new Exception("not logged in");
             }
+
             else
             {
-                var request = await _context.RequestKey.Where(check => check.KeyCollectorId == claimUser.Id && check.Availability == CheckWith.InHand).FirstOrDefaultAsync();
+                var request = await 
+                    _context.RequestKey.Where(check => check.KeyCollectorId == claimUser.Id && check.Availability == CheckWith.InHand).FirstOrDefaultAsync();
 
-                if (request == null || request.Key == null)
+                var getKey = await _context.Key.Where(find => find.Status == KeyStatus.Unavailable && find.Id == request.GetKeyId).FirstOrDefaultAsync();
+
+                if (request == null && getKey == null)
                 {
                     throw new Exception("no key");
                 }
 
                 else
                 {
-                    var checkTp = await _context.ThirdParty.FirstOrDefaultAsync(search => search.KeyId == request.Key.Id);
+                    var checkTp = await _context.ThirdParty.FirstOrDefaultAsync(search => search.KeyId == getKey.Id);
 
                     if (checkTp == null)
                     {
-                        throw new Exception("no request");
+                        return null;
                     }
 
-                    return new ThirdPartyRequest { Id = checkTp.Id, Activity = checkTp.Activity };
+                    return new ThirdPartyRequest { Id = checkTp.Id, KeyId = checkTp.Id, Name = getKey.Room, Activity = checkTp.Activity };
                 }
                 
             }
@@ -154,14 +172,17 @@ namespace Key_Management_System.Services.ThirdPartyService
 
             if (claimUser == null)
             {
-                throw new Exception("User not logged in");
+                throw new Exception("null");
             }
+            /*if (claimUser == null)
+            {
+                throw new Exception("User not logged in");
+            }*/
 
             else
             {
                 var request = await _context.RequestKey.FirstOrDefaultAsync(checkUser => checkUser.KeyCollectorId == claimUser.Id && checkUser.Availability == CheckWith.InHand);
-
-                if (request == null || request.Key == null)
+                if (request == null)
                 {
                     return false;
                 }
@@ -169,7 +190,7 @@ namespace Key_Management_System.Services.ThirdPartyService
 
                 else
                 {
-                    var checkRequest = await _context.ThirdParty.Where(check => check.KeyId == request.Key.Id).FirstOrDefaultAsync();
+                    var checkRequest = await _context.ThirdParty.Where(check => check.KeyId == request.GetKeyId).FirstOrDefaultAsync();
                     if (checkRequest == null)
                     {
                         return false;
@@ -197,21 +218,32 @@ namespace Key_Management_System.Services.ThirdPartyService
                 var validateHolder = await _context.RequestKey.Where(validate => validate.KeyCollectorId == currentHolder.Id && validate.Availability == CheckWith.InHand)
                     .FirstOrDefaultAsync();
 
-                var thirdPartyRequest = await _context.ThirdParty.FirstOrDefaultAsync(check => check.KeyId == keyId && check.Request == TPRequest.Pending);
-                if (validateHolder is not null && thirdPartyRequest is not null)
+                
+                if (validateHolder is not null )
                 {
-                    thirdPartyRequest.CurrentHolder = currentHolder.Id;
-                    thirdPartyRequest.Request = TPRequest.Decline;
-                    thirdPartyRequest.RequestKey = validateHolder;
+                    var thirdPartyRequest = await 
+                        _context.ThirdParty.FirstOrDefaultAsync(check => check.KeyId == validateHolder.GetKeyId && check.Request == TPRequest.Pending);
+                    if (thirdPartyRequest is not null)
+                    {
+                        thirdPartyRequest.CurrentHolder = currentHolder.Id;
+                        thirdPartyRequest.Request = TPRequest.Decline;
+                        thirdPartyRequest.RequestKey = validateHolder;
 
-                    await _context.SaveChangesAsync();
+                        await _context.SaveChangesAsync();
 
-                    return new Message("Collection rejected by current holder");
+                        return new Message("Collection rejected by current holder");
+                    }
+
+                    else
+                    {
+                        throw new Exception("Check the key and validation");
+                    }
+                    
                 }
 
                 else
                 {
-                    return new Message("You can't perform this task");
+                    throw new Exception("You can't perform this task due to error");
                 }
             }
         }

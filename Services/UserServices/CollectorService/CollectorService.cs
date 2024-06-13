@@ -1,6 +1,7 @@
 ﻿using Key_Management_System.Configuration;
 using Key_Management_System.DTOs.UserDto.KeyCollectorDto;
 using Key_Management_System.Models;
+using Key_Management_System.Services.UserServices.TokenService.TokenGenerator;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -14,11 +15,13 @@ namespace Key_Management_System.Services.UserServices.CollectorService
     {
         private readonly UserManager<User> _collectorManager;
         private readonly JwtBearerTokenSettings _bearerTokenSettings;
+        private readonly ITokenGenerator _tokenGenerator;
 
-        public CollectorService(UserManager<User> collectorManager, IOptions<JwtBearerTokenSettings> tokenOption)
+        public CollectorService(UserManager<User> collectorManager, IOptions<JwtBearerTokenSettings> tokenOption, ITokenGenerator tokenGenerator)
         {
             _collectorManager = collectorManager;
             _bearerTokenSettings = tokenOption.Value;
+            _tokenGenerator = tokenGenerator;
         }
 
 
@@ -60,7 +63,7 @@ namespace Key_Management_System.Services.UserServices.CollectorService
                     }
                     else
                     {
-                        var token = GenerateToken(createdUser);
+                        var token = _tokenGenerator.GenerateToken(createdUser);
 
                         return new TokenResponse(token);
                     }
@@ -69,7 +72,7 @@ namespace Key_Management_System.Services.UserServices.CollectorService
             }
         }
 
-        private string GenerateToken(User user)
+        /*private string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_bearerTokenSettings.SecretKey);
@@ -91,6 +94,6 @@ namespace Key_Management_System.Services.UserServices.CollectorService
             var token = tokenHandler.CreateToken(descriptor);
 
             return tokenHandler.WriteToken(token);
-        }
+        }*/
     }
 }

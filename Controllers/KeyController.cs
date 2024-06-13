@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 namespace Key_Management_System.Controllers
 {
@@ -57,7 +58,7 @@ namespace Key_Management_System.Controllers
         [Route("update-key")]
         [SwaggerOperation(Summary = "update key to the list of keys")]
         [Authorize(Roles = ApplicationRoleNames.Admin)]
-        public async Task<IActionResult> UpdateKey(string oldName, string newName)
+        public async Task<IActionResult> UpdateKey([Required] string oldName,[Required] string newName)
         {
             try
             {
@@ -75,7 +76,7 @@ namespace Key_Management_System.Controllers
         [Route("remove-key")]
         [SwaggerOperation(Summary = "remove key to the list of keys")]
         [Authorize(Roles = ApplicationRoleNames.Admin)]
-        public async Task<IActionResult> DeleteKey(Guid keyId)
+        public async Task<IActionResult> DeleteKey([Required] Guid keyId)
         {
             try
             {

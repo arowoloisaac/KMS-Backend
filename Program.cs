@@ -10,6 +10,7 @@ using Key_Management_System.Services.ThirdPartyService;
 using Key_Management_System.Services.UserServices.CollectorService;
 using Key_Management_System.Services.UserServices.SharedService;
 using Key_Management_System.Services.UserServices.TokenService;
+using Key_Management_System.Services.UserServices.TokenService.TokenGenerator;
 using Key_Management_System.Services.UserServices.WorkerService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -42,14 +43,13 @@ namespace Key_Management_System
             builder.Services.AddScoped<IkeyService, KeyService>();
             builder.Services.AddScoped<ISharedService, SharedService>();
             builder.Services.AddScoped<IWorkerService, WorkerService>();
+            builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
             builder.Services.AddScoped<ICollectorService, CollectorService>();
             builder.Services.AddScoped<IAssignKeyService, AssignKeyService>();
             builder.Services.AddScoped<IThirdPartyService, ThirdPartyService>();
             builder.Services.AddScoped<IRequestKeyService, RequestKeyService>();
             builder.Services.AddScoped<ITokenStorageService, TokenDbStorageService>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-
-           
 
             builder.Services.AddIdentity<User, Role>(options =>
             {
