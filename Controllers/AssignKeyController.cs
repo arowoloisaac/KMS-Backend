@@ -35,6 +35,10 @@ namespace Key_Management_System.Controllers
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
 
+                if (claimUser == null) { 
+                    return Unauthorized("user not authorized");
+                }
+
                 return Ok(await _keyService.AssignCollectorKey(keyId, check, claimUser.Value));
             }
             catch (Exception ex)
@@ -53,7 +57,10 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
-
+                if (claimUser == null)
+                {
+                    return Unauthorized("user not authorized");
+                }
                 return Ok(await _keyService.AcceptKeyReturn(keyId, check, claimUser?.Value));
             }
             catch (Exception ex)

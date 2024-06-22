@@ -25,9 +25,9 @@ namespace Key_Management_System.Services.AssignKeyService
         {
             var claimUser = await _workerManager.FindByIdAsync(workerId);
 
-            var updateRoom = await _context.Key.FirstOrDefaultAsync(check => check.Id == keyId && check.Status == KeyStatus.PendingAcceptance);
+            var checkRoom = await _context.Key.FirstOrDefaultAsync(check => check.Id == keyId && check.Status == KeyStatus.PendingAcceptance);
 
-            if (updateRoom == null)
+            if (checkRoom == null)
             {
                 return new Message("room is not available");
             }
@@ -41,25 +41,23 @@ namespace Key_Management_System.Services.AssignKeyService
             else
             {
                 var checkRequest 
-                    = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == updateRoom.Room && check.Status == Status.Pending && check.KeyCollectorId != claimUser.Id);
+                    = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == checkRoom.Room && check.Status == Status.Pending && check.KeyCollectorId != claimUser.Id);
                 if ( checkRequest != null)
                 {
                     if (check == General.Accept)
                     {
-                        //checkRequest.Worker = worker;
                         checkRequest.Status = Status.Accept;
                         checkRequest.Availability = CheckWith.InHand;
                         checkRequest.AssignedTime = DateTime.UtcNow;
-                        updateRoom.Status = KeyStatus.Unavailable;
+                        checkRoom.Status = KeyStatus.Unavailable;
                     }
 
                     else if(check == General.Decline)
                     {
-                        //checkRequest.Worker = worker;
                         checkRequest.Status = Status.Decline;
                         checkRequest.Availability = CheckWith.InBoard;
 
-                        updateRoom.Status = KeyStatus.Available;
+                        checkRoom.Status = KeyStatus.Available;
                     }
 
                     checkRequest.GetWorkerId = claimUser.Id;
@@ -75,17 +73,11 @@ namespace Key_Management_System.Services.AssignKeyService
             }
         }
 
-        //this funnction has an enum which prompts the worker to either accept or 
         public async Task<Message> AcceptKeyReturn(Guid keyId, General check, string workerId)
         {
             var claimUser = await _workerManager.FindByIdAsync(workerId);
 
-            var updateRoom = await _context.Key.Where(check => check.Id == keyId && check.Status == KeyStatus.Unavailable).FirstOrDefaultAsync();
-
-            if (updateRoom == null)
-            {
-                return new Message("room is not available");
-            }
+            var checkRoom = await _context.Key.Where(check => check.Id == keyId && check.Status == KeyStatus.Unavailable).FirstOrDefaultAsync();
 
            
             if (claimUser == null)
@@ -93,27 +85,29 @@ namespace Key_Management_System.Services.AssignKeyService
                 return new Message("User not logged in or registered");
             }
 
+            if (checkRoom == null)
+            {
+                return new Message("room is not available");
+            }
             else
             {
                 var checkRequest = await _context.RequestKey.FirstOrDefaultAsync
-                    (check => check._Key == updateRoom.Room && check.Status == Status.Accept || check.Status == Status.ThirdParty && check.KeyCollectorId != claimUser.Id);
+                    (check => check._Key == checkRoom.Room && check.Status == Status.Accept || check.Status == Status.ThirdParty && check.KeyCollectorId != claimUser.Id);
                 if (checkRequest != null )
                 {
                     if (check == General.Accept)
                     {
-                        //checkRequest.Worker = worker;
                         checkRequest.Status = Status.AcceptSignOut;
                         checkRequest.Availability = CheckWith.InBoard;
                         checkRequest.ReturnedTime = DateTime.UtcNow;
-                        updateRoom.Status = KeyStatus.Available;
+                        checkRoom.Status = KeyStatus.Available;
                     }
 
                     else if (check == General.Decline)
                     {
-                        //checkRequest.Worker = worker;
                         checkRequest.Status = Status.DeclineSignOut;
 
-                        updateRoom.Status = KeyStatus.Unavailable;
+                        checkRoom.Status = KeyStatus.Unavailable;
                     }
 
                     checkRequest.GetWorkerId = claimUser.Id;
@@ -132,7 +126,6 @@ namespace Key_Management_System.Services.AssignKeyService
             {
                 return new List<KeyCollectorRequest>();
             }
-
 
             var getReponse = new KeyCollectorRequest
             {

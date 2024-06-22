@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Key_Management_System.Configuration;
 using Key_Management_System.Data;
 using Key_Management_System.DTOs;
 using Key_Management_System.DTOs.KeyDtos;
@@ -26,24 +27,28 @@ namespace Key_Management_System.Services.KeyService
 
         public async Task<Key> AddKey(AddKeyDto key, string adminId)
         {
-            //var checkAdmin = await _userManager.FindByEmailAsync("admin@gmail.com");
             var checkAdmin = await _userManager.FindByIdAsync(adminId);
 
-            var checkKey = await _context.Key.FirstOrDefaultAsync(check => check.Room == key.Room);
-
-            if (checkKey == null && checkAdmin is Worker)
+            if (checkAdmin != null)
             {
-                var dto = _mapper.Map<Key>(key);
-                dto.Id = Guid.NewGuid();
-                var addToDb = await _context.Key.AddAsync(dto);
-                await _context.SaveChangesAsync();
+                var checkKey = await _context.Key.FirstOrDefaultAsync(check => check.Room == key.Room);
+                if (checkKey == null && await _userManager.IsInRoleAsync(checkAdmin, ApplicationRoleNames.Admin))
+                {
+                    var dto = _mapper.Map<Key>(key);
+                    dto.Id = Guid.NewGuid();
+                    var addToDb = await _context.Key.AddAsync(dto);
+                    await _context.SaveChangesAsync();
 
-                return addToDb.Entity;
+                    return addToDb.Entity;
+                }
+                else
+                {
+                    throw new Exception("Room Number can't be null");
+                }
             }
-            
             else
             {
-                throw new InvalidOperationException("Key already exist in database or invalid inputs");
+                throw new ArgumentNullException("Check if you are logged in");
             }
         }
 
@@ -52,50 +57,71 @@ namespace Key_Management_System.Services.KeyService
         {
             var checkAdmin = await _userManager.FindByIdAsync(adminId);
 
-            if (checkAdmin != null && checkAdmin is Worker)
+            if (checkAdmin != null)
             {
-                var findKey = await _context.Key.FirstOrDefaultAsync(find => find.Room == oldName);
-
-                if (findKey != null)
+                if (await _userManager.IsInRoleAsync(checkAdmin, ApplicationRoleNames.Admin))
                 {
-                    findKey.Room = newName;
-                    _context.Key.Update(findKey);
+                    var findKey = await _context.Key.FirstOrDefaultAsync(find => find.Room == oldName);
 
-                    await _context.SaveChangesAsync();
+                    if (findKey != null)
+                    {
+                        findKey.Room = newName;
+                        _context.Key.Update(findKey);
+
+                        await _context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        throw new KeyNotFoundException("Key not found.");
+                    }
                 }
                 else
                 {
-                    throw new KeyNotFoundException("Key not found.");
+                    throw new UnauthorizedAccessException("You don't have the permission to perform this operation");
                 }
             }
             else
             {
-                throw new UnauthorizedAccessException("Only workers are allowed to update keys.");
+                throw new Exception("Check if you are logged in");
             }
         }
 
         public async Task DeleteKey(Guid keyId, string adminId)
         {
             var checkAdmin = await _userManager.FindByIdAsync(adminId);
-            var checkKey = await _context.Key.FindAsync(keyId);
 
-            if (checkKey is not null && checkAdmin is Worker)
+
+            if (checkAdmin != null)
             {
-                var associatedRequest = _context.RequestKey.Where(x => x.Key.Id == keyId);
-
-                foreach (var request in associatedRequest)
+                if (await _userManager.IsInRoleAsync(checkAdmin, ApplicationRoleNames.Admin))
                 {
-                    _context.RequestKey.Remove(request);
-                }
-                _context.Key.Remove(checkKey);
+                    var checkKey = await _context.Key.FindAsync(keyId);
+                    if (checkKey is not null)
+                    {
+                        var associatedRequest = _context.RequestKey.Where(x => x.Key.Id == keyId);
 
-                await _context.SaveChangesAsync();
+                        foreach (var request in associatedRequest)
+                        {
+                            _context.RequestKey.Remove(request);
+                        }
+                        _context.Key.Remove(checkKey);
+
+                        await _context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        throw new Exception("unable to remove");
+                    }
+                }
+                else
+                {
+                    throw new UnauthorizedAccessException("This user don't have the permission to perform this function");
+                }
             }
-            
             else
             {
-                throw new Exception("unable to remove");
-            }
+                throw new Exception("Check if you are logged in");
+            }         
         }
 
         public async Task<GetKeyDto> GetKey(Guid Id)
@@ -108,13 +134,11 @@ namespace Key_Management_System.Services.KeyService
 
                 return dto;
             }
-
             else
             {
                 throw new Exception($"Key with id - {Id} doesn't exist");
             }
         }
-
 
         public async Task<IEnumerable<GetKeyDto>> GetKeys(KeyStatus? status)
         {
@@ -142,7 +166,6 @@ namespace Key_Management_System.Services.KeyService
                 return new List<KeyWith>();
             }
 
-
             var getReponse = new KeyWith
             {
                 CollectorId = classRoom.KeyCollectorId,
@@ -154,6 +177,5 @@ namespace Key_Management_System.Services.KeyService
 
             return new List<KeyWith> { getReponse };
         }
-
     }
 }

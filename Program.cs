@@ -205,7 +205,6 @@ namespace Key_Management_System
 
                     var result = await usermanager.CreateAsync(AdminUser, config["Password"]);
 
-
                     if (!result.Succeeded)
                     {
                         throw new Exception("Unable to create user admin");
@@ -218,10 +217,7 @@ namespace Key_Management_System
                 {
                     await usermanager.AddToRoleAsync(checkAdminExistence, "Admin");
                 }
-
-
             }
-
 
             app.Run();
         }

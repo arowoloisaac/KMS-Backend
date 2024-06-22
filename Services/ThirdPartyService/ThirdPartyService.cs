@@ -1,4 +1,5 @@
-﻿using Key_Management_System.Data;
+﻿using Key_Management_System.Configuration;
+using Key_Management_System.Data;
 using Key_Management_System.DTOs.ThirdPartyDto;
 using Key_Management_System.Enums;
 using Key_Management_System.Models;
@@ -27,18 +28,24 @@ namespace Key_Management_System.Services.ThirdPartyService
 
             if (checkUser == null)
             {
-                return new Message("You have to login or register to the account to perform such task");
+                throw new Exception("You have to login or register to the account to perform such task");
             }
 
             else
             {
-                var initiateReturn = await _context.RequestKey.Where(check => check.KeyCollectorId == checkUser.Id && check.Availability == CheckWith.InHand).FirstOrDefaultAsync();
+                var initiateReturn = await _context.RequestKey
+                    .Where(check => check.KeyCollectorId == checkUser.Id && check.Availability == CheckWith.InHand).FirstOrDefaultAsync();
 
                 var checkRoom = await _context.Key.FirstOrDefaultAsync(check => check.Id == keyId && check.Status == KeyStatus.Unavailable);
+                if (checkRoom is null)
+                {
+                    throw new Exception("Key no available");
+                }
 
-                var checkAwaitingRequest = await _context.ThirdParty.Where(check => check.KeyId == keyId && check.Request == TPRequest.Pending).FirstOrDefaultAsync();    
+                var checkAwaitingRequest = await _context.ThirdParty
+                    .Where(check => check.KeyId == checkRoom.Id && check.Request == TPRequest.Pending).FirstOrDefaultAsync();    
 
-                if (initiateReturn is null && checkRoom is not null && checkAwaitingRequest is null)
+                if (initiateReturn is null && checkAwaitingRequest is null)
                 {
                     var addRequest = new ThirdParty
                     {
@@ -58,7 +65,7 @@ namespace Key_Management_System.Services.ThirdPartyService
 
                 else
                 {
-                    return new Message("You have an existing key with you, you will have to return it before you have access to get a new key");
+                    throw new Exception("You have an existing key with you, you will have to return it before you have access to get a new key");
                 }
             }
         }
@@ -68,21 +75,26 @@ namespace Key_Management_System.Services.ThirdPartyService
         {
             var currentHolder = await _userManager.FindByIdAsync(userId);
 
-            if (currentHolder is null)
+            if (currentHolder is null || !await _userManager.IsInRoleAsync(currentHolder, ApplicationRoleNames.Collector))
             {
-                return new Message("User not either logged in or registered");
+                return new Message("User not either logged in or role not matched");
             }
 
             else
             {
                 var validateHolder = await 
-                    _context.RequestKey.Where(validate => validate.KeyCollectorId == currentHolder.Id && validate.Availability == CheckWith.InHand)
+                    _context.RequestKey.Where(validate => validate.KeyCollectorId == currentHolder.Id
+                    && validate.Availability == CheckWith.InHand)
                     .FirstOrDefaultAsync();
+
+                var checkRoom = await _context.Key.Where(check => check.Id == keyId).FirstOrDefaultAsync();
 
                 if (validateHolder is not null)
                 {
                     var thirdPartyRequest = await 
-                        _context.ThirdParty.FirstOrDefaultAsync(check => check.KeyId == validateHolder.GetKeyId && check.Request == TPRequest.Pending);
+                        _context.ThirdParty.FirstOrDefaultAsync
+                        (check => check.KeyId == validateHolder.GetKeyId
+                        && check.Request == TPRequest.Pending);
 
                     if (thirdPartyRequest is not null)
                     {
@@ -101,12 +113,13 @@ namespace Key_Management_System.Services.ThirdPartyService
                             KeyCollectorId = thirdPartyRequest.KeyCollectorId,
                             Activity = thirdPartyRequest.Activity,
                             _Key = validateHolder._Key,
-                            Key = validateHolder.Key,
+                            Key = checkRoom,
                             Availability = CheckWith.InHand,
                             CollectionTime = DateTime.UtcNow,
                             AssignedTime = DateTime.UtcNow,
                             Status = Status.ThirdParty,
                             GetKeyId = validateHolder.GetKeyId,
+                            
                         };
                         await _context.RequestKey.AddAsync(addNewRequest);
 
@@ -135,7 +148,7 @@ namespace Key_Management_System.Services.ThirdPartyService
 
             if (claimUser == null)
             {
-                throw new Exception("not logged in");
+                throw new Exception("user not logged in");
             }
 
             else
@@ -147,7 +160,7 @@ namespace Key_Management_System.Services.ThirdPartyService
 
                 if (request == null && getKey == null)
                 {
-                    throw new Exception("no key");
+                    throw new Exception("No key request from a third party");
                 }
 
                 else
@@ -172,12 +185,8 @@ namespace Key_Management_System.Services.ThirdPartyService
 
             if (claimUser == null)
             {
-                throw new Exception("null");
+                throw new Exception("User is not logged or registered at the moment");
             }
-            /*if (claimUser == null)
-            {
-                throw new Exception("User not logged in");
-            }*/
 
             else
             {
@@ -210,7 +219,7 @@ namespace Key_Management_System.Services.ThirdPartyService
 
             if (currentHolder is null)
             {
-                return new Message("User either no logged in or registered");
+                throw new Exception("User either no logged in or registered");
             }
 
             else
@@ -218,7 +227,6 @@ namespace Key_Management_System.Services.ThirdPartyService
                 var validateHolder = await _context.RequestKey.Where(validate => validate.KeyCollectorId == currentHolder.Id && validate.Availability == CheckWith.InHand)
                     .FirstOrDefaultAsync();
 
-                
                 if (validateHolder is not null )
                 {
                     var thirdPartyRequest = await 
@@ -233,17 +241,14 @@ namespace Key_Management_System.Services.ThirdPartyService
 
                         return new Message("Collection rejected by current holder");
                     }
-
                     else
                     {
-                        throw new Exception("Check the key and validation");
+                        throw new Exception("Unable to perform this task");
                     }
-                    
                 }
-
                 else
                 {
-                    throw new Exception("You can't perform this task due to error");
+                    throw new Exception("You can't perform this task due to user not validated");
                 }
             }
         }

@@ -83,7 +83,7 @@ namespace Key_Management_System.Services.AuthenticationService
 
             else
             {
-                throw new Exception(" can't find user");
+                throw new ArgumentNullException(" can't find user");
             }
         }
 
@@ -93,7 +93,7 @@ namespace Key_Management_System.Services.AuthenticationService
 
             if (users == null)
             {
-                throw new InvalidOperationException("User null");
+                throw new UnauthorizedAccessException("User is null");
             }
 
             var response = users.Select( users => new UsersDto 

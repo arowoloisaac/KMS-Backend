@@ -49,7 +49,7 @@ namespace Key_Management_System.Controllers
                     return Ok(await _authenticationService.AddRole(userId, role, claimUser.Value));
                 }
 
-                else { return BadRequest(); }
+                else { return Unauthorized("user unauthorized"); }
 
             }
             catch (Exception ex)
@@ -71,7 +71,7 @@ namespace Key_Management_System.Controllers
                     return Ok(await _authenticationService.RemoveRole(userId, role, user.Value));
                 }
 
-                else { return BadRequest(); }
+                else { return Unauthorized("User unauthorized"); }
             }
             catch (Exception ex)
             {

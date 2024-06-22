@@ -2,6 +2,7 @@
 using Key_Management_System.Configuration;
 using Key_Management_System.DTOs.UserDto.WorkerDto;
 using Key_Management_System.Models;
+using Key_Management_System.Services.UserServices.TokenService.TokenGenerator;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -17,43 +18,19 @@ namespace Key_Management_System.Services.UserServices.WorkerService
     {
         private UserManager<User> _workerManager;
         private readonly JwtBearerTokenSettings _bearerTokenSettings;
+        private readonly ITokenGenerator _tokenGenerator;
 
-        public WorkerService(UserManager<User> workerManager, IOptions<JwtBearerTokenSettings> jwtTokenOptions)
+        public WorkerService(UserManager<User> workerManager, IOptions<JwtBearerTokenSettings> jwtTokenOptions, ITokenGenerator tokenGenerator)
         {
             _workerManager = workerManager;
             _bearerTokenSettings = jwtTokenOptions.Value;
+            _tokenGenerator = tokenGenerator;
         }
 
 
         public async Task<TokenResponse> RegisterWorker(RegisterWorkerDto workerDto)
         {
             var existingUser = await _workerManager.FindByEmailAsync(workerDto.Email);
-
-            /*var checkAdminExistence = await _workerManager.FindByNameAsync("Administrator");
-
-            if (checkAdminExistence == null)
-            {
-                var AdminUser = new Worker
-                {
-                    FirstName = "Administrator",
-                    Email = "admin@gmail.com",
-                    UserName = "Administrator",
-                    Password = "example123"
-                };
-
-                var result = await _workerManager.CreateAsync(AdminUser, "example123");
-
-                if (!result.Succeeded)
-                {
-                    throw new Exception("Unable to create user admin");
-                }
-                else
-                {
-                    var token = GenerateToken(AdminUser);
-                    return new TokenResponse(token);
-                }
-            }*/
-
 
             if (existingUser != null)
             {
@@ -84,41 +61,17 @@ namespace Key_Management_System.Services.UserServices.WorkerService
                     var getCreatedUser = await _workerManager.FindByEmailAsync(workerDto.Email);
                     if (getCreatedUser == null)
                     {
-                        return null;
+                        throw new Exception("Can't find the user with email");
                     }
 
                     else
                     {
-                        var token = GenerateToken(getCreatedUser);
+                        var token = _tokenGenerator.GenerateToken(getCreatedUser);
                         return new TokenResponse(token);
                     }
                 }
             }
 
-        }
-
-        private string GenerateToken(User user)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_bearerTokenSettings.SecretKey);
-
-            var descriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Authentication, user.Id.ToString()),
-                }),
-                Expires = DateTime.UtcNow.AddSeconds(_bearerTokenSettings.ExpiryTimeInSeconds),
-                SigningCredentials =
-                    new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-                Audience = _bearerTokenSettings.Audience,
-                Issuer = _bearerTokenSettings.Issuer,
-            };
-
-            var token = tokenHandler.CreateToken(descriptor);
-
-            return tokenHandler.WriteToken(token);
         }
     }
 }

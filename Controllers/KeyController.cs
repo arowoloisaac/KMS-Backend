@@ -44,6 +44,10 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                if (claimUser == null)
+                {
+                    return Unauthorized("user not authorized");
+                }
                 var addKey = await _keyService.AddKey(key, claimUser.Value);
                 return Ok(addKey);
             }
@@ -63,6 +67,10 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                if (claimUser == null)
+                {
+                    return Unauthorized("user not authorized");
+                }
                 await _keyService.UpdateKey(oldName, newName, claimUser.Value);
                 return Ok("Key updated");
             }
@@ -81,6 +89,10 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                if (claimUser == null)
+                {
+                    return Unauthorized("user not authorized");
+                }
                 await _keyService.DeleteKey(keyId, claimUser.Value);
                 return Ok("key removed from database");
             }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Key_Management_System.Configuration;
 using Key_Management_System.Data;
 using Key_Management_System.DTOs;
 using Key_Management_System.DTOs.KeyDtos;
@@ -27,43 +28,49 @@ namespace Key_Management_System.Services.RequestKeyService
         {
             var claimUser = await _userManager.FindByIdAsync(userId);
 
-            var checkRoom =  await _context.Key.Where(check => check.Id == keyId && check.Status == KeyStatus.Available).FirstOrDefaultAsync();
-
-            
-            if (claimUser == null)
+            if (claimUser == null || !await _userManager.IsInRoleAsync(claimUser, ApplicationRoleNames.Collector))
             {
-                return new Message("No user is logged in");
+                throw new Exception("No user is logged in or User does not have the correct role");
             }
 
             else
             {
-                var initiateReturn = await _context.RequestKey.Where(check => check.KeyCollectorId == claimUser.Id && check.Availability == CheckWith.InHand).FirstOrDefaultAsync();
-                if ( initiateReturn is null && checkRoom is not null )
+                var initiateReturn = await _context.RequestKey
+                    .Where(check => check.KeyCollectorId == claimUser.Id && check.Availability == CheckWith.InHand || check.Status == Status.Pending).FirstOrDefaultAsync();
+                
+                if ( initiateReturn is null)
                 {
-                    var addRequest = new RequestKey
+                    var checkRoom = await _context.Key.Where(check => check.Id == keyId && check.Status == KeyStatus.Available).FirstOrDefaultAsync();
+                    if (checkRoom is not null)
                     {
-                        Id = Guid.NewGuid(),
-                        Activity = activity,
-                        Availability = CheckWith.InBoard,
-                        _Key = checkRoom.Room,
-                        CollectionTime = DateTime.UtcNow,
-                        Status = Status.Pending,
-                        KeyCollectorId = claimUser.Id,
-                        Key = checkRoom,
-                        GetKeyId = checkRoom.Id
-                    };
-                    await _context.RequestKey.AddAsync(addRequest);
+                        var addRequest = new RequestKey
+                        {
+                            Id = Guid.NewGuid(),
+                            Activity = activity,
+                            Availability = CheckWith.InBoard,
+                            _Key = checkRoom.Room,
+                            CollectionTime = DateTime.UtcNow,
+                            Status = Status.Pending,
+                            KeyCollectorId = claimUser.Id,
+                            Key = checkRoom,
+                            GetKeyId = checkRoom.Id
+                        };
+                        await _context.RequestKey.AddAsync(addRequest);
 
-                    checkRoom.Status = KeyStatus.PendingAcceptance;
-                    
-                    await _context.SaveChangesAsync();
+                        checkRoom.Status = KeyStatus.PendingAcceptance;
 
-                    return new Message("Key request sent to the worker, await your reponse to take key");
+                        await _context.SaveChangesAsync();
+
+                        return new Message("Key request sent to the worker, await your reponse to take key");
+                    }
+                    else
+                    {
+                        throw new Exception("Key not available");
+                    }
                 }
-
                 else
                 {
-                    return new Message("You have an existing key with you, you will have to return it before you have access to get a new key");
+                    throw new Exception("You have an existing key with you, you will have to return it before you have access to get a new key");
                 }
             }
         }
@@ -72,8 +79,6 @@ namespace Key_Management_System.Services.RequestKeyService
         {
             var claimUser = await _userManager.FindByIdAsync(userId);
 
-            var initiateReturn = await _context.RequestKey.Where(check => check.KeyCollectorId == claimUser.Id && check.Availability == CheckWith.InHand).FirstOrDefaultAsync();
-
             if (claimUser == null)
             {
                 return new Message("There is no user logged in");
@@ -81,6 +86,9 @@ namespace Key_Management_System.Services.RequestKeyService
 
             else
             {
+                var initiateReturn = await _context.RequestKey
+                    .Where(check => check.KeyCollectorId == claimUser.Id && check.Availability == CheckWith.InHand).FirstOrDefaultAsync();
+
                 if (initiateReturn != null)
                 {
                     initiateReturn.ReturnedTime = DateTime.UtcNow;
@@ -104,12 +112,13 @@ namespace Key_Management_System.Services.RequestKeyService
 
             if (claimUser == null)
             {
-                throw new Exception("User is null");
+                throw new Exception("User is not logged in or registered");
             }
 
             else
             {
-                var getKey = await _context.RequestKey.FirstOrDefaultAsync(checkOne => checkOne.KeyCollectorId == claimUser.Id && checkOne.Availability == CheckWith.InHand || checkOne.Status == Status.Pending);
+                var getKey = await _context.RequestKey
+                    .FirstOrDefaultAsync(checkOne => checkOne.KeyCollectorId == claimUser.Id && checkOne.Availability == CheckWith.InHand || checkOne.Status == Status.Pending);
 
                 if (getKey != null)
                 {
@@ -118,11 +127,9 @@ namespace Key_Management_System.Services.RequestKeyService
 
                 else
                 {
-                    throw new Exception("no key");
+                    throw new Exception("You don't have a key in hand at the moment");
                 }
             }
-            
-            throw new NotImplementedException();
         }
     }
 }

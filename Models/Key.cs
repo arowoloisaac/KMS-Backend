@@ -12,12 +12,8 @@ namespace Key_Management_System.Models
 
         public ICollection<RequestKey>? RequestKeys { get; set; }
 
-        public ICollection<ThirdParty>? ThirdParties { get; set; }
+        //public ICollection<ThirdParty>? ThirdParties { get; set; }
 
-        //foreign key
-        //public Guid WorkerId { get; set; }  
-
-        //public Worker? Worker { get; set; }
 
     }
 }

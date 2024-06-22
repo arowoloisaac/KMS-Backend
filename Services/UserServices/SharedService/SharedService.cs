@@ -33,7 +33,7 @@ namespace Key_Management_System.Services.UserServices.SharedService
 
             if (user == null)
             {
-                throw new InvalidOperationException("Login Failed");
+                throw new InvalidOperationException("Login Fail");
             }
 
             var token = _tokenGenerator.GenerateToken(user, await _userManager.GetRolesAsync(user));
@@ -48,7 +48,7 @@ namespace Key_Management_System.Services.UserServices.SharedService
 
             if (identifyUser == null)
             {
-                return null;
+                throw new Exception("Can't find user");
             }
 
             var profile = new ProfileDto
@@ -68,7 +68,7 @@ namespace Key_Management_System.Services.UserServices.SharedService
 
             if ( identifyUser == null)
             {
-                throw new Exception("No user logged in");
+                throw new Exception("User is not logged in or registered");
             }
 
             else
@@ -97,7 +97,7 @@ namespace Key_Management_System.Services.UserServices.SharedService
 
                 return result == PasswordVerificationResult.Success ? identifyUser : null;
             }
-            return null;
+            throw new Exception("Can't find user");
         }
     }
 }

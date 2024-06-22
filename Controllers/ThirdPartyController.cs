@@ -33,9 +33,11 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
-
+                if (claimUser == null)
+                {
+                    return Unauthorized("User is not authenticated.");
+                }
                 var response = await _service.SendRequest(keyId, activity, claimUser.Value);
-
                 return Ok(response);
             }
             catch (Exception ex)
@@ -52,9 +54,11 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
-
+                if (claimUser == null)
+                {
+                    return Unauthorized("User is not authenticated.");
+                }
                 var response = await _service.AcceptRequest(keyId, claimUser.Value);
-
                 return Ok(response);
             }
             catch (Exception ex)
@@ -71,9 +75,11 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
-
+                if (claimUser == null)
+                {
+                    return Unauthorized("User is not authenticated.");
+                }
                 var response = await _service.GetRequest(claimUser.Value);
-
                 return Ok(response);
             }
             catch (Exception ex)
@@ -90,9 +96,11 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
-
+                if (claimUser == null)
+                {
+                    return Unauthorized("User is not authenticated.");
+                }
                 var response = await _service.Notifier(claimUser.Value);
-
                 return Ok(response);
             }
             catch(Exception ex)
@@ -109,12 +117,14 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                if (claimUser == null)
+                {
+                    return Unauthorized("User is not authenticated.");
+                }
 
                 var response = await _service.RejectRequest(keyId, claimUser.Value);
-
                 return Ok(response);
             }
-            
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);

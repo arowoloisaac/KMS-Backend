@@ -32,7 +32,12 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
-                //await _requestKeyService.CollectKey(key, activity, claimUser.Value);
+
+                if(claimUser == null)
+                {
+                    return Unauthorized("User is not authenticated.");
+                }
+
                 return Ok(await _requestKeyService.CollectKey(keyId, activity, claimUser.Value));
             }
             catch (Exception ex)
@@ -54,6 +59,10 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                if (claimUser == null)
+                {
+                    return Unauthorized("User is not authenticated.");
+                }
                 return Ok(await _requestKeyService.ReturnKey(claimUser.Value));
             }
             catch (Exception e)
@@ -70,6 +79,10 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
+                if (claimUser == null)
+                {
+                    return Unauthorized("User is not authenticated.");
+                }
                 return Ok(await _requestKeyService.GetView(claimUser.Value));
             }
             catch (Exception e)

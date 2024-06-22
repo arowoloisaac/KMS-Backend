@@ -3,76 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\controllers\\keycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:controllers\\keycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\workerservice\\workerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\workerservice\\workerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\tokenservice\\tokengenerator\\tokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\tokenservice\\tokengenerator\\tokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\tokenservice\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\tokenservice\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\models\\thirdparty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:models\\thirdparty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\controllers\\assignkeycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:controllers\\assignkeycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\sharedservice\\sharedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\sharedservice\\sharedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\collectorservice\\icollectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\collectorservice\\icollectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\sharedservice\\isharedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\sharedservice\\isharedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\configuration\\applicationrolenames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:configuration\\applicationrolenames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\collectorservice\\collectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\collectorservice\\collectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\tokenservice\\tokengenerator\\itokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\tokenservice\\tokengenerator\\itokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\tokenservice\\itokenstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\tokenservice\\itokenstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\tokenservice\\tokengenerator\\tokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\tokenservice\\tokengenerator\\tokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\configuration\\automapperconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:configuration\\automapperconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\collectorservice\\icollectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\collectorservice\\icollectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\workerservice\\iworkerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\workerservice\\iworkerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\configuration\\jwtbearertokensettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:configuration\\jwtbearertokensettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\sharedservice\\sharedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\sharedservice\\sharedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\key-management-system.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:key-management-system.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\sharedservice\\isharedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\sharedservice\\isharedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\thirdpartyservice\\thirdpartyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\thirdpartyservice\\thirdpartyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\requestkeyservice\\requestkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\requestkeyservice\\requestkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\keyservice\\keyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\keyservice\\keyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\authenticationservice\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -83,51 +63,43 @@
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\authenticationservice\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\collectorservice\\collectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\collectorservice\\collectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\thirdpartyservice\\thirdpartyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\thirdpartyservice\\thirdpartyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\dtos\\thirdpartydto\\thirdpartyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:dtos\\thirdpartydto\\thirdpartyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\thirdpartyservice\\ithirdpartyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\thirdpartyservice\\ithirdpartyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arowo\\AppData\\Local\\SourceServer\\00af673b54172157aebb6c46b8f8b14c315ef0371a49839f4a9161cb02665b63\\Services\\ThirdPartyService\\ThirdPartyService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\assignkeyservice\\assignkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\assignkeyservice\\assignkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\dtos\\authenticationdto\\usersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:dtos\\authenticationdto\\usersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\keyservice\\keyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\keyservice\\keyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\keyservice\\ikeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\keyservice\\ikeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\assignkeyservice\\iassignkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\assignkeyservice\\iassignkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\models\\key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:models\\key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\requestkeyservice\\irequestkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\requestkeyservice\\irequestkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\controllers\\keycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:controllers\\keycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\controllers\\collectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:controllers\\collectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\controllers\\workercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:controllers\\workercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\controllers\\assignkeycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:controllers\\assignkeycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arowo\\AppData\\Local\\SourceServer\\d874b675caeba4112599f8c49fe7c01e6aa3bda93deecfd84a1c855999841ed9\\Services\\RequestKeyService\\RequestKeyService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\models\\requestkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:models\\requestkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\controllers\\thirdpartycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -142,8 +114,59 @@
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:controllers\\requestkeycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\models\\requestkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:models\\requestkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\thirdpartyservice\\ithirdpartyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\thirdpartyservice\\ithirdpartyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\tokenservice\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\tokenservice\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\models\\thirdparty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:models\\thirdparty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\configuration\\applicationrolenames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:configuration\\applicationrolenames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\tokenservice\\itokenstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\tokenservice\\itokenstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\configuration\\automapperconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:configuration\\automapperconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\key-management-system.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:key-management-system.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\dtos\\thirdpartydto\\thirdpartyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:dtos\\thirdpartydto\\thirdpartyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arowo\\AppData\\Local\\SourceServer\\00af673b54172157aebb6c46b8f8b14c315ef0371a49839f4a9161cb02665b63\\Services\\ThirdPartyService\\ThirdPartyService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\dtos\\authenticationdto\\usersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:dtos\\authenticationdto\\usersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\keyservice\\ikeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\keyservice\\ikeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\controllers\\workercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:controllers\\workercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -156,18 +179,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\dtos\\keydtos\\viewusage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:dtos\\keydtos\\viewusage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\requestkeyservice\\requestkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\requestkeyservice\\requestkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\requestkeyservice\\irequestkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\requestkeyservice\\irequestkeyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\models\\key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:models\\key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -254,20 +265,12 @@
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:dtos\\userdto\\keycollectordto\\registercollectordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\workerservice\\workerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\workerservice\\workerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\dtos\\userdto\\workerdto\\registerworkerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:dtos\\userdto\\workerdto\\registerworkerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\enums\\tprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:enums\\tprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\services\\userservices\\workerservice\\iworkerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:services\\userservices\\workerservice\\iworkerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\dtos\\keydtos\\addkeydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -328,6 +331,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\migrations\\20240607065004_updateworkerbyrename.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:migrations\\20240607065004_updateworkerbyrename.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|c:\\users\\arowo\\source\\repos\\kms-backend\\migrations\\20240614101909_initialfucker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B623844-BAF9-4A11-92DD-44FE2F68C817}|Key-Management-System.csproj|solutionrelative:migrations\\20240614101909_initialfucker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -337,7 +344,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -364,99 +371,51 @@
               "Name": "ST:2087539004:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\TokenService.cs",
-              "RelativeDocumentMoniker": "Services\\UserServices\\TokenService\\TokenService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\TokenService.cs",
-              "RelativeToolTip": "Services\\UserServices\\TokenService\\TokenService.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAADQAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T06:36:40.761Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "SharedService.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\SharedService\\SharedService.cs",
               "RelativeDocumentMoniker": "Services\\UserServices\\SharedService\\SharedService.cs",
               "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\SharedService\\SharedService.cs",
               "RelativeToolTip": "Services\\UserServices\\SharedService\\SharedService.cs",
-              "ViewState": "AQIAAFEAAAAAAAAAAAAiwFkAAAA/AAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAiwCMAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T01:26:59.859Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TokenGenerator.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\TokenGenerator\\TokenGenerator.cs",
               "RelativeDocumentMoniker": "Services\\UserServices\\TokenService\\TokenGenerator\\TokenGenerator.cs",
               "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\TokenGenerator\\TokenGenerator.cs",
               "RelativeToolTip": "Services\\UserServices\\TokenService\\TokenGenerator\\TokenGenerator.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAiwEcAAAAyAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAowDIAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-10T05:29:31.516Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-22T02:43:59.986Z",
+              "DocumentIndex": 0,
+              "Title": "WorkerService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\WorkerService\\WorkerService.cs",
+              "RelativeDocumentMoniker": "Services\\UserServices\\WorkerService\\WorkerService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\WorkerService\\WorkerService.cs",
+              "RelativeToolTip": "Services\\UserServices\\WorkerService\\WorkerService.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEQAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T02:43:42.329Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AssignKeyController.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\AssignKeyController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AssignKeyController.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\AssignKeyController.cs",
-              "RelativeToolTip": "Controllers\\AssignKeyController.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAAACUAAABdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:25:58.242Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ThirdParty.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\ThirdParty.cs",
-              "RelativeDocumentMoniker": "Models\\ThirdParty.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\ThirdParty.cs",
-              "RelativeToolTip": "Models\\ThirdParty.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T10:45:37.71Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "KeyController.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\KeyController.cs",
-              "RelativeDocumentMoniker": "Controllers\\KeyController.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\KeyController.cs",
-              "RelativeToolTip": "Controllers\\KeyController.cs",
-              "ViewState": "AQIAAE8AAAAAAAAAAAAAADAAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T02:42:46.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "ICollectorService.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\CollectorService\\ICollectorService.cs",
               "RelativeDocumentMoniker": "Services\\UserServices\\CollectorService\\ICollectorService.cs",
@@ -469,7 +428,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
+              "Title": "ITokenGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\TokenGenerator\\ITokenGenerator.cs",
+              "RelativeDocumentMoniker": "Services\\UserServices\\TokenService\\TokenGenerator\\ITokenGenerator.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\TokenGenerator\\ITokenGenerator.cs",
+              "RelativeToolTip": "Services\\UserServices\\TokenService\\TokenGenerator\\ITokenGenerator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T05:29:16.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "JwtBearerTokenSettings.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\JwtBearerTokenSettings.cs",
+              "RelativeDocumentMoniker": "Configuration\\JwtBearerTokenSettings.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\JwtBearerTokenSettings.cs",
+              "RelativeToolTip": "Configuration\\JwtBearerTokenSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T10:30:41.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "KeyService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\KeyService\\KeyService.cs",
+              "RelativeDocumentMoniker": "Services\\KeyService\\KeyService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\KeyService\\KeyService.cs",
+              "RelativeToolTip": "Services\\KeyService\\KeyService.cs",
+              "ViewState": "AQIAAI4AAAAAAAAAAAAAALIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T02:43:26.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AuthenticationService\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthenticationService\\AuthenticationService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AuthenticationService\\AuthenticationService.cs",
+              "RelativeToolTip": "Services\\AuthenticationService\\AuthenticationService.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACUAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T14:21:21.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAHUAAAAAAAAAAAAowJIAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T16:08:44.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CollectorService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\CollectorService\\CollectorService.cs",
+              "RelativeDocumentMoniker": "Services\\UserServices\\CollectorService\\CollectorService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\CollectorService\\CollectorService.cs",
+              "RelativeToolTip": "Services\\UserServices\\CollectorService\\CollectorService.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADoAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T02:43:37.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IWorkerService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\WorkerService\\IWorkerService.cs",
+              "RelativeDocumentMoniker": "Services\\UserServices\\WorkerService\\IWorkerService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\WorkerService\\IWorkerService.cs",
+              "RelativeToolTip": "Services\\UserServices\\WorkerService\\IWorkerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T02:47:52.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ISharedService.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\SharedService\\ISharedService.cs",
               "RelativeDocumentMoniker": "Services\\UserServices\\SharedService\\ISharedService.cs",
@@ -482,137 +532,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ApplicationRoleNames.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\ApplicationRoleNames.cs",
-              "RelativeDocumentMoniker": "Configuration\\ApplicationRoleNames.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\ApplicationRoleNames.cs",
-              "RelativeToolTip": "Configuration\\ApplicationRoleNames.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T02:10:40.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
+              "Title": "ThirdPartyService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\ThirdPartyService\\ThirdPartyService.cs",
+              "RelativeDocumentMoniker": "Services\\ThirdPartyService\\ThirdPartyService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\ThirdPartyService\\ThirdPartyService.cs",
+              "RelativeToolTip": "Services\\ThirdPartyService\\ThirdPartyService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGgAAABjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T04:03:55.936Z",
+              "WhenOpened": "2024-06-22T07:05:39.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAAADcAAAA/AAAA",
+              "Title": "RequestKeyService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\RequestKeyService\\RequestKeyService.cs",
+              "RelativeDocumentMoniker": "Services\\RequestKeyService\\RequestKeyService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\RequestKeyService\\RequestKeyService.cs",
+              "RelativeToolTip": "Services\\RequestKeyService\\RequestKeyService.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAAHIAAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T16:08:44.245Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ITokenGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\TokenGenerator\\ITokenGenerator.cs",
-              "RelativeDocumentMoniker": "Services\\UserServices\\TokenService\\TokenGenerator\\ITokenGenerator.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\TokenGenerator\\ITokenGenerator.cs",
-              "RelativeToolTip": "Services\\UserServices\\TokenService\\TokenGenerator\\ITokenGenerator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T05:29:16.428Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ITokenStorageService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\ITokenStorageService.cs",
-              "RelativeDocumentMoniker": "Services\\UserServices\\TokenService\\ITokenStorageService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\ITokenStorageService.cs",
-              "RelativeToolTip": "Services\\UserServices\\TokenService\\ITokenStorageService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T10:30:20.099Z",
+              "WhenOpened": "2024-04-22T03:17:53.712Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "AutoMapperConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\AutoMapperConfiguration.cs",
-              "RelativeDocumentMoniker": "Configuration\\AutoMapperConfiguration.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\AutoMapperConfiguration.cs",
-              "RelativeToolTip": "Configuration\\AutoMapperConfiguration.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T10:30:49.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "JwtBearerTokenSettings.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\JwtBearerTokenSettings.cs",
-              "RelativeDocumentMoniker": "Configuration\\JwtBearerTokenSettings.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\JwtBearerTokenSettings.cs",
-              "RelativeToolTip": "Configuration\\JwtBearerTokenSettings.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T10:30:41.779Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABAAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T01:59:18.802Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Key-Management-System.csproj",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
-              "RelativeDocumentMoniker": "Key-Management-System.csproj",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
-              "RelativeToolTip": "Key-Management-System.csproj",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-03T06:45:12.485Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AuthenticationService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AuthenticationService\\AuthenticationService.cs",
-              "RelativeDocumentMoniker": "Services\\AuthenticationService\\AuthenticationService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AuthenticationService\\AuthenticationService.cs",
-              "RelativeToolTip": "Services\\AuthenticationService\\AuthenticationService.cs",
-              "ViewState": "AQIAAG8AAAAAAAAAAAAAAG8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T02:00:19.353Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
               "Title": "IAuthenticationService.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AuthenticationService\\IAuthenticationService.cs",
               "RelativeDocumentMoniker": "Services\\AuthenticationService\\IAuthenticationService.cs",
@@ -625,37 +571,297 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ThirdPartyService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\ThirdPartyService\\ThirdPartyService.cs",
-              "RelativeDocumentMoniker": "Services\\ThirdPartyService\\ThirdPartyService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\ThirdPartyService\\ThirdPartyService.cs",
-              "RelativeToolTip": "Services\\ThirdPartyService\\ThirdPartyService.cs",
-              "ViewState": "AQIAAGwAAAAAAAAAAAAAACoAAAAUAAAA",
+              "DocumentIndex": 15,
+              "Title": "AssignKeyService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AssignKeyService\\AssignKeyService.cs",
+              "RelativeDocumentMoniker": "Services\\AssignKeyService\\AssignKeyService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AssignKeyService\\AssignKeyService.cs",
+              "RelativeToolTip": "Services\\AssignKeyService\\AssignKeyService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-26T03:23:01.329Z",
+              "WhenOpened": "2024-04-23T10:25:20.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IAssignKeyService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AssignKeyService\\IAssignKeyService.cs",
+              "RelativeDocumentMoniker": "Services\\AssignKeyService\\IAssignKeyService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AssignKeyService\\IAssignKeyService.cs",
+              "RelativeToolTip": "Services\\AssignKeyService\\IAssignKeyService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T10:25:34.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IRequestKeyService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\RequestKeyService\\IRequestKeyService.cs",
+              "RelativeDocumentMoniker": "Services\\RequestKeyService\\IRequestKeyService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\RequestKeyService\\IRequestKeyService.cs",
+              "RelativeToolTip": "Services\\RequestKeyService\\IRequestKeyService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T14:10:28.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "KeyController.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\KeyController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KeyController.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\KeyController.cs",
+              "RelativeToolTip": "Controllers\\KeyController.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAADEAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T02:42:46.521Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
-              "Title": "CollectorService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\CollectorService\\CollectorService.cs",
-              "RelativeDocumentMoniker": "Services\\UserServices\\CollectorService\\CollectorService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\CollectorService\\CollectorService.cs",
-              "RelativeToolTip": "Services\\UserServices\\CollectorService\\CollectorService.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAAAEAAAAAVAAAA",
+              "Title": "CollectorController.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\CollectorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CollectorController.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\CollectorController.cs",
+              "RelativeToolTip": "Controllers\\CollectorController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACQAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T02:43:37.039Z",
+              "WhenOpened": "2024-04-24T01:36:25.534Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAADMAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T01:59:18.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "SharedController.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\SharedController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SharedController.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\SharedController.cs",
+              "RelativeToolTip": "Controllers\\SharedController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAD0AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T09:13:25.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "IThirdPartyService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\ThirdPartyService\\IThirdPartyService.cs",
+              "RelativeDocumentMoniker": "Services\\ThirdPartyService\\IThirdPartyService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\ThirdPartyService\\IThirdPartyService.cs",
+              "RelativeToolTip": "Services\\ThirdPartyService\\IThirdPartyService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T03:22:32.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Key.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\Key.cs",
+              "RelativeDocumentMoniker": "Models\\Key.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\Key.cs",
+              "RelativeToolTip": "Models\\Key.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T10:35:43.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "RequestKeyService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\AppData\\Local\\SourceServer\\d874b675caeba4112599f8c49fe7c01e6aa3bda93deecfd84a1c855999841ed9\\Services\\RequestKeyService\\RequestKeyService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\d874b675caeba4112599f8c49fe7c01e6aa3bda93deecfd84a1c855999841ed9\\Services\\RequestKeyService\\RequestKeyService.cs",
+              "ToolTip": "C:\\Users\\arowo\\AppData\\Local\\SourceServer\\d874b675caeba4112599f8c49fe7c01e6aa3bda93deecfd84a1c855999841ed9\\Services\\RequestKeyService\\RequestKeyService.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\d874b675caeba4112599f8c49fe7c01e6aa3bda93deecfd84a1c855999841ed9\\Services\\RequestKeyService\\RequestKeyService.cs [Read Only]",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAowBwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T06:55:56.228Z",
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 22,
+              "Title": "AssignKeyController.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\AssignKeyController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AssignKeyController.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\AssignKeyController.cs",
+              "RelativeToolTip": "Controllers\\AssignKeyController.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAD4AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T10:25:58.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ThirdPartyController.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\ThirdPartyController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ThirdPartyController.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\ThirdPartyController.cs",
+              "RelativeToolTip": "Controllers\\ThirdPartyController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAAACoAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T12:58:55.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "RequestKey.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\RequestKey.cs",
+              "RelativeDocumentMoniker": "Models\\RequestKey.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\RequestKey.cs",
+              "RelativeToolTip": "Models\\RequestKey.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T01:17:15.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "RequestKeyController.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\RequestKeyController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RequestKeyController.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\RequestKeyController.cs",
+              "RelativeToolTip": "Controllers\\RequestKeyController.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAD0AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T03:18:30.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-22T02:43:59.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "20240614101909_initialFucker.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240614101909_initialFucker.cs",
+              "RelativeDocumentMoniker": "Migrations\\20240614101909_initialFucker.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240614101909_initialFucker.cs",
+              "RelativeToolTip": "Migrations\\20240614101909_initialFucker.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-14T10:19:10.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\TokenService.cs",
+              "RelativeDocumentMoniker": "Services\\UserServices\\TokenService\\TokenService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\TokenService.cs",
+              "RelativeToolTip": "Services\\UserServices\\TokenService\\TokenService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAADQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T06:36:40.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ThirdParty.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\ThirdParty.cs",
+              "RelativeDocumentMoniker": "Models\\ThirdParty.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\ThirdParty.cs",
+              "RelativeToolTip": "Models\\ThirdParty.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T10:45:37.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ApplicationRoleNames.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\ApplicationRoleNames.cs",
+              "RelativeDocumentMoniker": "Configuration\\ApplicationRoleNames.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\ApplicationRoleNames.cs",
+              "RelativeToolTip": "Configuration\\ApplicationRoleNames.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:10:40.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T04:03:55.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ITokenStorageService.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\ITokenStorageService.cs",
+              "RelativeDocumentMoniker": "Services\\UserServices\\TokenService\\ITokenStorageService.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\TokenService\\ITokenStorageService.cs",
+              "RelativeToolTip": "Services\\UserServices\\TokenService\\ITokenStorageService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T10:30:20.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "AutoMapperConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\AutoMapperConfiguration.cs",
+              "RelativeDocumentMoniker": "Configuration\\AutoMapperConfiguration.cs",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Configuration\\AutoMapperConfiguration.cs",
+              "RelativeToolTip": "Configuration\\AutoMapperConfiguration.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T10:30:49.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Key-Management-System.csproj",
+              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
+              "RelativeDocumentMoniker": "Key-Management-System.csproj",
+              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Key-Management-System.csproj",
+              "RelativeToolTip": "Key-Management-System.csproj",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-03T06:45:12.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
               "Title": "ThirdPartyRequest.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\ThirdPartyDto\\ThirdPartyRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\ThirdPartyDto\\ThirdPartyRequest.cs",
@@ -667,7 +873,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 41,
               "Title": "WorkerController.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\WorkerController.cs",
               "RelativeDocumentMoniker": "Controllers\\WorkerController.cs",
@@ -679,7 +885,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 39,
               "Title": "UsersDto.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\AuthenticationDto\\UsersDto.cs",
               "RelativeDocumentMoniker": "DTOs\\AuthenticationDto\\UsersDto.cs",
@@ -691,31 +897,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "RequestKey.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\RequestKey.cs",
-              "RelativeDocumentMoniker": "Models\\RequestKey.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\RequestKey.cs",
-              "RelativeToolTip": "Models\\RequestKey.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T01:17:15.4Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "AssignKeyService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AssignKeyService\\AssignKeyService.cs",
-              "RelativeDocumentMoniker": "Services\\AssignKeyService\\AssignKeyService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AssignKeyService\\AssignKeyService.cs",
-              "RelativeToolTip": "Services\\AssignKeyService\\AssignKeyService.cs",
-              "ViewState": "AQIAAHcAAAAAAAAAAAAAAJMAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:25:20.089Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 40,
               "Title": "IkeyService.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\KeyService\\IkeyService.cs",
               "RelativeDocumentMoniker": "Services\\KeyService\\IkeyService.cs",
@@ -727,19 +909,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "IThirdPartyService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\ThirdPartyService\\IThirdPartyService.cs",
-              "RelativeDocumentMoniker": "Services\\ThirdPartyService\\IThirdPartyService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\ThirdPartyService\\IThirdPartyService.cs",
-              "RelativeToolTip": "Services\\ThirdPartyService\\IThirdPartyService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-26T03:22:32.613Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 38,
               "Title": "ThirdPartyService.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\AppData\\Local\\SourceServer\\00af673b54172157aebb6c46b8f8b14c315ef0371a49839f4a9161cb02665b63\\Services\\ThirdPartyService\\ThirdPartyService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\00af673b54172157aebb6c46b8f8b14c315ef0371a49839f4a9161cb02665b63\\Services\\ThirdPartyService\\ThirdPartyService.cs",
@@ -752,79 +922,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "IAssignKeyService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AssignKeyService\\IAssignKeyService.cs",
-              "RelativeDocumentMoniker": "Services\\AssignKeyService\\IAssignKeyService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\AssignKeyService\\IAssignKeyService.cs",
-              "RelativeToolTip": "Services\\AssignKeyService\\IAssignKeyService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:25:34.935Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "KeyService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\KeyService\\KeyService.cs",
-              "RelativeDocumentMoniker": "Services\\KeyService\\KeyService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\KeyService\\KeyService.cs",
-              "RelativeToolTip": "Services\\KeyService\\KeyService.cs",
-              "ViewState": "AQIAAH4AAAAAAAAAAAAAABwAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T02:43:26.351Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "ThirdPartyController.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\ThirdPartyController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ThirdPartyController.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\ThirdPartyController.cs",
-              "RelativeToolTip": "Controllers\\ThirdPartyController.cs",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAAAA8AAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:58:55.836Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "SharedController.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\SharedController.cs",
-              "RelativeDocumentMoniker": "Controllers\\SharedController.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\SharedController.cs",
-              "RelativeToolTip": "Controllers\\SharedController.cs",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAGMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T09:13:25.12Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "RequestKeyController.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\RequestKeyController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RequestKeyController.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\RequestKeyController.cs",
-              "RelativeToolTip": "Controllers\\RequestKeyController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T03:18:30.553Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "CollectorController.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\CollectorController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CollectorController.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Controllers\\CollectorController.cs",
-              "RelativeToolTip": "Controllers\\CollectorController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACQAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T01:36:25.534Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 42,
               "Title": "Role.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\Role.cs",
               "RelativeDocumentMoniker": "Models\\Role.cs",
@@ -836,7 +934,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 43,
               "Title": "KeyWith.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\RequestKey\\KeyWith.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestKey\\KeyWith.cs",
@@ -848,7 +946,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 44,
               "Title": "ViewUsage.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\KeyDtos\\ViewUsage.cs",
               "RelativeDocumentMoniker": "DTOs\\KeyDtos\\ViewUsage.cs",
@@ -860,31 +958,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "RequestKeyService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\RequestKeyService\\RequestKeyService.cs",
-              "RelativeDocumentMoniker": "Services\\RequestKeyService\\RequestKeyService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\RequestKeyService\\RequestKeyService.cs",
-              "RelativeToolTip": "Services\\RequestKeyService\\RequestKeyService.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAAADAAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T03:17:53.712Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "IRequestKeyService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\RequestKeyService\\IRequestKeyService.cs",
-              "RelativeDocumentMoniker": "Services\\RequestKeyService\\IRequestKeyService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\RequestKeyService\\IRequestKeyService.cs",
-              "RelativeToolTip": "Services\\RequestKeyService\\IRequestKeyService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T03:17:34.112Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 78,
               "Title": "20240607073045_AddAssignedTimeToTheRequestKeey.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240607073045_AddAssignedTimeToTheRequestKeey.cs",
               "RelativeDocumentMoniker": "Migrations\\20240607073045_AddAssignedTimeToTheRequestKeey.cs",
@@ -896,7 +970,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 48,
               "Title": "KeyCollector.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\KeyCollector.cs",
               "RelativeDocumentMoniker": "Models\\KeyCollector.cs",
@@ -908,7 +982,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 47,
               "Title": "Worker.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\Worker.cs",
               "RelativeDocumentMoniker": "Models\\Worker.cs",
@@ -920,7 +994,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -932,7 +1006,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 49,
               "Title": "20240607065459_reUpdateDatabaseAsUser.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240607065459_reUpdateDatabaseAsUser.cs",
               "RelativeDocumentMoniker": "Migrations\\20240607065459_reUpdateDatabaseAsUser.cs",
@@ -944,7 +1018,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "20240607070147_reUpdateDatabaseAsUsers.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240607070147_reUpdateDatabaseAsUsers.cs",
               "RelativeDocumentMoniker": "Migrations\\20240607070147_reUpdateDatabaseAsUsers.cs",
@@ -956,19 +1030,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "Key.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\Key.cs",
-              "RelativeDocumentMoniker": "Models\\Key.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\Key.cs",
-              "RelativeToolTip": "Models\\Key.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T10:35:43.74Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 79,
               "Title": "20240607070341_reUpdateDatabaseAsUserGet.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240607070341_reUpdateDatabaseAsUserGet.cs",
               "RelativeDocumentMoniker": "Migrations\\20240607070341_reUpdateDatabaseAsUserGet.cs",
@@ -980,7 +1042,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 80,
               "Title": "20240607065354_reUpdateDatabaseAsWorker.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240607065354_reUpdateDatabaseAsWorker.cs",
               "RelativeDocumentMoniker": "Migrations\\20240607065354_reUpdateDatabaseAsWorker.cs",
@@ -992,7 +1054,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 81,
               "Title": "20240607065207_reUpdateDatabase.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240607065207_reUpdateDatabase.cs",
               "RelativeDocumentMoniker": "Migrations\\20240607065207_reUpdateDatabase.cs",
@@ -1004,7 +1066,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 82,
               "Title": "20240607065004_updateWorkerByRename.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240607065004_updateWorkerByRename.cs",
               "RelativeDocumentMoniker": "Migrations\\20240607065004_updateWorkerByRename.cs",
@@ -1016,7 +1078,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 50,
               "Title": "20240607064728_updateUserByRename.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240607064728_updateUserByRename.cs",
               "RelativeDocumentMoniker": "Migrations\\20240607064728_updateUserByRename.cs",
@@ -1028,7 +1090,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 51,
               "Title": "TokenResponse.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\TokenResponse.cs",
               "RelativeDocumentMoniker": "Models\\TokenResponse.cs",
@@ -1040,7 +1102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 52,
               "Title": "Message.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\Message.cs",
               "RelativeDocumentMoniker": "Models\\Message.cs",
@@ -1052,7 +1114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 53,
               "Title": "LogoutToken.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Models\\LogoutToken.cs",
               "RelativeDocumentMoniker": "Models\\LogoutToken.cs",
@@ -1064,7 +1126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 55,
               "Title": "CheckWith.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Enums\\CheckWith.cs",
               "RelativeDocumentMoniker": "Enums\\CheckWith.cs",
@@ -1076,7 +1138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 54,
               "Title": "Status.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Enums\\Status.cs",
               "RelativeDocumentMoniker": "Enums\\Status.cs",
@@ -1088,7 +1150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 56,
               "Title": "KeyStatus.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Enums\\KeyStatus.cs",
               "RelativeDocumentMoniker": "Enums\\KeyStatus.cs",
@@ -1100,7 +1162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 57,
               "Title": "Roles.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Enums\\Roles.cs",
               "RelativeDocumentMoniker": "Enums\\Roles.cs",
@@ -1112,7 +1174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 58,
               "Title": "KeyCollectorRequest.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\AssignDto\\KeyCollectorRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\AssignDto\\KeyCollectorRequest.cs",
@@ -1124,7 +1186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 59,
               "Title": "20240604095757_updateKeyIdTORequest.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240604095757_updateKeyIdTORequest.cs",
               "RelativeDocumentMoniker": "Migrations\\20240604095757_updateKeyIdTORequest.cs",
@@ -1136,7 +1198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 77,
               "Title": "20240604095854_updateKeyIdTORequest.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240604095854_updateKeyIdTORequest.cs",
               "RelativeDocumentMoniker": "Migrations\\20240604095854_updateKeyIdTORequest.cs",
@@ -1148,7 +1210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 65,
               "Title": "RegisterCollectorDto.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\UserDto\\KeyCollectorDto\\RegisterCollectorDto.cs",
               "RelativeDocumentMoniker": "DTOs\\UserDto\\KeyCollectorDto\\RegisterCollectorDto.cs",
@@ -1160,7 +1222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 61,
               "Title": "Activity.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Enums\\Activity.cs",
               "RelativeDocumentMoniker": "Enums\\Activity.cs",
@@ -1172,7 +1234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 60,
               "Title": "General.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Enums\\General.cs",
               "RelativeDocumentMoniker": "Enums\\General.cs",
@@ -1184,7 +1246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 62,
               "Title": "UpdateProfileDto.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\UserDto\\SharedDto\\UpdateProfileDto.cs",
               "RelativeDocumentMoniker": "DTOs\\UserDto\\SharedDto\\UpdateProfileDto.cs",
@@ -1196,7 +1258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 64,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\UserDto\\SharedDto\\LoginDto.cs",
               "RelativeDocumentMoniker": "DTOs\\UserDto\\SharedDto\\LoginDto.cs",
@@ -1208,7 +1270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 63,
               "Title": "ProfileDto.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\UserDto\\SharedDto\\ProfileDto.cs",
               "RelativeDocumentMoniker": "DTOs\\UserDto\\SharedDto\\ProfileDto.cs",
@@ -1220,19 +1282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "WorkerService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\WorkerService\\WorkerService.cs",
-              "RelativeDocumentMoniker": "Services\\UserServices\\WorkerService\\WorkerService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\WorkerService\\WorkerService.cs",
-              "RelativeToolTip": "Services\\UserServices\\WorkerService\\WorkerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T02:43:42.329Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 67,
               "Title": "TPRequest.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Enums\\TPRequest.cs",
               "RelativeDocumentMoniker": "Enums\\TPRequest.cs",
@@ -1244,7 +1294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 66,
               "Title": "RegisterWorkerDto.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\UserDto\\WorkerDto\\RegisterWorkerDto.cs",
               "RelativeDocumentMoniker": "DTOs\\UserDto\\WorkerDto\\RegisterWorkerDto.cs",
@@ -1256,7 +1306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 76,
               "Title": "20240510040508_AddLogoutTokensTODB.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240510040508_AddLogoutTokensTODB.cs",
               "RelativeDocumentMoniker": "Migrations\\20240510040508_AddLogoutTokensTODB.cs",
@@ -1268,19 +1318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
-              "Title": "IWorkerService.cs",
-              "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\WorkerService\\IWorkerService.cs",
-              "RelativeDocumentMoniker": "Services\\UserServices\\WorkerService\\IWorkerService.cs",
-              "ToolTip": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Services\\UserServices\\WorkerService\\IWorkerService.cs",
-              "RelativeToolTip": "Services\\UserServices\\WorkerService\\IWorkerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T02:47:52.633Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 68,
               "Title": "AddKeyDto.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\KeyDtos\\AddKeyDto.cs",
               "RelativeDocumentMoniker": "DTOs\\KeyDtos\\AddKeyDto.cs",
@@ -1292,7 +1330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 75,
               "Title": "20240507115528_updateDatabaseTofirstAndLast.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240507115528_updateDatabaseTofirstAndLast.cs",
               "RelativeDocumentMoniker": "Migrations\\20240507115528_updateDatabaseTofirstAndLast.cs",
@@ -1304,7 +1342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 74,
               "Title": "20240506040404_AddTHirdPartyRequestEnum.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240506040404_AddTHirdPartyRequestEnum.cs",
               "RelativeDocumentMoniker": "Migrations\\20240506040404_AddTHirdPartyRequestEnum.cs",
@@ -1316,7 +1354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 69,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -1328,7 +1366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 70,
               "Title": "CollectKey.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\DTOs\\RequestKey\\CollectKey.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestKey\\CollectKey.cs",
@@ -1340,7 +1378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 72,
               "Title": "20240423080048_upddateKeyToTheRequestKey.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240423080048_upddateKeyToTheRequestKey.cs",
               "RelativeDocumentMoniker": "Migrations\\20240423080048_upddateKeyToTheRequestKey.cs",
@@ -1352,7 +1390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 73,
               "Title": "20240423080250_RemoveKeyIdFromTheRequestKey.cs",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\Migrations\\20240423080250_RemoveKeyIdFromTheRequestKey.cs",
               "RelativeDocumentMoniker": "Migrations\\20240423080250_RemoveKeyIdFromTheRequestKey.cs",
@@ -1364,7 +1402,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 71,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\arowo\\source\\repos\\KMS-Backend\\README.md",
               "RelativeDocumentMoniker": "README.md",

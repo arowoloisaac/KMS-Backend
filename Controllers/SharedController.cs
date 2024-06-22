@@ -52,11 +52,14 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Authentication);
-                var getUser = await _userService.GetProfile(claimUser.Value);
+                if (claimUser == null)
+                {
+                    return Unauthorized("User is not authenticated.");
+                }
 
+                var getUser = await _userService.GetProfile(claimUser.Value);
                 return Ok(getUser);
             }
-
             catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
@@ -73,12 +76,14 @@ namespace Key_Management_System.Controllers
             try
             {
                 var claimUser = User.Claims.FirstOrDefault(user => user.Type == ClaimTypes.Authentication);
+                if (claimUser == null)
+                {
+                    return Unauthorized("User is not authenticated.");
+                }
 
                 await _userService.UpdateProfile(profileDto, claimUser.Value);
-
-               return StatusCode(200);
+                return StatusCode(200);
             }
-
             catch(Exception ex)
             {
                 return StatusCode(500, ex.Message);

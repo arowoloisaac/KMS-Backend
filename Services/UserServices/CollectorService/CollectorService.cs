@@ -29,8 +29,6 @@ namespace Key_Management_System.Services.UserServices.CollectorService
         {
             var existingUser = await _collectorManager.FindByEmailAsync(collectorDto.Email);
 
-
-
             if (existingUser != null)
             {
                 throw new InvalidOperationException($"User with email {existingUser.Email} already exist");
@@ -59,7 +57,7 @@ namespace Key_Management_System.Services.UserServices.CollectorService
 
                     if (createdUser == null)
                     {
-                        return null;
+                        throw new Exception("Can't find this user");
                     }
                     else
                     {
@@ -71,29 +69,5 @@ namespace Key_Management_System.Services.UserServices.CollectorService
                 }
             }
         }
-
-        /*private string GenerateToken(User user)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_bearerTokenSettings.SecretKey);
-
-            var descriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Authentication, user.Id.ToString()),
-                }),
-                Expires = DateTime.UtcNow.AddSeconds(_bearerTokenSettings.ExpiryTimeInSeconds),
-                SigningCredentials =
-                    new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-                Audience = _bearerTokenSettings.Audience,
-                Issuer = _bearerTokenSettings.Issuer,
-            };
-
-            var token = tokenHandler.CreateToken(descriptor);
-
-            return tokenHandler.WriteToken(token);
-        }*/
     }
 }
