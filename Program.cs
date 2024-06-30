@@ -6,6 +6,7 @@ using Key_Management_System.Services.AssignKeyService;
 using Key_Management_System.Services.AuthenticationService;
 using Key_Management_System.Services.KeyService;
 using Key_Management_System.Services.RequestKeyService;
+using Key_Management_System.Services.Shared;
 using Key_Management_System.Services.ThirdPartyService;
 using Key_Management_System.Services.UserServices.CollectorService;
 using Key_Management_System.Services.UserServices.SharedService;
@@ -40,6 +41,7 @@ namespace Key_Management_System
 
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.AddScoped<IShared, Shared>();
             builder.Services.AddScoped<IkeyService, KeyService>();
             builder.Services.AddScoped<ISharedService, SharedService>();
             builder.Services.AddScoped<IWorkerService, WorkerService>();
@@ -50,7 +52,7 @@ namespace Key_Management_System
             builder.Services.AddScoped<IRequestKeyService, RequestKeyService>();
             builder.Services.AddScoped<ITokenStorageService, TokenDbStorageService>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-
+            
             builder.Services.AddIdentity<User, Role>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;

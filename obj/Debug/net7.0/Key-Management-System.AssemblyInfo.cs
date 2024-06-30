@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Key-Management-System")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df39e3f70f08495dd0db05570dffb01985956d99")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f34aa5d2b1af33d56b595c967fdd65a5091a36a3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Key-Management-System")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Key-Management-System")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -24,8 +24,6 @@ namespace Key_Management_System.Services.ThirdPartyService
         {
             var checkUser = await _userManager.FindByIdAsync(userId);
 
-            
-
             if (checkUser == null)
             {
                 throw new Exception("You have to login or register to the account to perform such task");
@@ -132,7 +130,6 @@ namespace Key_Management_System.Services.ThirdPartyService
                     {
                         throw new Exception("Can't validate user or check key");
                     }
-                    
                 }
 
                 else
@@ -190,12 +187,12 @@ namespace Key_Management_System.Services.ThirdPartyService
 
             else
             {
-                var request = await _context.RequestKey.FirstOrDefaultAsync(checkUser => checkUser.KeyCollectorId == claimUser.Id && checkUser.Availability == CheckWith.InHand);
+                var request = await _context.RequestKey
+                    .FirstOrDefaultAsync(checkUser => checkUser.KeyCollectorId == claimUser.Id && checkUser.Availability == CheckWith.InHand);
                 if (request == null)
                 {
                     return false;
                 }
-
 
                 else
                 {
@@ -224,13 +221,13 @@ namespace Key_Management_System.Services.ThirdPartyService
 
             else
             {
-                var validateHolder = await _context.RequestKey.Where(validate => validate.KeyCollectorId == currentHolder.Id && validate.Availability == CheckWith.InHand)
-                    .FirstOrDefaultAsync();
+                var validateHolder = await _context.RequestKey
+                    .Where(validate => validate.KeyCollectorId == currentHolder.Id && validate.Availability == CheckWith.InHand).FirstOrDefaultAsync();
 
                 if (validateHolder is not null )
                 {
-                    var thirdPartyRequest = await 
-                        _context.ThirdParty.FirstOrDefaultAsync(check => check.KeyId == validateHolder.GetKeyId && check.Request == TPRequest.Pending);
+                    var thirdPartyRequest = await _context.ThirdParty
+                        .FirstOrDefaultAsync(check => check.KeyId == validateHolder.GetKeyId && check.Request == TPRequest.Pending);
                     if (thirdPartyRequest is not null)
                     {
                         thirdPartyRequest.CurrentHolder = currentHolder.Id;

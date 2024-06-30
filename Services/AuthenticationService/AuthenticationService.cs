@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Azure;
 using Key_Management_System.Configuration;
 using Key_Management_System.DTOs.AuthenticationDto;
 using Key_Management_System.Enums;
 using Key_Management_System.Models;
+using Key_Management_System.Services.Shared;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,16 +13,20 @@ namespace Key_Management_System.Services.AuthenticationService
     public class AuthenticationService : IAuthenticationService
     {
         private readonly UserManager<User> _userManager;
+        private readonly IShared _shared;
 
-        public AuthenticationService(UserManager<User> userManager)
+        private string requiredRole = ApplicationRoleNames.Admin;
+
+        public AuthenticationService(UserManager<User> userManager, IShared shared)
         {
             _userManager = userManager;
+            _shared = shared;
         }
 
         public async Task<Message> AddRole(Guid userId, Roles role, string adminId)
         {
-            var adminUser = await _userManager.FindByIdAsync(adminId);
-
+            var adminUser = await _shared.GetUser(adminId, requiredRole);
+  
             var validateUser = await _userManager.FindByIdAsync(userId.ToString());
 
             if (validateUser != null)
@@ -37,24 +43,21 @@ namespace Key_Management_System.Services.AuthenticationService
                     {
                         return new Message($"Unable to add user: {validateUser.UserName} to the role {role}");
                     }
-                    
                 }
-
                 else
                 {
-                    return new Message("User in role already");
+                    return new Message($"User: {validateUser.Email} is in role already");
                 }
             }
-
             else
             {
-                throw new Exception(" can't find user");
+                throw new Exception($"can't find user {validateUser.Email} in the database");
             }
         }
 
         public async Task<Message> RemoveRole(Guid userId, Roles role, string adminId)
         {
-            var adminUser = await _userManager.FindByIdAsync(adminId);
+            var adminUser = await _shared.GetUser(adminId, requiredRole);
 
             var validateUser = await _userManager.FindByIdAsync(userId.ToString());
 

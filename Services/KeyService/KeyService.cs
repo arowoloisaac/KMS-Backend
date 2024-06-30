@@ -6,6 +6,7 @@ using Key_Management_System.DTOs.KeyDtos;
 using Key_Management_System.DTOs.RequestKey;
 using Key_Management_System.Enums;
 using Key_Management_System.Models;
+using Key_Management_System.Services.Shared;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,112 +17,82 @@ namespace Key_Management_System.Services.KeyService
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
+        private readonly IShared _shared;
 
-        public KeyService(ApplicationDbContext context, IMapper mapper, UserManager<User> userManager)
+        private string requiredRole = ApplicationRoleNames.Admin;
+
+        public KeyService(ApplicationDbContext context, IMapper mapper, UserManager<User> userManager, IShared shared)
         {
             _context = context;
             _mapper = mapper;
             _userManager = userManager;
+            _shared = shared;
         }
 
 
         public async Task<Key> AddKey(AddKeyDto key, string adminId)
         {
-            var checkAdmin = await _userManager.FindByIdAsync(adminId);
+            var checkAdmin = await _shared.GetUser(adminId, requiredRole);
 
-            if (checkAdmin != null)
+            var checkKey = await GetRoom(key.Room);
+
+            if (checkKey == null)
             {
-                var checkKey = await _context.Key.FirstOrDefaultAsync(check => check.Room == key.Room);
-                if (checkKey == null && await _userManager.IsInRoleAsync(checkAdmin, ApplicationRoleNames.Admin))
-                {
-                    var dto = _mapper.Map<Key>(key);
-                    dto.Id = Guid.NewGuid();
-                    var addToDb = await _context.Key.AddAsync(dto);
-                    await _context.SaveChangesAsync();
+                var dto = _mapper.Map<Key>(key);
+                dto.Id = Guid.NewGuid();
+                var addToDb = await _context.Key.AddAsync(dto);
+                await _context.SaveChangesAsync();
 
-                    return addToDb.Entity;
-                }
-                else
-                {
-                    throw new Exception("Room Number can't be null");
-                }
+                return addToDb.Entity;
             }
             else
             {
-                throw new ArgumentNullException("Check if you are logged in");
+                throw new Exception("Room Number should have a value");
             }
         }
 
 
         public async Task UpdateKey(string oldName, string newName, string adminId)
         {
-            var checkAdmin = await _userManager.FindByIdAsync(adminId);
+            var checkAdmin = await _shared.GetUser(adminId, requiredRole);
 
-            if (checkAdmin != null)
+            var findKey = await GetRoom(oldName);
+
+            if (findKey != null)
             {
-                if (await _userManager.IsInRoleAsync(checkAdmin, ApplicationRoleNames.Admin))
-                {
-                    var findKey = await _context.Key.FirstOrDefaultAsync(find => find.Room == oldName);
+                findKey.Room = newName;
+                _context.Key.Update(findKey);
 
-                    if (findKey != null)
-                    {
-                        findKey.Room = newName;
-                        _context.Key.Update(findKey);
-
-                        await _context.SaveChangesAsync();
-                    }
-                    else
-                    {
-                        throw new KeyNotFoundException("Key not found.");
-                    }
-                }
-                else
-                {
-                    throw new UnauthorizedAccessException("You don't have the permission to perform this operation");
-                }
+                await _context.SaveChangesAsync();
             }
             else
             {
-                throw new Exception("Check if you are logged in");
+                throw new KeyNotFoundException($"Key with name: {oldName} not found in the database");
             }
         }
 
         public async Task DeleteKey(Guid keyId, string adminId)
         {
-            var checkAdmin = await _userManager.FindByIdAsync(adminId);
+            var checkAdmin = await _shared.GetUser(adminId, requiredRole);
 
+            var checkKey = await _context.Key.FindAsync(keyId);
 
-            if (checkAdmin != null)
+            if (checkKey is not null)
             {
-                if (await _userManager.IsInRoleAsync(checkAdmin, ApplicationRoleNames.Admin))
-                {
-                    var checkKey = await _context.Key.FindAsync(keyId);
-                    if (checkKey is not null)
-                    {
-                        var associatedRequest = _context.RequestKey.Where(x => x.Key.Id == keyId);
+                var associatedRequest = _context.RequestKey.Where(x => x.Key.Id == keyId);
 
-                        foreach (var request in associatedRequest)
-                        {
-                            _context.RequestKey.Remove(request);
-                        }
-                        _context.Key.Remove(checkKey);
-
-                        await _context.SaveChangesAsync();
-                    }
-                    else
-                    {
-                        throw new Exception("unable to remove");
-                    }
-                }
-                else
+                foreach (var request in associatedRequest)
                 {
-                    throw new UnauthorizedAccessException("This user don't have the permission to perform this function");
+                    _context.RequestKey.Remove(request);
                 }
+                _context.Key.Remove(checkKey);
+
+                await _context.SaveChangesAsync();
             }
             else
             {
-                throw new Exception("Check if you are logged in");
-            }         
+                throw new Exception($"unable to remove key: {checkKey.Room} from database");
+            }
         }
 
         public async Task<GetKeyDto> GetKey(Guid Id)
@@ -176,6 +147,13 @@ namespace Key_Management_System.Services.KeyService
             };
 
             return new List<KeyWith> { getReponse };
+        }
+
+        private async Task<Key> GetRoom(string RoomNumber)
+        {
+            var getRoom = await _context.Key.FirstOrDefaultAsync(filter => filter.Room == RoomNumber);
+
+            return getRoom;
         }
     }
 }

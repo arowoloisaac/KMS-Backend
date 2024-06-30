@@ -40,8 +40,8 @@ namespace Key_Management_System.Services.AssignKeyService
 
             else
             {
-                var checkRequest 
-                    = await _context.RequestKey.FirstOrDefaultAsync(check => check._Key == checkRoom.Room && check.Status == Status.Pending && check.KeyCollectorId != claimUser.Id);
+                var checkRequest = await _context.RequestKey
+                    .FirstOrDefaultAsync(check => check._Key == checkRoom.Room && check.Status == Status.Pending && check.KeyCollectorId != claimUser.Id);
                 if ( checkRequest != null)
                 {
                     if (check == General.Accept)
@@ -92,7 +92,7 @@ namespace Key_Management_System.Services.AssignKeyService
             else
             {
                 var checkRequest = await _context.RequestKey.FirstOrDefaultAsync
-                    (check => check._Key == checkRoom.Room && check.Status == Status.Accept || check.Status == Status.ThirdParty && check.KeyCollectorId != claimUser.Id);
+                    (check => (check._Key == checkRoom.Room && check.Status == Status.Accept || check.Status == Status.ThirdParty) && check.KeyCollectorId != claimUser.Id);
                 if (checkRequest != null )
                 {
                     if (check == General.Accept)
