@@ -20,7 +20,6 @@ namespace Key_Management_System.Controllers
             _collectorService = collectorService;   
         }
 
-
         [HttpPost]
         [Route("register-collector")]
         [AllowAnonymous]

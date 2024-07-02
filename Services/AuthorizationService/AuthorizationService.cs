@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Key_Management_System.Services.AuthenticationService
 {
-    public class AuthenticationService : IAuthenticationService
+    public class AuthorizationService : IAuthorizationService
     {
         private readonly UserManager<User> _userManager;
         private readonly IShared _shared;
 
         private string requiredRole = ApplicationRoleNames.Admin;
 
-        public AuthenticationService(UserManager<User> userManager, IShared shared)
+        public AuthorizationService(UserManager<User> userManager, IShared shared)
         {
             _userManager = userManager;
             _shared = shared;
@@ -83,7 +83,6 @@ namespace Key_Management_System.Services.AuthenticationService
                     }
                 }
             }
-
             else
             {
                 throw new ArgumentNullException(" can't find user");
@@ -96,9 +95,8 @@ namespace Key_Management_System.Services.AuthenticationService
 
             if (users == null)
             {
-                throw new UnauthorizedAccessException("User is null");
+                throw new UnauthorizedAccessException("The email of this user is invalid, verify details");
             }
-
             var response = users.Select( users => new UsersDto 
             {
                 Id = users.Id,
@@ -106,9 +104,7 @@ namespace Key_Management_System.Services.AuthenticationService
                 LastName = users.LastName,
                 Email = users.Email
             }).ToList();
-
             return  response;
         }
-
     }
 }

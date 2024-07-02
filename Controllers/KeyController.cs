@@ -23,7 +23,6 @@ namespace Key_Management_System.Controllers
             _keyService = keyService;
         }
 
-
         /// <summary>
         /// This function aims to add key to the list of keys in the database
         /// </summary>
@@ -56,7 +55,6 @@ namespace Key_Management_System.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
 
         [HttpPut]
         [Route("update-key")]
@@ -132,8 +130,6 @@ namespace Key_Management_System.Controllers
             }
         }
 
-
-
         /// <summary>
         /// This function returns the filtered/nor-filtered(depending on user selection) list of keys
         /// </summary>
@@ -150,7 +146,6 @@ namespace Key_Management_System.Controllers
         [Route("get-keys")]
         [SwaggerOperation(Summary ="Get list of keys either by filtering the availabity or no filtering")]
         [AllowAnonymous]
-
         public async Task<IActionResult> GetKeys(KeyStatus? key)
         {
             try

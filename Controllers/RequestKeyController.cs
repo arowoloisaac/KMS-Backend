@@ -37,7 +37,6 @@ namespace Key_Management_System.Controllers
                 {
                     return Unauthorized("User is not authenticated.");
                 }
-
                 return Ok(await _requestKeyService.CollectKey(keyId, activity, claimUser.Value));
             }
             catch (Exception ex)
@@ -45,7 +44,6 @@ namespace Key_Management_System.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
 
         /// <summary>
         /// This controller help users to return key they have in their possesion
@@ -90,6 +88,5 @@ namespace Key_Management_System.Controllers
                 return BadRequest(e.Message);
             }
         }
-
     }
 }

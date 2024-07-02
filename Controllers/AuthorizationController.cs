@@ -12,11 +12,11 @@ namespace Key_Management_System.Controllers
     [Route("api/")]
     [ApiController]
     [Authorize(Roles =ApplicationRoleNames.Admin)]
-    public class AuthenticationController : ControllerBase
+    public class AuthorizationController : ControllerBase
     {
-        private readonly IAuthenticationService _authenticationService;
+        private readonly Services.AuthenticationService.IAuthorizationService _authenticationService;
 
-        public AuthenticationController(IAuthenticationService authenticationService)
+        public AuthorizationController(Services.AuthenticationService.IAuthorizationService authenticationService)
         {
             _authenticationService = authenticationService;
         }
@@ -50,7 +50,6 @@ namespace Key_Management_System.Controllers
                 }
 
                 else { return Unauthorized("user unauthorized"); }
-
             }
             catch (Exception ex)
             {
@@ -70,7 +69,6 @@ namespace Key_Management_System.Controllers
                 {
                     return Ok(await _authenticationService.RemoveRole(userId, role, user.Value));
                 }
-
                 else { return Unauthorized("User unauthorized"); }
             }
             catch (Exception ex)

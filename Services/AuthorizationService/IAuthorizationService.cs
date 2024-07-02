@@ -4,7 +4,7 @@ using Key_Management_System.Models;
 
 namespace Key_Management_System.Services.AuthenticationService
 {
-    public interface IAuthenticationService
+    public interface IAuthorizationService
     {
         Task<List<UsersDto>> Users();
 

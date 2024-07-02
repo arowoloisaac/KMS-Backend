@@ -45,7 +45,6 @@ namespace Key_Management_System.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            
         }
 
 

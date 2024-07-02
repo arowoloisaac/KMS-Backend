@@ -121,12 +121,10 @@ namespace Key_Management_System.Services.KeyService
             }
 
             var keys = await query.ToListAsync();   
-
             var mappedKeys = _mapper.Map<IEnumerable<GetKeyDto>>(keys);
 
             return mappedKeys;
         }
-
 
         public async Task<List<KeyWith>> CheckKey()
         {
@@ -145,14 +143,12 @@ namespace Key_Management_System.Services.KeyService
                 CollectionTime = classRoom.CollectionTime,
                 AssignedTime = classRoom.AssignedTime,
             };
-
             return new List<KeyWith> { getReponse };
         }
 
         private async Task<Key> GetRoom(string RoomNumber)
         {
             var getRoom = await _context.Key.FirstOrDefaultAsync(filter => filter.Room == RoomNumber);
-
             return getRoom;
         }
     }

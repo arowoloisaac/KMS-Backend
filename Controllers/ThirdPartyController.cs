@@ -24,7 +24,6 @@ namespace Key_Management_System.Controllers
             _service = thirdPartyService;
         }
 
-
         [HttpPost]
         [Route("Send-request")]
         [SwaggerOperation(Summary ="Send requst to access key via third party means")]
@@ -130,6 +129,5 @@ namespace Key_Management_System.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
     }
 }

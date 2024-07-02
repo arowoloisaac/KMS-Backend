@@ -66,7 +66,6 @@ namespace Key_Management_System.Controllers
             }
         }
 
-
         [HttpPut]
         [Route("profile")]
         [Authorize]

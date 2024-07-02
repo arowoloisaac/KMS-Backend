@@ -51,7 +51,7 @@ namespace Key_Management_System
             builder.Services.AddScoped<IThirdPartyService, ThirdPartyService>();
             builder.Services.AddScoped<IRequestKeyService, RequestKeyService>();
             builder.Services.AddScoped<ITokenStorageService, TokenDbStorageService>();
-            builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+            builder.Services.AddScoped<Services.AuthenticationService.IAuthorizationService, AuthorizationService>();
             
             builder.Services.AddIdentity<User, Role>(options =>
             {

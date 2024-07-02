@@ -69,9 +69,7 @@ namespace Key_Management_System.Services.RequestKeyService
             {
                 throw new Exception("You have an existing key with you, you will have to return it before you have access to get a new key");
             }
-            
         }
-
 
         public async Task<Message> ReturnKey(string userId)
         {

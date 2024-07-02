@@ -15,8 +15,6 @@ namespace Key_Management_System.Configuration
             //get keys(s)
             CreateMap<Key, GetKeyDto>();
 
-            //CreateMap<ProfileDto, Worker>();
-
 
             /*
              Note that, with automapper it works like 
